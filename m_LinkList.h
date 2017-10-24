@@ -175,11 +175,11 @@ LinkList* LinkListInit_InputArr(int* arr,int size)
 	ret->Count = 0;
 	ret->Head = m_Head;
 	ret->Tail = m_Head;
-	
+
 	//写入具体数据
 	for (int i = 0; i < size; i++){
 		Append(ret, arr[i]);
-		
+
 	}
 	return ret;
 }
@@ -201,7 +201,7 @@ Status IsEmpty(LinkList * list)
 
 //遍历LinkList
 void ShowLinkList(LinkList * list)
-{ 
+{
 	if (IsEmpty(list)) {
 		printf("空LinkList,无元素\n");
 		return;
@@ -260,11 +260,11 @@ void SetValue(LinkList * list, int index, Element value)
 {
 	if (IsEmpty(list)) {
 		printf("空LinkList,无元素\n");
-		return NULL;
+		return;
 	}
 	if (index < 0 || index >= list->Count) {
 		printf("无法修改第[%d]个位置的元素value\n", index);
-		return NULL;
+		return;
 	}
 
 	Node* p;
@@ -309,7 +309,7 @@ void Delete(LinkList * list, int index)
 		}
 	}
 
-	Node* temp = p->Next;  
+	Node* temp = p->Next;
 	temp->Next->Front = p;
 	p->Next = temp->Next;
 	free(temp);
@@ -348,7 +348,7 @@ void Destroy(LinkList** list)
 		p->Next = NULL;
 		p = q;
 	}
-	
+
 	free(*list);
 	(*list)->Tail = NULL;
 	(*list)->Head = NULL;
@@ -439,10 +439,10 @@ void LinkList_InsertSort(LinkList * list)
 	{
 		Node* q = p->Next;
 		Node* t = p;
-		while (q)	 
+		while (q)
 		{
 			if (t->Data > q->Data){
-				t = q;   
+				t = q;
 				q = q->Next;
 			}
 			else {
