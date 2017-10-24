@@ -44,7 +44,7 @@ Arr* ArrInit(int size)
 	}
 	ret->Size = size;
 	ret->Count = 0;
-	ret->pBase = (int *)malloc(sizeof(int) *size);	
+	ret->pBase = (int *)malloc(sizeof(int) *size);
 	ret->Increment = 2;						//一开始增长因子为2倍，2倍速度扩展数组长度
 	return ret;								//返回之后局部指针变量消失，但是地址里面的value还在
 }
@@ -56,7 +56,7 @@ void ShowArr(Arr* arr)
 		printf("Arr is Null");
 	else
 	{
-		for (int i = 0; i < arr->Count; i++)		
+		for (int i = 0; i < arr->Count; i++)
 		{
 			printf("%d ", arr->pBase[i]);
 		}
@@ -181,7 +181,7 @@ Status IsBeingFull(Arr* arr) {
 void Allocate(Arr* arr)
 {
 	if (arr->Size >= 4 * 1000)    arr->Increment = 1.25;	//1.25倍的速度
-	
+
 	int* ret = (int*)malloc(sizeof(int)* arr->Size * arr->Increment);
 	if (NULL == ret){
 		printf("动态扩展分配失败!\n");
@@ -191,7 +191,7 @@ void Allocate(Arr* arr)
 	{
 		ret[i] = arr->pBase[i];
 	}
-	
+
 	arr->Size = arr->Size * arr->Increment;	//修改最大长度 , Count不需要变
 	int* p = arr->pBase;						//释放原来的数组
 	arr->pBase = ret;
@@ -230,7 +230,7 @@ void Arr_BubbleSort(Arr* arr)
 //Arr InsertSort
 void Arr_InsetSort(Arr* arr)
 {
-	for (int i = 0; i < arr->Count; i++)
+	for (int i = 0; i < arr->Count - 1; i++)
 	{
 		int index = i + 1;
 		int ret_index = i;
