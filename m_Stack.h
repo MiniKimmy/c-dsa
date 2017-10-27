@@ -21,6 +21,7 @@ typedef struct LinkStack {
 #pragma region Functions
 Stack* StackInit();
 void CreateStack_ByArr(Stack * S,int *arr, int stacksize);
+void CreateStack_InputKeyCode(Stack * S);
 void Push(Stack * S, Element value);
 Status IsEmptyStack(Stack * S);
 Element* GetTopValue(Stack * S);
@@ -50,6 +51,34 @@ void CreateStack_ByArr(Stack * S,int *arr, int arrsize)
 	for (int i = 0; i < arrsize; i++){
 		Push(S, arr[i]);
 	}
+	return;
+}
+
+/*通过传入int数组的数据压栈*/
+void CreateStack_InputKeyCode(Stack * S)
+{
+	if (S == NULL) {
+		printf("传入参数无效\n");
+		return;
+	}
+
+	printf("需要堆栈的元素个数是 : ");
+	int size;
+	scanf_s("%d", &size);
+
+	if (size < 0) {
+		printf("无法产生%d个元素\n", size);
+		return;
+	}
+
+	for (int i = 0; i < size; i++)
+	{
+		printf("请输入第[%d]个元素的Value : ", i);
+		int arg;
+		scanf_s("%d", &arg);
+		Push(S, arg);
+	}
+	printf("\n");
 	return;
 }
 
