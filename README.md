@@ -1,2 +1,2 @@
 ## markdown
-# Now Ready for BiThrTree 、BST、HuffumanTree
+# Now get Ready for BST、HuffumanTree
