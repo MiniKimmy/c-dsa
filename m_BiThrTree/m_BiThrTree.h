@@ -33,6 +33,7 @@ BiThrTree GetRightBiThrNode(BiThrNode* Node);
 BiThrTree Parent(BiThrTree T, Element value);
 void InsertBiThrNode(BiThrTree T, BiThrNode* p, Element value);
 void DeleteBiThrNode(BiThrTree T, BiThrNode* p);
+void DestroyBiThrTree(BiThrTree * T);
 #pragma endregion
 
 #include "queue.h"	//在BiThrTree定义之后Include
@@ -407,5 +408,42 @@ void DeleteBiThrNode(BiThrTree T, BiThrNode* p)
 	}
 	free(p);
 	p = NULL;
+	return;
+}
+
+/*把整个LinkList销毁*/
+void DestroyBiThrTree(BiThrTree * T)
+{
+	if (*T == NULL ) {
+		printf("无法操作空参数\n");
+		return;
+	}
+
+	if ((*T)->Left)
+	{
+		Queue* q = InitQueue();
+		BiThrTree p = (*T)->Left;
+		while (p != *T)
+		{
+			while (p->LTag == LINK) {
+				p = p->Left;
+			}
+			EnterQueue(q, p);
+			
+			while (p->RTag == Thread && p->Right != *T) {
+				p = p->Right;
+				EnterQueue(q, p);
+			}
+			p = p->Right;
+		}
+		while (!IsEmptyQueue(q))
+		{
+			TElement t = *GetHeadValue(q);
+			DeleteQueue(q);
+			DeleteBiThrNode(*T, t);
+		}
+	}
+	free(*T);
+	*T = NULL;
 	return;
 }
