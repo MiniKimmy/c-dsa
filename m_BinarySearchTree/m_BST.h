@@ -132,7 +132,6 @@ BSNode* GetMin(BSTree T)
 	while(p->Left) {
 		p = p->Left;
 	}
-
 	return p;
 }
 
@@ -159,7 +158,7 @@ void DeleteMin(BSTree * T)
 {
 	if (*T == NULL) {
 		printf("无法操作空BSTree\n");
-		return	NULL;
+		return;
 	}
 
 	BSTree p = *T;
@@ -186,7 +185,7 @@ void DeleteMax(BSTree * T)
 {
 	if (*T == NULL) {
 		printf("无法操作空BSTree\n");
-		return	NULL;
+		return;
 	}
 
 	BSTree p = *T;
@@ -343,9 +342,7 @@ void LevelOrderTraverse(BSTree T)
 int GetDepth(BSTree T)
 {
 	int i, j;
-	if (T == NULL) {
-		return 0;
-	}
+	if (T == NULL) return 0;
 	i = GetDepth(T->Left);
 	j = GetDepth(T->Right);
 	return i > j ? i+1 : j+1;
