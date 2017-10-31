@@ -331,7 +331,7 @@ void LevelOrderTraverse(BSTree T)
 		{
 			TElement result = *GetHeadValue(q);
 			DeleteQueue(q);
-			printf("%d\n", result->Data);
+			PRINT_INT(result->Data);
 			if (result->Left)  EnterQueue(q, result->Left);
 			if (result->Right) EnterQueue(q, result->Right);
 		}
