@@ -434,7 +434,6 @@ void LinkList_InsertSort(LinkList * list)
 
 	int i;
 	Node* p;
-
 	for (i = 0,p = list->Head->Next; i < list->Count - 1; i++,p = p->Next)
 	{
 		Node* q = p->Next;
@@ -449,9 +448,12 @@ void LinkList_InsertSort(LinkList * list)
 				q = q->Next;
 			}
 		}
-		Element temp = p->Data;
-		p->Data = t->Data;
-		t->Data = temp;
+        if(t != p)
+        {
+            Element temp = p->Data;
+            p->Data = t->Data;
+            t->Data = temp;
+        }
 	}
 	return;
 }
