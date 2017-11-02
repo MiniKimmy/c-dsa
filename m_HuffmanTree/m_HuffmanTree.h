@@ -29,7 +29,6 @@ typedef struct  HuffmanNode {
 }HuffmanNode, *HuffmanTree;
 #pragma endregion
 
-
 #include "queue.h"		//在定义HuffmanTree之后Include
 #include"linklist.h"	//在定义HuffmanTree之后Include
 
@@ -72,7 +71,7 @@ void CreateInitHuffmanTree_ByInputKeyCode(HuffmanTree * T)
 		HFElement m_value;
 		scanf_s("%d", &m_value);
 
-		LinkList* L =  LinkListInit();	//temp_List
+		LinkList* L =  LinkListInit();	 
 		while (m_Weight != -1)
 		{
 			//先把树Node写入LinkList,LinkList用来方便排序weight权值
@@ -108,7 +107,7 @@ void CreateInitHuffmanTree_ByInputKeyCode(HuffmanTree * T)
 }
 
 /*（内部方法）创建HuffmanTree*/
-/*L:已经排好序,T:树Root*/
+/*L :已经排好序,T:树Root*/
 void Build_HuffmanTree(HuffmanTree * T,LinkList * L)
 {
 	if (L == NULL && L->Count > 0) {
@@ -123,12 +122,13 @@ void Build_HuffmanTree(HuffmanTree * T,LinkList * L)
 	}
 
 	else {
-		*T = p->Data;
+		*T = p->Data;	//获取第[0]个元素
 
-		Node* pre = (Node*)malloc(sizeof(Node));//局部变量(不要指向其他地址,只要使用Data）
-		pre->Data = *T;	//记录第[0]个
-		p = p->Next;	//第[1]个开始
-		
+		//pre是局部变量，辅助绑定左右Child
+		Node* pre = (Node*)malloc(sizeof(Node)); 
+		pre->Data = *T;	
+		p = p->Next;	//p从第[1]个开始
+
 		for (int i = 0; i < L->Count - 1; i++)
 		{
 			Element NewRoot = (HuffmanTree)malloc(sizeof(HuffmanNode));
@@ -143,17 +143,17 @@ void Build_HuffmanTree(HuffmanTree * T,LinkList * L)
 			NewRoot->Weight = pre->Data->Weight + p->Data->Weight;
 			*T = NewRoot;
 			if (p->Next && p->Next->Next && NewRoot->Weight > p->Next->Next->Data->Weight) {
-				InsertLinkList(L, i+4, NewRoot);	//跳过中间2个 + 1个前面跳过 +1个的位置上
+				InsertLinkList(L, i+4, NewRoot);//跳过中间2个 + 1个前面跳过 +1个的位置上
 				LinkList_InsertSort(L);
 				pre->Data = p->Next->Data;
 				p = p->Next;
-				L->Count--; //不能死循环,没必要+数量，insert的是为了创建树方便，最后还是会销毁
+				L->Count--;						//保证Count为原始元素个数
 			}else {
-				pre->Data = *T;//这里修改了L
+				pre->Data = *T;
 			}
 			p = p->Next;
 		}
-		free(pre);
+		free(pre);								//销毁pre局部变量
 		pre = NULL;
 	}
 	return;
@@ -191,9 +191,9 @@ void Build_HuffmanCode(HuffmanTree T, String code,int count,int size)
 }
 
 /*插入新HuffmanNode到HuffmanTree*/
-/*T : 已创建成功的Tree
-weight : 新Node的权值
-value ： 新Node的value值*/
+/*T :已创建成功的Tree
+weight :新Node的权值
+value ：新Node的value值*/
 void InsertHuffmanNode(HuffmanTree * T, int weight, HFElement value)
 {
 	//把树的叶结点都存到LinkList，把树Destroy重新Build
@@ -243,8 +243,8 @@ void HuffmanTreeToLinkList(HuffmanTree T,LinkList* L,int weight)
 }
 
 /*删除HuffmanNode(根据权值匹配)*/
-/*T : 已创建成功的Tree
-weight : 删除Node匹配的权值*/
+/*T :已创建成功的Tree
+weight :删除Node匹配的权值*/
 void DeleteHuffmanNode(HuffmanTree * T, int weight)
 {
 	//把树的叶结点（除了匹配的weight之外)都存到LinkList，把树Destroy重新Build
@@ -265,9 +265,9 @@ void DeleteHuffmanNode(HuffmanTree * T, int weight)
 }
 
 /*修改HuffmanNode(根据权值匹配[ 前中后序都一样 ])*/
-/*T : 已创建成功的Tree
-weight : 需要修改Node匹配的权值(有重复权值则全部替换)
-value : 新的value值*/
+/*T :已创建成功的Tree
+weight :需要修改Node匹配的权值(有重复权值则全部替换)
+value :新的value值*/
 void SetValueHuffmanNode(HuffmanTree T, int weight, HFElement value)
 {
 	if (T)
