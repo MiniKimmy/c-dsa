@@ -13,7 +13,7 @@ typedef char* String;
 	typedef int StringType;
 	#pragma endregion
 	#pragma region m_KMP
-	#define InitStrSize 10 
+	#define InitStrSize 10
 	#define InitStrIncrement 2
 		typedef struct m_KMP_Str
 		{
@@ -50,14 +50,14 @@ int GetStringLen(String str);
 
 //-------------------------String--------------------------
 
-//返回空字符串 str[0] == '\0' 
+//返回空字符串 str[0] == '\0'
 String StringEmpty()
 {
 	String ret = (String)calloc(MallocStrSize, sizeof(char));
 	return ret;
 }
 
-//判断是否空字符串 "" 
+//判断是否空字符串 ""
 int StringIsEmpty(String str)
 {
 	if (str == "") return 1;
@@ -99,7 +99,7 @@ void Clear(String * str, StringType type)
 	}
 }
 
-//获取String的写入权限，CopyNewString 
+//获取String的写入权限，CopyNewString
 String StrCopy(String str)
 {
 	String ret = (String)calloc(MallocStrSize, sizeof(char));
@@ -162,11 +162,11 @@ String SubString(String str, int index, int size)
 }
 
 //去掉字符串开头的空格
-void Trim(String * str) 
+void Trim(String * str)
 {
 	if (*str == NULL || *str == "") {
 		printf("空字符串无法操作\n");
-		return NULL;
+		return;
 	}
 	int i = 0;
 	while (((*str)[i]) == ' ') {
@@ -181,9 +181,9 @@ void TrimEnd(String * str,StringType type)
 {
 	if (*str == NULL || *str == "") {
 		printf("空字符串无法操作\n");
-		return NULL;
+		return;
 	}
-	
+
 	int i = GetStringLen(*str);
 	String ret = (String)calloc(i + 1, sizeof(char));
 	while ( ((*str)[i - 1]) == ' ') {
@@ -221,7 +221,7 @@ int StrComparer(String first, String second)
 //在匹配到的字符串里换新的字符串替换一次
 //source字符串源，str_pre匹配到的字符串,str_new对匹配到的str_pre进行替换
 //(不在Souce源进行操作),返回新的Source源
-String* Replace(String source, String str_pre, String str_new) 
+String* Replace(String source, String str_pre, String str_new)
 {
 	if (str_new == NULL || str_new == "") {
 		printf("输入替换的字符串不能为空\n");
@@ -266,7 +266,7 @@ String* Replace(String source, String str_pre, String str_new)
 }
 
 //字符串反转
-String Reverse(String source) 
+String Reverse(String source)
 {
 	if (source == NULL || source == "") {
 		printf("字符串为空\n");
@@ -279,7 +279,7 @@ String Reverse(String source)
 		ret[index] = source[index];
 		index++;
 	}
-	
+
 	for (int i = 0; i < index/2; i++)
 	{
 		char temp = ret[i];
@@ -322,7 +322,7 @@ m_KMP_Str* InitStrNextVal()
 void KMP_NextValArrAllocate(m_KMP_Str* arr)
 {
 	//1000个元素就按1.25倍的速度扩展数组长度
-	if (arr->Count >= 1000) arr->Increment = 1.25;	
+	if (arr->Count >= 1000) arr->Increment = 1.25;
 
 	arr->Size = arr->Size * arr->Increment;
 	int* p = (int*)malloc(sizeof(int) * arr->Size);
@@ -351,7 +351,7 @@ int** CreateNextValArr(String f_str)
 		return NULL;
 	}
 	//初始化相关Next[]结构体
-	m_KMP_Str* ret = InitStrNextVal();		
+	m_KMP_Str* ret = InitStrNextVal();
 
 	int i = 0;			//读取字符串index
 	while (f_str[i])
@@ -363,13 +363,13 @@ int** CreateNextValArr(String f_str)
 
 		if (i == 0) {
 			ret->next[0] = 0;
-			ret->Count++;								
+			ret->Count++;
 		}
 		else {
 			String front_str = SubString(f_str, 0, i);
 			int k = 1;									   //相似度k
 
-			for (int n = 1; n < i; n++)			
+			for (int n = 1; n < i; n++)
 			{
 				String s1 = SubString(front_str, 0, n);	   //前缀部分
 				String s2 = SubString(front_str, i - n, n);//后缀部分
@@ -378,7 +378,7 @@ int** CreateNextValArr(String f_str)
 				}
 			}
 			ret->next[i] = k;
-			ret->Count++;		
+			ret->Count++;
 		}
 
 		//Next[]转化为NextVal[]
@@ -402,7 +402,7 @@ int KMP_Find(String source, String f_str)
 		printf("输入的字符串为NULL,无法匹配\n");
 		return -1;
 	}
-	
+
 	//int SourceSize = GetStringLen(source);
 	int f_strSize = GetStringLen(f_str);
 
@@ -415,7 +415,7 @@ int KMP_Find(String source, String f_str)
 	{
 		if (j == 0 || source[i] == f_str[j])
 		{
-			if (source[i] != f_str[j]) j--; 
+			if (source[i] != f_str[j]) j--;
 			++i;
 			++j;
 		}
