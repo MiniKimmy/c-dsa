@@ -1,10 +1,9 @@
 #pragma once
-//include已经有了就不需要重复声明了
-//#include<stdio.h>
-//#include<stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
 
-//[ 即根据外部导入需要修改该TElement类型 ]
-typedef HuffmanTree TElement;
+/*QNode_Data类型 (即根据外部导入需要修改该类型)*/
+typedef RedBlackBST TElement;
 
 #pragma region Queue
 typedef struct QNode
@@ -13,7 +12,6 @@ typedef struct QNode
     struct QNode *Next;
 }QNode;
 
-/*修改队列内Node的Data类型(即根据外部导入需要修改该类型)*/
 typedef struct LinkQueue {
     struct QNode * front;
     struct QNode * rear;
