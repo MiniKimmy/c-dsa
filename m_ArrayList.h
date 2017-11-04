@@ -31,7 +31,7 @@ void Arr_InsetSort(Arr* arr);
 Status IsBeingFull(Arr* arr);
 void Allocate(Arr* arr);
 int GetSize(Arr* arr);
-//void QuickSort();	//快排【待整理】
+//void QuickSort();    //快排【待整理】
 #pragma endregion
 
 //Arr初始化
