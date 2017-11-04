@@ -9,10 +9,10 @@ typedef int Status;
 #pragma endregion
 
 typedef struct Arr {
-    int* pBase;          //指向数组Data
-    int Size;          //最大长度
+    int* pBase;         //指向数组Data
+    int Size;           //最大长度
     int Count;          //目前长度
-    double Increment; //增长因子
+    double Increment;   //增长因子
 }Arr;
 
 #pragma region Functions
@@ -37,17 +37,17 @@ int GetSize(Arr* arr);
 //Arr初始化
 Arr* ArrInit(int size)
 {
-    Arr* ret = (Arr*)malloc(sizeof(Arr));    //局部指针动态分配内存
+    Arr* ret = (Arr*)malloc(sizeof(Arr));
     if (NULL == ret) {
         printf("Arr动态分配内存失败！\n");
-        exit(-1);                            //强制退出
+        exit(-1);
         return NULL;
     }
     ret->Size = size;
     ret->Count = 0;
     ret->pBase = (int *)malloc(sizeof(int) *size);
-    ret->Increment = 2;                        //一开始增长因子为2倍，2倍速度扩展数组长度
-    return ret;                                //返回之后局部指针变量消失，但是地址里面的value还在
+    ret->Increment = 2;
+    return ret;
 }
 
 //Arr手动初始化
@@ -67,7 +67,7 @@ Arr* ArrInit_InputKeyCode()
     ret->Size = size * 2;    //最大长度设置为2倍
     ret->Count = 0;
     ret->pBase = (int *)malloc(sizeof(int) * ret->Size);
-    ret->Increment = 2;                        //一开始增长因子为2倍，2倍速度扩展数组长度
+    ret->Increment = 2;
     for (int i = 0; i < size; i++)
     {
         printf("初始化第[%d]个元素的value为 :",i);
@@ -128,6 +128,7 @@ void Append(Arr* arr, int value)
     else{
         arr->pBase[arr->Count] = value;
         arr->Count++;
+
         //动态扩充数组
         if (IsBeingFull(arr)) Allocate(arr);
     }
@@ -151,6 +152,7 @@ void Insert(Arr* arr,int index,int value)
     }
     arr->Count++;
     arr->pBase[index] = value;
+
     //动态扩充数组
     if (IsBeingFull(arr)) Allocate(arr);
     return;
@@ -199,7 +201,7 @@ void Inversion(Arr* arr)
         printf("Arr is empty!\n");
     }
     else{
-        for (int i = 0; i < arr->Count / 2; i++) // 0 ~ 对半整除
+        for (int i = 0; i < arr->Count / 2; i++)
         {
             int temp = arr->pBase[i];
             arr->pBase[i] = arr->pBase[arr->Count - 1 - i];
@@ -236,13 +238,13 @@ void Allocate(Arr* arr)
         printf("动态扩展分配失败!\n");
         return;
     }
-    for (int i = 0; i < arr->Count; i++)    //把int[]所有value 复制到新数组ret
+    for (int i = 0; i < arr->Count; i++)         //Copy到新数组ret
     {
         ret[i] = arr->pBase[i];
     }
 
-    arr->Size = arr->Size * arr->Increment;    //修改最大长度 , Count不需要变
-    int* p = arr->pBase;                        //释放原来的数组
+    arr->Size = arr->Size * arr->Increment;      //修改最大长度,Count不需要变
+    int* p = arr->pBase;                         //释放原来的数组
     arr->pBase = ret;
     free(p);
     return;
@@ -293,7 +295,7 @@ void Arr_InsetSort(Arr* arr)
     {
         int index = i + 1;
         int ret_index = i;
-        while ( index < arr->Count)    //最小的放前面
+        while (index < arr->Count)
         {
             if (arr->pBase[ret_index] > arr->pBase[index])
             {
