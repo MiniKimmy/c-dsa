@@ -77,7 +77,7 @@ void EnterQueue(Queue * Q, TElement value)
     Q->rear = q;
     Q->Count++;
     return;
-}
+} 
 
 //获取队头
 TElement* GetHeadValue(Queue * Q)
