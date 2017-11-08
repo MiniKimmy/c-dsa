@@ -23,17 +23,20 @@ typedef struct RedBlackBSNode
 #pragma endregion
 
 #pragma region Functions
+#pragma region PRIVATEFUNCTIONS
+    RedBlackBSNode* RotateLeft(RedBlackBSNode* node);
+    RedBlackBSNode* RotateRight(RedBlackBSNode* node);
+    void FlipColors(RedBlackBSNode* node);
+    int IsRed(RedBlackBSNode* node);
+    int IsKey(RedBlackBSNode* T, KEY key);
+    RedBlackBST Delete(RedBlackBST * T, KEY key);
+#pragma endregion
+#pragma region PUBLICFUNCTIONS
 RedBlackBST RedBlackBSTInit();
 void CreateRedBlackBST_ByNum(RedBlackBST * T, int num);
 void CreateRedBlackBST_ByInputKeyCode(RedBlackBST * T);
-RedBlackBSNode* RotateLeft(RedBlackBSNode* node);
-RedBlackBSNode* RotateRight(RedBlackBSNode* node);
-void FlipColors(RedBlackBSNode* node);
 RedBlackBST Insert(RedBlackBST * T, KEY key, Element value);
-int IsRed(RedBlackBSNode* node);
-int IsKey(RedBlackBSNode* T, KEY key);
 void DeleteNode(RedBlackBST * T, KEY key);
-RedBlackBST Delete(RedBlackBST * T, KEY key);
 int GetDepth(RedBlackBST T);
 #pragma region TraverseFunctions
     void PreOrderTraverse(RedBlackBST T);
@@ -41,6 +44,7 @@ int GetDepth(RedBlackBST T);
     void PostOrderTraverse(RedBlackBST T);
     void LevelOrderTraverse(RedBlackBST T);
     void LevelOrderTraverse_TreeShape(RedBlackBST T);
+#pragma endregion
 #pragma endregion
 #pragma endregion
 
@@ -55,12 +59,12 @@ RedBlackBST RedBlackBSTInit()
 }
 
 /*自动输入KEY从1到指定num的赋值创建RedBlackBST*/
-void CreateRedBlackBST_ByNum(RedBlackBST * T,int num)
+void CreateRedBlackBST_ByNum(RedBlackBST * T, int num)
 {
     int key = 1;
     while (key <= num) {
         *T = Insert(T, key, 1);
-        (*T)->Color = BLACK;         
+        (*T)->Color = BLACK;
         key++;
     }
 }
@@ -127,7 +131,7 @@ void FlipColors(RedBlackBSNode* node)
 /*(内部方法)插入新元素*/
 RedBlackBST Insert(RedBlackBST * T, KEY key, Element value)
 {
-    if (*T == NULL) {    
+    if (*T == NULL) {
         (*T) = (RedBlackBST)malloc(sizeof(RedBlackBSNode));
         (*T)->Key = key;
         (*T)->Data = value;
@@ -137,23 +141,44 @@ RedBlackBST Insert(RedBlackBST * T, KEY key, Element value)
         return *T;
     }
 
-    if ((*T)->Key ==  key) {
+    if ((*T)->Key == key) {
         (*T)->Data = value;
-    }else if ((*T)->Key > key) {
+    }
+    else if ((*T)->Key > key) {
         (*T)->Left = Insert(&((*T)->Left), key, value);
-    }else{
+    }
+    else {
         (*T)->Right = Insert(&((*T)->Right), key, value);
     }
 
-    if (IsRed((*T)->Right) && !IsRed((*T)->Left)) *T = RotateLeft(*T);
-    if (IsRed((*T)->Left) && IsRed((*T)->Left->Left)) *T= RotateRight(*T); //隐藏了左旋+右旋的操作
-    if (IsRed((*T)->Right) && IsRed((*T)->Left)) FlipColors(*T);
+    //插入2-结点右Child(即当右链接红色)[ 左旋X1 ]
+    if (IsRed((*T)->Right)) {
+        *T = RotateLeft(*T);
+    }
+    //当插入(右Child)新KEY的比原小二叉树3-结点都大[ 颜色翻转 ]
+    if (IsRed((*T)->Left) && IsRed((*T)->Right)) {
+        FlipColors(*T);
+    }
+
+    //当插入(右Child)新KEY的比原小二叉树3-结点都小[ 右旋X1+颜色翻转 ]
+    if (IsRed((*T)->Left) && IsRed((*T)->Left->Left)) {
+        *T = RotateRight(*T);
+        FlipColors(*T);
+    }
+
+    //当插入(右Child)新KEY在原小二叉树3-结点KEY大小之间[ 左旋X1+右旋X1+颜色翻转 ]
+    if (IsRed((*T)->Left) && IsRed((*T)->Left->Right)) {
+        (*T)->Left = RotateLeft((*T)->Left);
+        *T = RotateRight(*T);
+        FlipColors(*T);
+    }
+
     return *T;
 }
 
 /*（内部方法）结点颜色是否为RED*/
 /*是NULL或者是黑色返回0，是红色则返回1*/
-int IsRed(RedBlackBSNode* node) 
+int IsRed(RedBlackBSNode* node)
 {
     if (node) return node->Color == RED;
     else return 0;
@@ -175,7 +200,7 @@ void DeleteNode(RedBlackBST * T, KEY key)
         *T = Delete(T, key);
         (*T)->Color = BLACK;
     }
-    else {    
+    else {
         if ((*T)->Key == key) {
             free(*T);
             *T = NULL;
@@ -191,13 +216,15 @@ RedBlackBST Delete(RedBlackBST * T, KEY key)
 
     if ((*T)->Key > key) {
         (*T)->Left = Delete(&((*T)->Left), key);
-    }else if ((*T)->Key < key) {
+    }
+    else if ((*T)->Key < key) {
         (*T)->Right = Delete(&((*T)->Right), key);
-    }else {
+    }
+    else {
         if ((*T)->Right) {
             RedBlackBSNode* Min_Copy = (*T)->Right;
             RedBlackBSNode* p = NULL;
-            while (Min_Copy->Left){
+            while (Min_Copy->Left) {
                 p = Min_Copy;
                 Min_Copy = Min_Copy->Left;
             }
@@ -211,7 +238,8 @@ RedBlackBST Delete(RedBlackBST * T, KEY key)
                 free(*T);
                 *T = NULL;
                 return Min_Copy;
-            }else {
+            }
+            else {
                 //右Child是一棵子树，跟BST原始的删除一样
                 if (p != NULL) {
                     RedBlackBSNode* temp = (RedBlackBSNode*)malloc(sizeof(RedBlackBSNode));
@@ -257,7 +285,7 @@ RedBlackBST Delete(RedBlackBST * T, KEY key)
                         *T = NULL;
                         return Max_Copy;
                     }
-                    
+
                     //左Child颜色是BLACK黑色 
                     if (!IsRed((*T)->Left)) {
                         Min_Copy->Left = (*T)->Left;
@@ -282,7 +310,7 @@ RedBlackBST Delete(RedBlackBST * T, KEY key)
 
         return *T;
     }
-    
+
     //-------------下面是KEY无Child的情况----------
     //----------每次操作后的颜色都是保持完整的------
 
@@ -321,8 +349,8 @@ RedBlackBST Delete(RedBlackBST * T, KEY key)
     }
 
     //删除2-结点左边树底 [ 通过中间Root二次递归 + 检测旋转 ]
-    if ((*T)->Left && (*T)->Left->Color == BLACK && 
-        ( (*T)->Right && (*T)->Right->Right ) && 
+    if ((*T)->Left && (*T)->Left->Color == BLACK &&
+        ((*T)->Right && (*T)->Right->Right) &&
         (*T)->Key > key && (*T)->Left->Right == NULL)
     {
         RedBlackBSNode* temp = (RedBlackBSNode*)malloc(sizeof(RedBlackBSNode));
@@ -340,7 +368,7 @@ RedBlackBST Delete(RedBlackBST * T, KEY key)
     }
 
     //删除2-结点（删除只有一个左Child) || 含左右child）,
-    if (IsKey((*T)->Left,key)) 
+    if (IsKey((*T)->Left, key))
     {
         //只有一个左Child
         if (IsRed((*T)->Left) && (*T)->Right == NULL) {
@@ -358,7 +386,7 @@ RedBlackBST Delete(RedBlackBST * T, KEY key)
             if ((*T)->Right) {
                 (*T)->Left->Color = BLACK;
             }
-             
+
             free((*T)->Left->Left);
             (*T)->Left->Left = NULL;
         }
@@ -442,12 +470,12 @@ void LevelOrderTraverse_TreeShape(RedBlackBST T)
     int level = 0;
     int num = 0;
     int depth = GetDepth(T);
-    
+
     Queue* q = InitQueue();
     if (T)
     {
         EnterQueue(q, T);
-        for (int i = 0; i < depth - level; i++){
+        for (int i = 0; i < depth - level; i++) {
             printf("     ");
         }
         while (!IsEmptyQueue(q))
@@ -465,7 +493,7 @@ void LevelOrderTraverse_TreeShape(RedBlackBST T)
                 level++;
                 num = 0;
                 printf("\n");
-                for (int i = 0; i < depth - level ; i++) {
+                for (int i = 0; i < depth - level; i++) {
                     printf("     ");
                 }
             }
@@ -478,4 +506,3 @@ void LevelOrderTraverse_TreeShape(RedBlackBST T)
     return;
 }
 #pragma endregion
-
