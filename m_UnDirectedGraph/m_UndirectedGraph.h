@@ -13,7 +13,7 @@ typedef struct GNode {
 typedef struct Graph {
     int VerticesCount;    //顶点总个数
     int EdgeCount;        //边的总个数
-    int** pBase;        //var数组
+    int** pBase;          //var数组
 }Graph;
 
 
@@ -32,7 +32,7 @@ int GetKey(int* pBaseValue);
 
 /*初始化Graph*/
 /*创建空白顶点，需手动赋值KEY但未链接*/
-Graph* InitGraph(int V) 
+Graph* InitGraph(int V)
 {
     Graph* ret = (Graph*)malloc(sizeof(Graph));
     if (ret == NULL) {
