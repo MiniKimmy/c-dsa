@@ -1,17 +1,19 @@
 #pragma once
 #include<stdio.h>
 #include<stdlib.h>
+#define PRINT_STRING(x) printf("%s\n",x)
 
-typedef enum Status{
-    //标志位
+typedef enum Status {
     FALSE,
     TRUE,
 }Status;
 
-#pragma region Queue
+/*QNode_Data类型 (即根据外部导入需要修改该Element类型)*/
 typedef int Element;
-typedef struct QNode
-{
+
+#pragma region Queue
+//单LinkList无循环
+typedef struct QNode{
     Element Data;
     struct QNode *Next;
 }QNode;
@@ -27,25 +29,26 @@ typedef struct LinkQueue {
 Queue* InitQueue();
 Status IsEmptyQueue(Queue * Q);
 void EnterQueue(Queue * Q, Element value);
-Element* GetHeadValue(Queue* Q);
+Element* GetValue_Queue(Queue* Q);
 void DeleteQueue(Queue * Q);
 void ClearQueue(Queue * Q);
 void DestroyQueue(Queue** Q);
 #pragma endregion
 
-/*队列初始化*/
+/*初始化Queue*/
 Queue* InitQueue()
 {
     QNode* p = (QNode*)malloc(sizeof(QNode));
     if (p == NULL) {
-        printf("QNode 动态分配内存失败\n");
+        PRINT_STRING("QNode初始化动态分配内存失败");
         exit(-1);
     }
     Queue* ret = (Queue*)malloc(sizeof(Queue));
     if (ret == NULL) {
-        printf("Queue动态分配内存失败\n");
+        PRINT_STRING("Queue初始化动态分配内存失败");
         exit(-1);
     }
+
     p->Next = NULL;
     ret->front = p;
     ret->rear = p;
@@ -53,11 +56,11 @@ Queue* InitQueue()
     return ret;
 }
 
-/*判断队列是否为空*/
+/*判断Queue是否为空*/
 Status IsEmptyQueue(Queue * Q)
 {
     if (Q == NULL) {
-        printf("无法操作NULL参数\n");
+        PRINT_STRING("Queue为NULL");
         exit(-1);
     }
 
@@ -77,33 +80,25 @@ void EnterQueue(Queue * Q, Element value)
     return;
 }
 
-//获取队头
-Element* GetHeadValue(Queue * Q)
+/*获取Queue的队头Value*/
+Element* GetValue_Queue(Queue * Q)
 {
-    if (IsEmptyQueue(Q)) {
-        printf("空队列,无元素\n");
-        return NULL;
-    }
-    return &(Q->front->Next->Data);
+    if (IsEmptyQueue(Q)) return NULL;
+    else return &(Q->front->Next->Data);
 }
 
 /*出队*/
 void DeleteQueue(Queue * Q)
 {
-    if (IsEmptyQueue(Q)) {
-        printf("空队列,无法出队操作\n");
-        return;
-    }
-
+    if (IsEmptyQueue(Q)) return;
+    
     QNode* p = Q->front->Next;
-    if (p == Q->rear)
-    {
+    if (p == Q->rear){
         Q->rear = Q->front;
         Q->front->Next = NULL;
         free(p);
         p->Next = NULL;
-    }
-    else {
+    }else {
         Q->front->Next = p->Next;
         free(p);
         p->Next = NULL;
@@ -112,25 +107,22 @@ void DeleteQueue(Queue * Q)
     return;
 }
 
-/*清空队列*/
+/*清空队列，Clear到剩下Queue的头哨兵*/
 void ClearQueue(Queue * Q)
 {
-    if (IsEmptyQueue(Q)) {
-        printf("已经为空队列\n");
-        return;
-    }
+    if (IsEmptyQueue(Q)) return;
     
-    while (!IsEmptyQueue(Q)){
+    while (!IsEmptyQueue(Q)) {
         DeleteQueue(Q);
     }
     return;
 }
 
-/*销毁Queue所有内存,返回NULL*/
+/*销毁Queue,返回NULL*/
 void DestroyQueue(Queue** Q)
 {
     if (*Q == NULL) {
-        printf("无法对NULL参数操作\n");
+        PRINT_STRING("Queue为NULL");
         return;
     }
 
