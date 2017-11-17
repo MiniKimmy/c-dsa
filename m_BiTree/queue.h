@@ -58,7 +58,7 @@ Queue* InitQueue()
 Status IsEmptyQueue(Queue * Q)
 {
     if (Q == NULL) {
-        PRINT_STRING("无法操作NULL参数");
+        PRINT_STRING("Queue为NULL");
         exit(-1);
     }
 
@@ -89,7 +89,7 @@ TElement* GetHeadValue(Queue * Q)
 void DeleteQueue(Queue * Q)
 {
     if (IsEmptyQueue(Q)) return;
-    
+
     QNode* p = Q->front->Next;
     if (p == Q->rear){
         Q->rear = Q->front;
@@ -109,7 +109,7 @@ void DeleteQueue(Queue * Q)
 void ClearQueue(Queue * Q)
 {
     if (IsEmptyQueue(Q)) return;
-    
+
     while (!IsEmptyQueue(Q)) {
         DeleteQueue(Q);
     }
