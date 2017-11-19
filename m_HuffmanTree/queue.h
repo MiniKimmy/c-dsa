@@ -1,19 +1,22 @@
 #pragma once
-//include已经有了就不需要重复声明了
-//#include<stdio.h>
-//#include<stdlib.h>
+#include<stdio.h>
+#include<stdlib.h>
+#define PRINT_STRING(x) printf("%s\n",x)
 
-//[ 即根据外部导入需要修改该TElement类型 ]
+/*QNode_Data类型 (即根据外部导入需要修改该类型)*/
 typedef HuffmanTree TElement;
 
+typedef enum Status {
+    FALSE,
+    TRUE,
+}Status;
+
 #pragma region Queue
-typedef struct QNode
-{
+typedef struct QNode {
     TElement Data;
     struct QNode *Next;
 }QNode;
 
-/*修改队列内Node的Data类型(即根据外部导入需要修改该类型)*/
 typedef struct LinkQueue {
     struct QNode * front;
     struct QNode * rear;
@@ -21,33 +24,27 @@ typedef struct LinkQueue {
 }Queue;
 #pragma endregion
 
-typedef enum Status {
-    //标志位
-    FALSE,
-    TRUE,
-}Status;
-
 #pragma region Functions
 Queue* InitQueue();
 Status IsEmptyQueue(Queue * Q);
 void EnterQueue(Queue * Q, TElement value);
-TElement* GetHeadValue(Queue* Q);
+TElement* GetHeadValue(Queue * Q);
 void DeleteQueue(Queue * Q);
 void ClearQueue(Queue * Q);
 void DestroyQueue(Queue** Q);
 #pragma endregion
 
-/*队列初始化*/
+/*Queue初始化*/
 Queue* InitQueue()
 {
     QNode* p = (QNode*)malloc(sizeof(QNode));
     if (p == NULL) {
-        printf("QNode 动态分配内存失败\n");
+        PRINT_STRING("QNode初始化动态分配内存失败");
         exit(-1);
     }
     Queue* ret = (Queue*)malloc(sizeof(Queue));
     if (ret == NULL) {
-        printf("Queue动态分配内存失败\n");
+        PRINT_STRING("Queue初始化动态分配内存失败");
         exit(-1);
     }
     p->Next = NULL;
@@ -57,11 +54,11 @@ Queue* InitQueue()
     return ret;
 }
 
-/*判断队列是否为空*/
+/*判断Queue是否为空*/
 Status IsEmptyQueue(Queue * Q)
 {
     if (Q == NULL) {
-        printf("无法操作NULL参数\n");
+        PRINT_STRING("Queue为NULL");
         exit(-1);
     }
 
@@ -81,27 +78,20 @@ void EnterQueue(Queue * Q, TElement value)
     return;
 }
 
-//获取队头
+/*获取Queue队头*/
 TElement* GetHeadValue(Queue * Q)
 {
-    if (IsEmptyQueue(Q)) {
-        printf("空队列,无元素\n");
-        return NULL;
-    }
+    if (IsEmptyQueue(Q)) return NULL;
     return &(Q->front->Next->Data);
 }
 
 /*出队*/
 void DeleteQueue(Queue * Q)
 {
-    if (IsEmptyQueue(Q)) {
-        printf("空队列,无法出队操作\n");
-        return;
-    }
+    if (IsEmptyQueue(Q)) return;
 
     QNode* p = Q->front->Next;
-    if (p == Q->rear)
-    {
+    if (p == Q->rear) {
         Q->rear = Q->front;
         Q->front->Next = NULL;
         free(p);
@@ -116,13 +106,10 @@ void DeleteQueue(Queue * Q)
     return;
 }
 
-/*清空队列*/
+/*清空队列,返回Queue头哨兵*/
 void ClearQueue(Queue * Q)
 {
-    if (IsEmptyQueue(Q)) {
-        //printf("已经为空队列\n");
-        return;
-    }
+    if (IsEmptyQueue(Q)) return;
 
     while (!IsEmptyQueue(Q)) {
         DeleteQueue(Q);
@@ -130,11 +117,11 @@ void ClearQueue(Queue * Q)
     return;
 }
 
-/*销毁Queue所有内存,返回NULL*/
+/*销毁Queue,返回NULL*/
 void DestroyQueue(Queue** Q)
 {
     if (*Q == NULL) {
-        printf("无法对NULL参数操作\n");
+        PRINT_STRING("Queue为NULL");
         return;
     }
 
