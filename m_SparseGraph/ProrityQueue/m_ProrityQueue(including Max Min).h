@@ -36,6 +36,7 @@ void Swim(PriorityQueue * PQ);
 void Delete_PQ(PriorityQueue * PQ);
 void Sink(PriorityQueue * PQ);
 void Traverse_PQ(PriorityQueue * PQ);
+void Destroy_PQ(PriorityQueue** PQ);
 int GetSize(PriorityQueue * PQ);
 #pragma endregion
 
@@ -167,12 +168,26 @@ void Sink(PriorityQueue * PQ)
     return;
 }
 
-/*遍历*/
+/*遍历PQ*/
 void Traverse_PQ(PriorityQueue * PQ)
 {
     for (int i = 0; i <= PQ->count; i++){
         printf("[%d] = %d\n", i, PQ->pBase[i]);
     }
+    return;
+}
+
+/*销毁PQ，返回NULL*/
+void Destroy_PQ(PriorityQueue** PQ)
+{
+    if (*PQ == NULL) {
+        PRINT_STRING("PQ为NULL");
+        return;
+    }
+
+    free((*PQ)->pBase);
+    free(*PQ);
+    *PQ = NULL;
     return;
 }
 
@@ -183,6 +198,5 @@ int GetSize(PriorityQueue * PQ)
         PRINT_STRING("PQ为NULL");
         exit(-1);
     }
-
     return PQ->count;
 }
