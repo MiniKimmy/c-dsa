@@ -4,8 +4,7 @@
 #define PRINT_STRING(x) printf("%s\n",x)
 
 //队列最大元素个数 (底层数组最大长度 = MaxSizePQ + 1)
-#define MaxSizePQ 15
-
+#define MaxSizePQ 15    
 
 /*标志位TURE/FALSE*/
 typedef enum Status {
@@ -13,9 +12,7 @@ typedef enum Status {
     TRUE,
 }Status;
 
-
 typedef int PQElement;  //#include到其他文件的时候要考虑是否更改data的类型
-
 #pragma region PriorityQueue
 /*优先队列类型*/
 typedef enum PriorityQueueType {
@@ -30,17 +27,16 @@ typedef struct PriorityQueue {
 }PriorityQueue;
 #pragma endregion
 
-
 #pragma region Functions
 PriorityQueue* InitPQ(PriorityQueueType PQType);
 Status IsEmptyPQ(PriorityQueue * PQ);
 Status IsFullPQ(PriorityQueue * PQ);
-void Insert_PQ(PriorityQueue* PQ, PQElement value);
-void Swim(PriorityQueue* PQ);
-void Delete_PQ(PriorityQueue* PQ);
-void Sink(PriorityQueue* PQ);
-void Traverse_PQ(PriorityQueue* PQ);
-int GetSize(PriorityQueue* PQ);
+void Insert_PQ(PriorityQueue * PQ, PQElement value);
+void Swim(PriorityQueue * PQ);
+void Delete_PQ(PriorityQueue * PQ);
+void Sink(PriorityQueue * PQ);
+void Traverse_PQ(PriorityQueue * PQ);
+int GetSize(PriorityQueue * PQ);
 #pragma endregion
 
 
@@ -102,7 +98,7 @@ void Insert_PQ(PriorityQueue * PQ,PQElement value)
 
 /*(内部方法)上浮*/
 /*(外部方法里检测参数)*/
-void Swim(PriorityQueue* PQ)
+void Swim(PriorityQueue * PQ)
 {
     int flag = PQ->count;
     if (PQ->type == MaxPQ) {
@@ -124,7 +120,7 @@ void Swim(PriorityQueue* PQ)
 }
 
 /*(外部方法)删除Root的元素 + (内部方法)下沉*/
-void Delete_PQ(PriorityQueue* PQ)
+void Delete_PQ(PriorityQueue * PQ)
 {
     if (IsEmptyPQ(PQ)) return;
 
