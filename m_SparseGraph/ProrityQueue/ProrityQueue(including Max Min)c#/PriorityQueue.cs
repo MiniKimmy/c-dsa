@@ -11,7 +11,7 @@ namespace m_pq
         int count;                            //T[]内存在的实际元素个数
 
         /// <summary>
-        /// PriorityQueue构造函数
+        /// 初始化PriorityQueue
         /// </summary>
         /// <param name="type">优先队列类型</param>
         public PriorityQueue(PriorityQueueType type)
@@ -21,37 +21,6 @@ namespace m_pq
 
             //第[0]个不存，从[1]开始，所以size + 1
             this.queue = new T[QUEUE_MAXSIZE + 1];  
-        }
-
-        /// <summary>
-        /// 判断PQ是否已满
-        /// </summary>
-        /// <returns></returns>
-        private bool IsFull()
-        {
-            if (this.count == QUEUE_MAXSIZE) return true;
-            else return false;
-        }
-
-        /// <summary>
-        /// 判断PQ是否为空
-        /// </summary>
-        /// <returns></returns>
-        private bool IsEmpty()
-        {
-            if (this.count == 0) return true;
-            else return false;
-        }
-
-        /// <summary>
-        /// 插入新元素
-        /// </summary>
-        /// <param name="item">所添加新的元素</param>
-        public void Insert(T item)
-        {
-            if (IsFull()) return;
-            this.queue[++count] = item;
-            Swim();
         }
 
         /// <summary>
@@ -84,29 +53,18 @@ namespace m_pq
         }
 
         /// <summary>
-        /// 删除PQ的Root元素
-        /// </summary>
-        public void Delete()
-        {
-            if (IsEmpty()) return;
-            var temp = this.queue[1];
-            this.queue[1] = this.queue[count];
-            this.count--;
-            Sink();
-        }
-
-        /// <summary>
         /// 下沉
         /// </summary>
         private void Sink()
         {
             int flag = 1;
-            if(this.type == PriorityQueueType.MaxPQ)
+            if (this.type == PriorityQueueType.MaxPQ)
             {
                 while (flag * 2 <= this.count)
                 {
                     int index = flag * 2;
-                    if (index < this.count && this.queue[index].CompareTo(this.queue[index + 1]) == -1){ 
+                    if (index < this.count && this.queue[index].CompareTo(this.queue[index + 1]) == -1)
+                    {
                         index++;
                     }
 
@@ -124,7 +82,8 @@ namespace m_pq
                 while (flag * 2 <= this.count)
                 {
                     int index = flag * 2;
-                    if (index < this.count && this.queue[index].CompareTo(this.queue[index + 1]) == 1){
+                    if (index < this.count && this.queue[index].CompareTo(this.queue[index + 1]) == 1)
+                    {
                         index++;
                     }
                     if (this.queue[flag].CompareTo(this.queue[index]) == 1)
@@ -139,6 +98,49 @@ namespace m_pq
         }
 
         /// <summary>
+        /// 判断PQ是否已满
+        /// </summary>
+        /// <returns></returns>
+        public bool IsFull()
+        {
+            if (this.count == QUEUE_MAXSIZE) return true;
+            else return false;
+        }
+
+        /// <summary>
+        /// 判断PQ是否为空
+        /// </summary>
+        /// <returns></returns>
+        public bool IsEmpty()
+        {
+            if (this.count == 0) return true;
+            else return false;
+        }
+
+        /// <summary>
+        /// 插入新元素
+        /// </summary>
+        /// <param name="item">所添加新的元素</param>
+        public void Insert(T item)
+        {
+            if (IsFull()) return;
+            this.queue[++count] = item;
+            Swim();
+        }
+
+        /// <summary>
+        /// 删除PQ的Root元素
+        /// </summary>
+        public void Delete()
+        {
+            if (IsEmpty()) return;
+            var temp = this.queue[1];
+            this.queue[1] = this.queue[count];
+            this.count--;
+            Sink();
+        }
+
+        /// <summary>
         /// 获取PQ的元素个数
         /// </summary>
         /// <returns></returns>
@@ -150,12 +152,14 @@ namespace m_pq
         /// <summary>
         /// 遍历PQ
         /// </summary>
-        public void Traverse()
+        public override string ToString()
         {
+            string ret = "-----queue----\n";
             for (int i = 1; i <= this.count; i++)
             {
-                Console.WriteLine("[{0}] {1}",i,this.queue[i]);
+                 ret += string.Format("[{0}] {1}\n", i, this.queue[i]);
             }
+            return ret;
         }
     }
 }
