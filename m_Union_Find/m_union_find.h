@@ -30,8 +30,19 @@ UF* InitUF(int n)
         exit(-1);
     }
     ret->count = n;
+
     ret->id = (int*)malloc(sizeof(int) * n);
+    if (ret->id == NULL) {
+        PRINT_STRING("id[]初始化动态分配内存失败\n");
+        exit(-1);
+    }
+
     ret->size = (int*)malloc(sizeof(int) * n);
+    if (ret->size == NULL) {
+        PRINT_STRING("size[]初始化动态分配内存失败\n");
+        exit(-1);
+    }
+
     for (int i = 0; i < n; i++){
         ret->id[i] = i;
         ret->size[i] = 1;
@@ -50,7 +61,7 @@ void Union(UF * UF,int p, int q)
     //全部都变成同一个分量标识符
     for (int i = 0; i < UF->count; i++){
         if (UF->id[i] == qRoot) {
-            UF->id[i] = pRoot;    
+            UF->id[i] = pRoot;
         }
     }
     UF->count--;
