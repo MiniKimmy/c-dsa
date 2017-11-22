@@ -34,31 +34,30 @@ namespace m_pq
             Console.WriteLine(Q.GetSize());
             Q.Insert(new Myclass("Mike", 10));
             Q.Insert(new Myclass("Aikk", 12));
-            Q.Insert(new Myclass("Mike", 1));            
+            Q.Insert(new Myclass("Mike", 1));
             Q.Insert(new Myclass("Aikk", 15));
             Q.Insert(new Myclass("Mike", 19));
             Q.Insert(new Myclass("Mike", 6));
             Q.Insert(new Myclass("Mike", 8));
             Q.Insert(new Myclass("Aikk", 8));
-            Q.Traverse();
+            Console.WriteLine(Q);
             Console.WriteLine(Q.GetSize());
             Console.WriteLine("-----delete--------");
             Q.Delete();
-            Q.Traverse();
+            Console.WriteLine(Q);
             Console.WriteLine(Q.GetSize());
             Console.WriteLine("-----delete--------");
             Q.Delete();
-            Q.Traverse();
+            Console.WriteLine(Q);
             Console.WriteLine(Q.GetSize());
             Console.WriteLine("-----delete--------");
             Q.Delete();
-            Q.Traverse();
+            Console.WriteLine(Q);
             Console.WriteLine(Q.GetSize());
             Console.WriteLine("-----delete--------");
             Q.Delete();
-            Q.Traverse();
+            Console.WriteLine(Q);
             Console.WriteLine(Q.GetSize());
-            Console.ReadKey();
         }
     }
 }
