@@ -6,7 +6,7 @@
 typedef struct UF {
     int* id;
     int* size;
-    int count;        //连通分量个数
+    int count;        //连通分量总个数
 }UF;
 
 #pragma region Functions
@@ -26,20 +26,20 @@ UF* InitUF(int n)
 {
     UF* ret = (UF*)malloc(sizeof(UF));
     if (ret == NULL) {
-        PRINT_STRING("UF初始化动态分配内存失败\n");
+        PRINT_STRING("UF初始化动态分配内存失败");
         exit(-1);
     }
     ret->count = n;
 
     ret->id = (int*)malloc(sizeof(int) * n);
     if (ret->id == NULL) {
-        PRINT_STRING("id[]初始化动态分配内存失败\n");
+        PRINT_STRING("id[]初始化动态分配内存失败");
         exit(-1);
     }
 
     ret->size = (int*)malloc(sizeof(int) * n);
     if (ret->size == NULL) {
-        PRINT_STRING("size[]初始化动态分配内存失败\n");
+        PRINT_STRING("size[]初始化动态分配内存失败");
         exit(-1);
     }
 
@@ -58,12 +58,14 @@ void Union(UF * UF,int p, int q)
     int qRoot = Find(UF,q);
 
     if (pRoot == qRoot) return;
+
     //全部都变成同一个分量标识符
     for (int i = 0; i < UF->count; i++){
         if (UF->id[i] == qRoot) {
             UF->id[i] = pRoot;
         }
     }
+
     UF->count--;
     return;
 }
@@ -76,6 +78,7 @@ void Quick_Union(UF * UF, int p, int q)
     int qRoot = Find(UF, q);
 
     if (pRoot == qRoot) return;
+
     //只要把A根的分量标识符连接到B根
     UF->id[pRoot] = qRoot;
     UF->count--;
@@ -90,15 +93,16 @@ void WeightQuick_Union(UF * UF, int p, int q)
     int qRoot = Find(UF, q);
 
     if (pRoot == qRoot) return;
+
     //如果未连通，把小树的根接到大树的根(保证整棵树的层数不变)
     if (UF->size[pRoot] > UF->size[qRoot]){
         UF->id[q] = pRoot;
         UF->size[pRoot] = UF->size[pRoot] + UF->size[qRoot];
-    }
-    else {
+    }else {
         UF->id[p] = qRoot;
         UF->size[qRoot] = UF->size[pRoot] + UF->size[qRoot];
     }
+
     UF->count--;
     return;
 }
@@ -130,11 +134,11 @@ void WeightQuick_Union_m(UF * UF, int p, int q)
     if (UF->size[pRoot] > UF->size[qRoot]) {
         UF->id[q] = pRoot;
         UF->size[pRoot] = UF->size[pRoot] + UF->size[qRoot];
-    }
-    else {
+    }else {
         UF->id[p] = qRoot;
         UF->size[qRoot] = UF->size[pRoot] + UF->size[qRoot];
     }
+
     UF->count--;
     return;
 }
