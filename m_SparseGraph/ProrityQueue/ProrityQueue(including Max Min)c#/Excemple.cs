@@ -16,7 +16,7 @@ namespace m_pq
         public int CompareTo(Myclass other)
         {
             return CustomComparer.ReferenceComparer(this, other) ??
-                CustomComparer.Compare(other.name, this.name) ?? //名字越靠近A 越拍前面
+                CustomComparer.Compare(other.name, this.name) ??
                 CustomComparer.Compare(this.age, other.age) ?? 0;
         }
 
@@ -31,7 +31,7 @@ namespace m_pq
         static void Main(string[] args)
         {
             PriorityQueue<Myclass> Q = new PriorityQueue<Myclass>(PriorityQueueType.MaxPQ);
-            Console.WriteLine(Q.GetSize());
+
             Q.Insert(new Myclass("Mike", 10));
             Q.Insert(new Myclass("Aikk", 12));
             Q.Insert(new Myclass("Mike", 1));
@@ -42,18 +42,22 @@ namespace m_pq
             Q.Insert(new Myclass("Aikk", 8));
             Console.WriteLine(Q);
             Console.WriteLine(Q.GetSize());
+
             Console.WriteLine("-----delete--------");
             Q.Delete();
             Console.WriteLine(Q);
             Console.WriteLine(Q.GetSize());
+
             Console.WriteLine("-----delete--------");
             Q.Delete();
             Console.WriteLine(Q);
             Console.WriteLine(Q.GetSize());
+
             Console.WriteLine("-----delete--------");
             Q.Delete();
             Console.WriteLine(Q);
             Console.WriteLine(Q.GetSize());
+
             Console.WriteLine("-----delete--------");
             Q.Delete();
             Console.WriteLine(Q);

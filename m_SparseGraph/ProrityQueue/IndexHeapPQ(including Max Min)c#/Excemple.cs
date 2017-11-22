@@ -2,21 +2,21 @@ using System;
 
 namespace m_pq
 {
-    class Myclass_Test : IComparable<Myclass_Test>
+    class Myclass : IComparable<Myclass>
     {
         int age;
         string name;
 
-        public Myclass_Test(string name = null, int age = 0)
+        public Myclass(string name = null, int age = 0)
         {
             this.age = age;
             this.name = name;
         }
 
-        public int CompareTo(Myclass_Test other)
+        public int CompareTo(Myclass other)
         {
             return CustomComparer.ReferenceComparer(this, other) ??
-                CustomComparer.Compare(other.name, this.name) ?? //名字越靠近A 越拍前面
+                CustomComparer.Compare(other.name, this.name) ??
                 CustomComparer.Compare(this.age, other.age) ?? 0;
         }
 
@@ -26,23 +26,21 @@ namespace m_pq
         }
     }
 
-    class Excemple02
+    class Excemple
     {
         static void Main(string[] args)
         {
-            IndexPriorityQueue<Myclass_Test> Q = new IndexPriorityQueue<Myclass_Test>(IndexPQType.IndexMinPQ);
-            Q.Insert(new Myclass_Test("aaa", 8));
-            //Q.Insert(new Myclass_Test("aaa", 9));
-            Q.Insert(new Myclass_Test("aaa", 10));
-            Q.Insert(new Myclass_Test("aaa", 12));
-            Q.Insert(new Myclass_Test("aaa", 9));
+            IndexPriorityQueue<Myclass> Q = new IndexPriorityQueue<Myclass>(IndexPQType.IndexMinPQ);
+
+            Q.Insert(new Myclass("aaa", 8));
+            Q.Insert(new Myclass("aaa", 10));
+            Q.Insert(new Myclass("aaa", 12));
+            Q.Insert(new Myclass("aaa", 9));
             Console.WriteLine(Q);
 
-            Console.WriteLine("---delete\n");
+            Console.WriteLine("---delete--\n");
             Q.Delete();
-
             Console.WriteLine(Q);
-
         }
     }
 }
