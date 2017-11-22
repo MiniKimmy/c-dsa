@@ -81,17 +81,17 @@ namespace m_pq
                 {
                     int key = flag * 2;
                     int mark = this.indexes[key];
-                    var max_value = this.queue[mark];
+                    var max_item = this.queue[mark];
 
                     if (key < this.count &&
-                        max_value.CompareTo(this.queue[indexes[key + 1]]) == -1)
+                        max_item.CompareTo(this.queue[indexes[key + 1]]) == -1)
                     {
                         key++;
                         mark = this.indexes[key];
-                        max_value = this.queue[mark];
+                        max_item = this.queue[mark];
                     }
 
-                    if (this.queue[indexes[flag]].CompareTo(max_value) == -1)
+                    if (this.queue[indexes[flag]].CompareTo(max_item) == -1)
                     {
                         //换排名
                         int temp = this.reverse[mark];
@@ -111,17 +111,17 @@ namespace m_pq
                 {
                     int key = flag * 2;
                     int mark = this.indexes[key];
-                    var max_value = this.queue[mark];
+                    var min_item = this.queue[mark];
 
                     if (key < this.count &&
-                        max_value.CompareTo(this.queue[indexes[key + 1]]) == 1)
+                        min_item.CompareTo(this.queue[indexes[key + 1]]) == 1)
                     {
                         key++;
                         mark = this.indexes[key];
-                        max_value = this.queue[mark];
+                        min_item = this.queue[mark];
                     }
 
-                    if (this.queue[indexes[flag]].CompareTo(max_value) == 1)
+                    if (this.queue[indexes[flag]].CompareTo(min_item) == 1)
                     {
                         //换排名
                         int temp = this.reverse[mark];
@@ -158,13 +158,13 @@ namespace m_pq
         /// <summary>
         /// 插入新元素
         /// </summary>
-        /// <param name="value">所添加的元素的对象</param>
-        public void Insert(T value)
+        /// <param name="item">所添加的元素的对象</param>
+        public void Insert(T item)
         {
             if (this.IsFull()) return;
 
             this.count++;
-            this.queue[count] = value;
+            this.queue[count] = item;
             this.indexes[count] = count;
             this.reverse[count] = count;
             Swim();
