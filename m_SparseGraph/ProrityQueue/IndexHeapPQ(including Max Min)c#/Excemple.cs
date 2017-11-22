@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel;
 
 namespace m_pq
 {
@@ -27,7 +26,6 @@ namespace m_pq
         }
     }
 
-    [Description("Ë÷Òý¶ÑIndexHeapExcemple")]
     class Excemple02
     {
         static void Main(string[] args)
