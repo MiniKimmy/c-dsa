@@ -7,10 +7,10 @@
 #pragma region SparseGraph
 typedef struct GNode {
     int Key;
-    struct GNode *Next;    //存地址就ok
+    struct GNode *Next;
 }GNode;
 
-//是否重边
+//是否重边(枚举类型)
 typedef enum EdgeType
 {
     RepeatEdge,
@@ -20,8 +20,8 @@ typedef enum EdgeType
 typedef struct Graph {
     int Vertices;        //顶点总个数
     int Edge;            //边的总个数
-    int** pBase;        //存放GNode*地址的数组
-    EdgeType EdgeType;    //是否重边
+    int** pBase;         //存放GNode*地址的数组
+    EdgeType EdgeType;   //是否重边
 }Graph;
 #pragma endregion
 
@@ -70,8 +70,7 @@ void CreateGraph_ByInputKeyCode(Graph * G)
     printf("请输入需要添加Edge的个数 ： ");
     int m_Edge;
     scanf_s("%d", &m_Edge);
-    for (int i = 0; i < m_Edge; i++)
-    {
+    for (int i = 0; i < m_Edge; i++){
         PRINT_STRING("\n请输入需要连接的2个Node的KEY");
         int v, w;
         scanf_s("%d", &v);
@@ -79,8 +78,7 @@ void CreateGraph_ByInputKeyCode(Graph * G)
         AddEdge(G, v, w);
         if (G->Edge > i) {
             printf("已连接了 %d 个链接\n", G->Edge);
-        }
-        else {
+        }else {
             i = i == 0 ? 0 : --i;
             PRINT_STRING("未链接成功,请重新输入");
         }
@@ -92,15 +90,17 @@ void CreateGraph_ByInputKeyCode(Graph * G)
 /*v是当前的顶点，w是其他顶点*/
 void AddEdge(Graph * G, int v, int w)
 {
-    if (v < G->Vertices && w < G->Vertices) 
+    if (v < G->Vertices && w < G->Vertices)
     {
         GNode* V = GetGNode(G, v);
         if (G->EdgeType == RepeatEdge) {
+
             GNode* NewV = (GNode*)malloc(sizeof(GNode));
             if (NewV == NULL) {
                 printf("NewV初始化动态分配内存失败\n");
                 exit(-1);
             }
+
             GNode* NewW = (GNode*)malloc(sizeof(GNode));
             if (NewW == NULL) {
                 printf("NewW初始化动态分配内存失败\n");
@@ -121,7 +121,7 @@ void AddEdge(Graph * G, int v, int w)
             G->Edge++;
         }else {
             int flag = 1;            //标志位
-            GNode* p = V->Next;        //迭代Item
+            GNode* p = V->Next;      //迭代Item
             for (int i = 0; i < GetSize(G->pBase[v]); i++){
                 if (p->Key == w) flag = 0;
             }
@@ -131,6 +131,7 @@ void AddEdge(Graph * G, int v, int w)
                     printf("NewV初始化动态分配内存失败\n");
                     exit(-1);
                 }
+
                 NewV->Key = w;
                 p = V->Next;
                 NewV->Next = p;
@@ -150,8 +151,7 @@ void ToString(Graph * G)
     {
         printf("%d : ", i);
         GNode* p = GetGNode(G, i);
-        for (int j = 0; j < GetSize(G->pBase[i]); j++)
-        {
+        for (int j = 0; j < GetSize(G->pBase[i]); j++){
             p = p->Next;
             PRINT_INT(p->Key);
         }
@@ -208,6 +208,4 @@ void Traverse_ALLKEY(Graph * G)
     }
     PRINT_STRING("\n--------------------");
     return;
-
-
 }
