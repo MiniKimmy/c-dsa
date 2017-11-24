@@ -1,6 +1,6 @@
 #pragma once
 #define PRINT_STRING(x) printf("%s\n",x)
- 
+
 typedef int Element; //Include到其他文件时候要修改Element的类型
 
 #pragma region Stack
