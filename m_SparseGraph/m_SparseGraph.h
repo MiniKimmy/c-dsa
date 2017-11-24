@@ -1,6 +1,6 @@
 #pragma once
-#include<stdlib.h>
 #include<stdio.h>
+#include<stdlib.h>
 #define PRINT_INT(x) printf("%d ",x)
 #define PRINT_STRING(x) printf("%s\n",x)
 
@@ -11,17 +11,16 @@ typedef struct GNode {
 }GNode;
 
 //是否重边(枚举类型)
-typedef enum EdgeType
-{
+typedef enum EdgeType {
     RepeatEdge,
     Non_RepeatEdge,
 }EdgeType;
 
 typedef struct Graph {
-    int Vertices;        //顶点总个数
-    int Edge;            //边的总个数
-    int** pBase;         //存放GNode*地址的数组
-    EdgeType EdgeType;   //是否重边
+    int Vertices;       //顶点总个数
+    int Edge;           //边的总个数
+    int** pBase;        //存放GNode*地址的数组
+    EdgeType EdgeType;  //是否重边
 }Graph;
 #pragma endregion
 
@@ -29,7 +28,7 @@ typedef struct Graph {
 Graph* InitGraph(int V, EdgeType edgetype);
 void CreateGraph_ByInputKeyCode(Graph * G);
 void AddEdge(Graph * G, int v, int w);
-void ToString(Graph * G);
+void ToString_SparseGraph(Graph * G);
 int GetSize(int* pBase_x);
 GNode* GetGNode(Graph * G, int key);
 void Traverse_ALLKEY(Graph * G);
@@ -39,11 +38,11 @@ int GetVerticesCount(Graph * G);
 /*初始化Graph*/
 /*V: 顶点总数; EdgeType枚举类型: 是否重边*/
 /*RepeatEdge: 重边; Non_RepeatEdge: 不重边*/
-Graph* InitGraph(int V,EdgeType edgetype)
+Graph* InitGraph(int V, EdgeType edgetype)
 {
     Graph* ret = (Graph*)malloc(sizeof(Graph));
     if (ret == NULL) {
-        printf("Graph初始化动态分配内存失败\n");
+        PRINT_STRING("Graph初始化动态分配内存失败");
         exit(-1);
     }
     ret->Vertices = V;
@@ -55,7 +54,7 @@ Graph* InitGraph(int V,EdgeType edgetype)
     for (int i = 0; i < ret->Vertices; i++) {
         ret->pBase[i] = (int*)malloc(sizeof(GNode));
         if (ret->pBase[i] == NULL) {
-            printf("pBase[i]初始化动态分配内存失败\n");
+            PRINT_STRING("pBase[i]初始化动态分配内存失败");
             exit(-1);
         }
         ((GNode*)ret->pBase[i])->Next = NULL;
@@ -70,7 +69,8 @@ void CreateGraph_ByInputKeyCode(Graph * G)
     printf("请输入需要添加Edge的个数 ： ");
     int m_Edge;
     scanf_s("%d", &m_Edge);
-    for (int i = 0; i < m_Edge; i++){
+    for (int i = 0; i < m_Edge; i++)
+    {
         PRINT_STRING("\n请输入需要连接的2个Node的KEY");
         int v, w;
         scanf_s("%d", &v);
@@ -78,7 +78,8 @@ void CreateGraph_ByInputKeyCode(Graph * G)
         AddEdge(G, v, w);
         if (G->Edge > i) {
             printf("已连接了 %d 个链接\n", G->Edge);
-        }else {
+        }
+        else {
             i = i == 0 ? 0 : --i;
             PRINT_STRING("未链接成功,请重新输入");
         }
@@ -94,16 +95,14 @@ void AddEdge(Graph * G, int v, int w)
     {
         GNode* V = GetGNode(G, v);
         if (G->EdgeType == RepeatEdge) {
-
             GNode* NewV = (GNode*)malloc(sizeof(GNode));
             if (NewV == NULL) {
-                printf("NewV初始化动态分配内存失败\n");
+                PRINT_STRING("NewV初始化动态分配内存失败");
                 exit(-1);
             }
-
             GNode* NewW = (GNode*)malloc(sizeof(GNode));
             if (NewW == NULL) {
-                printf("NewW初始化动态分配内存失败\n");
+                PRINT_STRING("NewW初始化动态分配内存失败");
                 exit(-1);
             }
             GNode* W = GetGNode(G, w);
@@ -119,19 +118,19 @@ void AddEdge(Graph * G, int v, int w)
             NewW->Next = p;
             W->Next = NewW;
             G->Edge++;
-        }else {
-            int flag = 1;            //标志位
-            GNode* p = V->Next;      //迭代Item
-            for (int i = 0; i < GetSize(G->pBase[v]); i++){
+        }
+        else {
+            int flag = 1;            
+            GNode* p = V->Next;
+            for (int i = 0; i < GetSize(G->pBase[v]); i++) {
                 if (p->Key == w) flag = 0;
             }
-            if (flag){
+            if (flag) {
                 GNode* NewV = (GNode*)malloc(sizeof(GNode));
                 if (NewV == NULL) {
-                    printf("NewV初始化动态分配内存失败\n");
+                    PRINT_STRING("NewV初始化动态分配内存失败");
                     exit(-1);
                 }
-
                 NewV->Key = w;
                 p = V->Next;
                 NewV->Next = p;
@@ -144,7 +143,7 @@ void AddEdge(Graph * G, int v, int w)
 }
 
 /*以图的邻接表输出Graph*/
-void ToString(Graph * G)
+void ToString_SparseGraph(Graph * G)
 {
     if (G == NULL) return;
     for (int i = 0; i < G->Vertices; i++)
