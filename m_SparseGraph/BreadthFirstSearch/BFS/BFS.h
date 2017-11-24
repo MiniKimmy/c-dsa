@@ -23,7 +23,7 @@ typedef struct BFS {
 #pragma region Functions
 BFS* InitBFS(Graph * G, int start);
 void BondingConnect_bfs(BFS * S, Graph * G, int start);
-
+Stack* GetPath(BFS * S, int destination);
 #pragma endregion
 
 
@@ -46,8 +46,8 @@ BFS* InitBFS(Graph * G, int start)
     CreateGraph_ByInputKeyCode(G);
 
     //再次检查图
-    if (start > GetVerticesCount(G) 
-        || GetVerticesCount(G) == 0 
+    if (start > GetVerticesCount(G)
+        || GetVerticesCount(G) == 0
         || GetEdgeCount(G) == 0) return NULL;
 
     BFS* ret = (BFS*)malloc(sizeof(BFS));
@@ -71,9 +71,9 @@ BFS* InitBFS(Graph * G, int start)
     //初始化marked[]全为FALSE,初始化from[]全为-1，-1只是标记该key未找到最近的上一个顶点
     for (int i = 0; i < GetVerticesCount(G); i++){
         ret->marked[i] = FALSE;
-        ret->from[i] = -1;  
+        ret->from[i] = -1;
     }
-    
+
     ret->start = start;        //记录start(GetPath时候需要用start)
     ret->marked[start] = TRUE; //自身和自身的连通的
     ret->from[start] = start;  //起点的上一个起点是自身
@@ -91,7 +91,7 @@ void BondingConnect_bfs(BFS * S, Graph * G, int start)
     while (!IsEmptyQueue(Q)){
         int key = *GetValue_Queue(Q);
         DeleteQueue(Q);
-        GNode* p = GetGNode(G, key); 
+        GNode* p = GetGNode(G, key);
         while (p->Next){
             p = p->Next;
             if (S->from[p->Key] == -1 && p->Key != start) {
@@ -108,7 +108,7 @@ void BondingConnect_bfs(BFS * S, Graph * G, int start)
 Stack* GetPath(BFS * S, int destination)
 {
     if (S->marked[destination] == FALSE) return;
-    
+
     Stack* ret = InitStack();
     for (int i = destination; i != S->start; i = S->from[i]){
         Push_Stack(ret, i);
