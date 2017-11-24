@@ -39,7 +39,7 @@ Graph* InitGraph(int V, EdgeType edgetype)
 {
     Graph* ret = (Graph*)malloc(sizeof(Graph));
     if (ret == NULL) {
-        printf("Graph初始化动态分配内存失败\n");
+        PRINT_STRING("Graph初始化动态分配内存失败");
         exit(-1);
     }
     ret->Vertices = V;
@@ -51,7 +51,7 @@ Graph* InitGraph(int V, EdgeType edgetype)
     for (int i = 0; i < ret->Vertices; i++) {
         ret->pBase[i] = (int*)malloc(sizeof(GNode));
         if (ret->pBase[i] == NULL) {
-            printf("pBase[i]初始化动态分配内存失败\n");
+            PRINT_STRING("pBase[i]初始化动态分配内存失败");
             exit(-1);
         }
         ((GNode*)ret->pBase[i])->Next = NULL;
@@ -94,12 +94,12 @@ void AddEdge(Graph * G, int v, int w)
         if (G->EdgeType == RepeatEdge) {
             GNode* NewV = (GNode*)malloc(sizeof(GNode));
             if (NewV == NULL) {
-                printf("NewV初始化动态分配内存失败\n");
+                PRINT_STRING("NewV初始化动态分配内存失败");
                 exit(-1);
             }
             GNode* NewW = (GNode*)malloc(sizeof(GNode));
             if (NewW == NULL) {
-                printf("NewW初始化动态分配内存失败\n");
+                PRINT_STRING("NewW初始化动态分配内存失败");
                 exit(-1);
             }
             GNode* W = GetGNode(G, w);
@@ -125,7 +125,7 @@ void AddEdge(Graph * G, int v, int w)
             if (flag) {
                 GNode* NewV = (GNode*)malloc(sizeof(GNode));
                 if (NewV == NULL) {
-                    printf("NewV初始化动态分配内存失败\n");
+                    PRINT_STRING("NewV初始化动态分配内存失败");
                     exit(-1);
                 }
                 NewV->Key = w;
