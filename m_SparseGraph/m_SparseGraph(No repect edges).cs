@@ -4,7 +4,6 @@ using System.IO;
 
 interface IGraph<out T>
 {
-    void CreateGraph(string filename);
     void AddEdge(int v, int w);
     int GetVerticesCount();
     int GetEdgeCount();
@@ -38,13 +37,12 @@ namespace SeparseGraph01
         }
 
         /// <summary>
-        /// 通过文件读取Graph
-        /// 文件内容格式:（第一行是顶点个数读取），接着后面分别是2个顶点的KEY，左边是v右边的w，空格隔开
+        /// text内容格式:第一行是顶点个数读取，第二行开始都是2个顶点的KEY，左边是v右边的w，空格隔开
         /// </summary>
-        /// <param name="filename">文件路径</param>
-        public void CreateGraph(string filename)
+        /// <param name="textPath">text文件路径</param>
+        public void ReadTextPath(string textPath)
         {
-            using (TextReader text = File.OpenText(filename))
+            using (TextReader text = File.OpenText(textPath))
             {
                 string line;
 
@@ -54,6 +52,8 @@ namespace SeparseGraph01
                     this.Vertices = int.Parse(line);
                     this.Bag = new List<List<int>>(this.Vertices);
                 }
+
+                //第二行开始读取顶点KEY
                 while ((line = text.ReadLine()) != null)
                 {
                     string[] str = line.Split(' ');
