@@ -27,11 +27,8 @@ void Insert_Array(Array * arr, int index, int value);
 void Delete_Array(Array * arr, int index);
 int GetValue_Array(Array * arr, int index);
 void Inversion_Array(Array* arr);
-void Arr_BubbleSort(Array* arr);
-void Arr_InsetSort(Array* arr);
 void Allocate_Array(Array* arr);
 int GetSize_Array(Array* arr);
-//void QuickSort();    //快排【待整理】
 #pragma endregion
 
 //Array初始化
@@ -191,7 +188,7 @@ int GetValue_Array(Array* arr, int index)
 void Inversion_Array(Array* arr)
 {
     if (IsEmptyArray(arr)) return;
-    
+
     for (int i = 0; i < arr->Count / 2; i++)
     {
         int temp = arr->pBase[i];
@@ -234,57 +231,4 @@ int GetSize_Array(Array * arr)
         return 0;
     }
     return arr->Count;
-}
-
-//Arr_BubbleSort
-void Arr_BubbleSort(Array* arr)
-{
-    if (arr == NULL) {
-        PRINT_STRING("Array为NULL");
-        return;
-    }
-
-    for (int i = 0; i < arr->Count - 1; ++i)
-    {
-        for (int j = i + 1; j < arr->Count; ++j)
-        {
-            if (arr->pBase[i] > arr->pBase[j])
-            {
-                int temp = arr->pBase[i];
-                arr->pBase[i] = arr->pBase[j];
-                arr->pBase[j] = temp;
-            }
-        }
-    }
-    return;
-}
-
-//Array InsertSort
-void Arr_InsetSort(Array* arr)
-{
-    if (arr == NULL) {
-        PRINT_STRING("Array为NULL");
-        return;
-    }
-
-    for (int i = 0; i < arr->Count - 1; i++)
-    {
-        int index = i + 1;
-        int ret_index = i;
-        while (index < arr->Count)
-        {
-            if (arr->pBase[ret_index] > arr->pBase[index])
-            {
-                ret_index = index;
-                index++;
-            }
-            else {
-                index++;
-            }
-        }
-        int temp = arr->pBase[i];
-        arr->pBase[i] = arr->pBase[ret_index];
-        arr->pBase[ret_index] = temp;
-    }
-    return;
 }

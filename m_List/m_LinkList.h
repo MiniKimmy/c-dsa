@@ -41,8 +41,6 @@ void SetValue_LinkList(LinkList * L, int index, Element value);
 void Destroy_LinkList(LinkList** L);
 void Clear_LinkList(LinkList * L);
 void Inversion_LinkList(LinkList * L);
-void LinkList_BubbleSort(LinkList * L);
-void LinkList_InsertSort(LinkList * L);
 int GetSize_LinkList(LinkList * L);
 #pragma endregion
 
@@ -189,7 +187,7 @@ void Traverse_LinkList(LinkList * L)
 Element GetValue_LinkList(LinkList * L, int index)
 {
     if (IsEmptyLinkList(L)) return NULL;
-    
+
     if (index < 0 || index >= L->Count) {
         printf("无法获取第[%d]个位置的元素\n", index);
         return NULL;
@@ -248,7 +246,7 @@ void SetValue_LinkList(LinkList * L, int index, Element value)
 void DeleteNode_LinkList(LinkList * L, int index)
 {
     if (IsEmptyLinkList(L)) return;
-    
+
     if (index < 0 || index >= L->Count) {
         printf("无法删除第[%d]个位置的元素\n", index);
         return;
@@ -281,7 +279,7 @@ void DeleteNode_LinkList(LinkList * L, int index)
 void Remove_LinkList(LinkList * L)
 {
     if (IsEmptyLinkList(L)) return;
-    
+
     Node * p = L->Tail;
     L->Tail = p->Front;
     free(p);
@@ -336,7 +334,7 @@ void Destroy_LinkList(LinkList** L)
 void Inversion_LinkList(LinkList * L)
 {
     if (IsEmptyLinkList(L)) return;
-    
+
     Node* p = L->Head->Next;
     Node* q = L->Tail;
     for (int i = 0; i < L->Count / 2; i++)
@@ -346,57 +344,6 @@ void Inversion_LinkList(LinkList * L)
         q->Data = temp;
         p = p->Next;
         q = q->Front;
-    }
-    return;
-}
-
-//LinkList冒泡排序
-void LinkList_BubbleSort(LinkList * L)
-{
-    if (IsEmptyLinkList(L)) return;
-
-    int i, j;
-    Node* p;
-    Node* q;
-    for (i = 0, p = L->Head->Next; i < L->Count - 1; i++, p = p->Next) {
-        for (j = i + 1, q = p->Next; j < L->Count; j++, q = q->Next) {
-            if (p->Data > q->Data) {
-                int temp = p->Data;
-                p->Data = q->Data;
-                q->Data = temp;
-            }
-        }
-    }
-    return;
-}
-
-//LinkList插入排序
-void LinkList_InsertSort(LinkList * L)
-{
-    if (IsEmptyLinkList(L)) return;
-
-    int i;
-    Node* p;
-    for (i = 0, p = L->Head->Next; i < L->Count - 1; i++, p = p->Next)
-    {
-        Node* q = p->Next;
-        Node* t = p;
-        while (q)
-        {
-            if (t->Data > q->Data) {
-                t = q;
-                q = q->Next;
-            }
-            else {
-                q = q->Next;
-            }
-        }
-        if (t != p)
-        {
-            Element temp = p->Data;
-            p->Data = t->Data;
-            t->Data = temp;
-        }
     }
     return;
 }
