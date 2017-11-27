@@ -5,42 +5,56 @@
 
 typedef int TElement;  //include到其他文件时候需要考虑修改该类型和sort的修改判断条件
 
+//快排形式
+typedef enum QuickSortType{
+    TwoWay,     //双路快排
+    ThreeWay,   //三路快排
+}QuickSortType;
+
 #pragma region Functions
 void QuickSort(TElement* arr, int arrsize);
-void _QuickSort(TElement* arr, int left, int right);
+void QuickSortTwoWay(TElement* arr, int left, int right);
+void QuickSortThreeWay(TElement* arr, int left, int right);
 int partition(TElement* arr, int left, int right);
 int _partition(TElement* arr, int left, int right);
 int __partition(TElement* arr, int left, int right);
 void InsertSort(TElement* arr, int left, int right);
+void _QuickSortThreeWay(TElement* arr, int left, int right);
 #pragma endregion
 
-
 /*(外部方法)快速排序*/
-void QuickSort(TElement* arr, int arrsize)
+/*arr: 数组*/
+/*arrsize: 数组长度*/
+/*QuickSortType: 快排形式enum: TwoWay:双路快排, ThreeWay:三路快排*/
+void QuickSort(TElement* arr, int arrsize, QuickSortType type)
 {
     if (arr == NULL || arrsize <= 1) return;
 
-    //随机第一个元素
-    if (arrsize > 2) {
-        int mid = arrsize / 2;
-        TElement* temp = arr[0];
-        arr[0] = arr[mid];
-        arr[mid] = temp;
+    if (type == TwoWay) {
+        //随机第一个元素
+        if (arrsize > 2) {
+            int mid = arrsize / 2;
+            TElement* temp = arr[0];
+            arr[0] = arr[mid];
+            arr[mid] = temp;
+        }
+        QuickSortTwoWay(arr, 0, arrsize - 1);
+    }else {
+        _QuickSortThreeWay(arr, 0, arrsize - 1);
     }
     
-    _QuickSort(arr, 0, arrsize - 1);
     return;
 }
 
-/*(内部方法)快速排序*/
-void _QuickSort(TElement* arr, int left, int right)
+/*(内部方法)双路排序*/
+void QuickSortTwoWay(TElement* arr, int left, int right)
 {
     //数组长度在低于10时用插入排序
     if (right <= left + 10) return InsertSort(arr, left, right);
 
     int j = __partition(arr, left, right);
-    _QuickSort(arr, left, j - 1);
-    _QuickSort(arr, j + 1, right);
+    QuickSortTwoWay(arr, left, j - 1);
+    QuickSortTwoWay(arr, j + 1, right);
 }
 
 /*切分函数（for循环X2），返回切分元素的index*/
@@ -145,5 +159,75 @@ void InsertSort(TElement* arr, int left, int right)
             arr[j] = temp;
         }
     }
+    return;
+}
+
+/*(内部方法)三路快排*/
+void QuickSortThreeWay(TElement* arr, int left, int right)
+{
+    if (right <= left) return;
+
+    int i = left;
+    int j = left + 1;
+    int k = right;
+
+    TElement v = arr[left];
+
+    while (j <= k) {
+        if (arr[j] < v) {
+            TElement temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+            i++;
+            j++;
+        }
+        else if (arr[j] > v) {
+            TElement temp = arr[j];
+            arr[j] = arr[k];
+            arr[k] = temp;
+            k--;
+        }
+        else {
+            j++;
+        }
+    }
+
+    QuickSortThreeWay(arr, left, i - 1);
+    QuickSortThreeWay(arr, k + 1, right);
+    return;
+}
+
+/*(内部方法)三路快排*/
+/*【不用v记录arr[left]的写法】*/
+void _QuickSortThreeWay(TElement* arr, int left, int right)
+{
+    if (right <= left) return;
+
+    int i = left;  
+    int j = left + 1;
+    int k = right;
+
+    while (j <= k) {
+        if (arr[j] < arr[left]) {
+            TElement temp = arr[j];
+            arr[j] = arr[i];
+            arr[i] = temp;
+            i++;
+            if (arr[j] == arr[j - 1]) {
+                j++;
+            }
+            
+        }else if (arr[j] > arr[left]) {
+            TElement temp = arr[j];
+            arr[j] = arr[k];
+            arr[k] = temp;
+            k--;
+        }else {
+            j++;
+        }
+    }
+
+    _QuickSortThreeWay(arr,left, i - 1);
+    _QuickSortThreeWay(arr, k + 1, right);
     return;
 }
