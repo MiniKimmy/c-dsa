@@ -239,12 +239,12 @@ void __Merge(TempArrMerge* M,TElement* arr, int left, int right, int mid)
     int j = mid + 1;  //右序列的第一个index
 
     //Copy到副本数组（copy到temp[]数组）
-    for (int k = left; k < right-left+1; k++) {
+    for (int k = left; k <= right; k++) {
         M->temp[k] = arr[k];
     }
 
     //归并
-    for (int k = left; k < left + (right - left + 1); k++){
+    for (int k = left; k <= right; k++){
         if (i > mid) arr[k] = M->temp[j++];
         else if (j > right) arr[k] = M->temp[i++];
         else if (M->temp[i] < M->temp[j])
