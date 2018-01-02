@@ -42,7 +42,7 @@ void QuickSort(TElement* arr, int arrsize, QuickSortType type)
     }else {
         _QuickSortThreeWay(arr, 0, arrsize - 1);
     }
-    
+
     return;
 }
 
@@ -115,7 +115,7 @@ int _partition(TElement* arr, int left, int right)
         i++;
         j--;
     }
-    
+
     TElement temp = arr[left];
     arr[left] = arr[j];
     arr[j] = temp;
@@ -198,26 +198,23 @@ void QuickSortThreeWay(TElement* arr, int left, int right)
 }
 
 /*(内部方法)三路快排*/
-/*【不用v记录arr[left]的写法】*/
+/*[不用v记录arr[left]的写法]*/
 void _QuickSortThreeWay(TElement* arr, int left, int right)
 {
     if (right <= left) return;
 
-    int i = left;  
-    int j = left + 1;
-    int k = right;
+    int i = left;        //左序列最后一个index
+    int j = left + 1;    //中序列最后一个index
+    int k = right;       //右序列最后一个index
 
     while (j <= k) {
-        if (arr[j] < arr[left]) {
+        if (arr[j] < arr[i]) {
             TElement temp = arr[j];
             arr[j] = arr[i];
             arr[i] = temp;
             i++;
-            if (arr[j] == arr[j - 1]) {
-                j++;
-            }
-            
-        }else if (arr[j] > arr[left]) {
+            j++;
+        }else if (arr[j] > arr[i]) {
             TElement temp = arr[j];
             arr[j] = arr[k];
             arr[k] = temp;
@@ -227,7 +224,7 @@ void _QuickSortThreeWay(TElement* arr, int left, int right)
         }
     }
 
-    _QuickSortThreeWay(arr,left, i - 1);
+    _QuickSortThreeWay(arr, left, i - 1);
     _QuickSortThreeWay(arr, k + 1, right);
     return;
 }
