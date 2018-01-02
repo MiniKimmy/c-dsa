@@ -88,7 +88,7 @@ void QuickSort_TwoWay_Inner(TElement* arr, int left, int right)
 void QuickSort_TwoWay__Inner(TElement* arr, int left, int right)
 {
     if (left >= right) return;
-    
+
     int j = right;
 
     for (int i = left + 1; i <= j; i++){
@@ -133,7 +133,7 @@ void QuickSort_TwoWay___Inner(TElement* arr, int left, int right)
 /*快排-2路[优化随机+插入]*/
 void QuickSort_TwoWay_(TElement* arr, int size)
 {
-    srand(0);        //随机种子
+    srand(time(0));        //随机种子
     partition(arr, 0, size - 1);
 }
 
@@ -147,9 +147,9 @@ void partition(TElement* arr, int left, int right)
     }
 
     //随机[left~right]
-    int random = rand()%(right - left + 1) + left; 
+    int random = rand()%(right - left + 1) + left;
     Swap(arr, random, left);
-    
+
     int j = QuickSort_TwoWay_Inner_(arr, left, right);
     partition(arr, left, j - 1);
     partition(arr, j + 1, right);
@@ -230,4 +230,4 @@ void QuickSort_ThreeWay_Inner(TElement* arr, int left, int right)
 
     QuickSort_ThreeWay_Inner(arr, left, i - 1); //处理[left,左序列最后一个index）
     QuickSort_ThreeWay_Inner(arr, k + 1, right);//处理(右最后一个index,right]
-} 
+}
