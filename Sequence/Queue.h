@@ -1,67 +1,68 @@
-#pragma once
 #include<stdio.h>
 #include<stdlib.h>
 #define PRINT_STRING(x) printf("%s\n",x)
 
+
+typedef int TElement;  //import到其他文件时候需要修改该类型
+
+/*Bool枚举*/
 typedef enum Status {
     FALSE,
     TRUE,
 }Status;
 
-/*QNode_Data类型 (即根据外部导入需要修改该Element类型)*/
-typedef int Element;
+/*结点Node数据类型*/
+typedef struct Node {
+    TElement data;
+    struct Node* next;
+}Node;
 
-#pragma region Queue
-//单LinkList无循环
-typedef struct QNode{
-    Element Data;
-    struct QNode *Next;
-}QNode;
-
-typedef struct LinkQueue {
-    struct QNode * front;
-    struct QNode * rear;
-    int Count;
+typedef struct Queue {
+    Node* front;    //头哨兵
+    Node* rear;     //尾哨兵
+    int count;
 }Queue;
-#pragma endregion
 
 #pragma region Functions
 Queue* InitQueue();
-Status IsEmptyQueue(Queue * Q);
-void EnterQueue(Queue * Q, Element value);
-Element* GetValue_Queue(Queue* Q);
-void DeleteQueue(Queue * Q);
-void ClearQueue(Queue * Q);
-void DestroyQueue(Queue** Q);
+Status IsEmpty_Queue(Queue * Q);
+void En_Queue(Queue * Q, TElement value);
+TElement* GetValue_Queue(Queue* Q);
+void De_Queue(Queue * Q);
+void Clear_Queue(Queue * Q);
+void Destroy_Queue(Queue** Q);
+int GetSize_Queue(Queue * Q);
 #pragma endregion
+
 
 /*初始化Queue*/
 Queue* InitQueue()
 {
-    QNode* p = (QNode*)malloc(sizeof(QNode));
-    if (p == NULL) {
-        PRINT_STRING("QNode初始化动态分配内存失败");
+    Node* node = (Node*)malloc(sizeof(Node));
+    if (node == NULL) {
+        PRINT_STRING("node初始化动态分配内存失败");
         exit(-1);
     }
+
     Queue* ret = (Queue*)malloc(sizeof(Queue));
     if (ret == NULL) {
         PRINT_STRING("Queue初始化动态分配内存失败");
         exit(-1);
     }
 
-    p->Next = NULL;
-    ret->front = p;
-    ret->rear = p;
-    ret->Count = 0;
+    node->next = NULL;
+    ret->front = node;
+    ret->rear = node;
+    ret->count = 0;
     return ret;
 }
 
 /*判断Queue是否为空*/
-Status IsEmptyQueue(Queue * Q)
+Status IsEmpty_Queue(Queue* Q)
 {
     if (Q == NULL) {
         PRINT_STRING("Queue为NULL");
-        exit(-1);
+        return TRUE;
     }
 
     if (Q->front == Q->rear)  return TRUE;
@@ -69,64 +70,68 @@ Status IsEmptyQueue(Queue * Q)
 }
 
 /*入队*/
-void EnterQueue(Queue * Q, Element value)
+void En_Queue(Queue* Q, TElement value)
 {
-    QNode* q = (QNode*)malloc(sizeof(QNode));
-    q->Data = value;
-    q->Next = NULL;
-    Q->rear->Next = q;
-    Q->rear = q;
-    Q->Count++;
+    Node* node = (Node*)malloc(sizeof(Node));
+    if (node == NULL) {
+        PRINT_STRING("入队node初始化动态分配内存失败");
+        exit(-1);
+    }
+
+    node->data = value;
+    node->next = NULL;
+    Q->rear->next = node;
+    Q->rear = node;
+    Q->count++;
     return;
 }
 
-/*获取Queue的队头Value*/
-Element* GetValue_Queue(Queue * Q)
+/*返回队头元素的指针*/
+TElement* GetValue_Queue(Queue* Q)
 {
-    if (IsEmptyQueue(Q)) return NULL;
-    else return &(Q->front->Next->Data);
+    if (IsEmpty_Queue(Q)) return NULL;
+    return &(Q->front->data);
 }
 
 /*出队*/
-void DeleteQueue(Queue * Q)
+void De_Queue(Queue* Q)
 {
-    if (IsEmptyQueue(Q)) return;
-    
-    QNode* p = Q->front->Next;
-    if (p == Q->rear){
+    if (IsEmpty_Queue(Q)) return;
+    Node* node = Q->front->next;
+
+    //如果出队最后的队头元素
+    if (node == Q->rear){
         Q->rear = Q->front;
-        Q->front->Next = NULL;
-        free(p);
-        p->Next = NULL;
-    }else {
-        Q->front->Next = p->Next;
-        free(p);
-        p->Next = NULL;
     }
-    Q->Count--;
+
+    Q->front->next = node->next;
+    Q->count--;
     return;
 }
 
-/*清空队列，Clear到剩下Queue的头哨兵*/
-void ClearQueue(Queue * Q)
+/*清除Queue所有元素*/
+/*头哨兵保留*/
+void Clear_Queue(Queue* Q)
 {
-    if (IsEmptyQueue(Q)) return;
-    
-    while (!IsEmptyQueue(Q)) {
-        DeleteQueue(Q);
+    while (!IsEmpty_Queue(Q)){
+        De_Queue(Q);
     }
     return;
 }
 
-/*销毁Queue,返回NULL*/
-void DestroyQueue(Queue** Q)
+/*返回Queue当前元素个数*/
+int GetSize_Queue(Queue* Q)
 {
-    if (*Q == NULL) {
-        PRINT_STRING("Queue为NULL");
-        return;
-    }
+    if (Q == NULL) return;
+    else return Q->count;
+}
 
-    ClearQueue(*Q);
+/*销毁Queue*/
+void Destroy_Queue(Queue** Q)
+{
+    if (*Q == NULL) return;
+
+    Clear_Queue(*Q);
     free(*Q);
     *Q = NULL;
     return;
