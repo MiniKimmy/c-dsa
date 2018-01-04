@@ -1,234 +1,244 @@
-#pragma once
-#include <stdlib.h>
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
 #define PRINT_STRING(x) printf("%s\n",x)
 
-typedef enum Status {
+#define INCREMENT 2       //增长因子
+#define ALLOCATIONCOUNT 3 //相差多少个元素填满ArrayList时候进行动态分配
+
+
+typedef int TElement;     //import到其他文件时候需要修改该类型
+
+/*是否需要动态扩充ArrayList*/
+typedef enum AllocationType{
+    UNALLOCATED,
+    ALLOCATED,
+}AllocationType;
+
+/*Bool枚举*/
+typedef enum Status{
     FALSE,
-    TRUE
+    TRUE,
 }Status;
 
-
-typedef struct Array {
-    int* pBase;         //指向数组Data
-    int Size;           //最大长度
-    int Count;          //目前长度
-    double Increment;   //增长因子
-}Array;
+typedef struct ArrayList { 
+    TElement* arr;
+    int count;           //当前元素个数
+    int size;            //最大长度
+    float increment;     //增长因子
+    AllocationType type; //是否需要动态扩充
+}ArrayList;
 
 #pragma region Functions
-Array* ArrInit(int size);
-void CreateArray_ByInputKeyCode(Array * arr);
-Status IsEmptyArray(Array * arr);
-void Traverse_Array(Array * arr);
-Status IsFullArray(Array * arr);
-void Append_Array(Array * arr, int value);
-void Insert_Array(Array * arr, int index, int value);
-void Delete_Array(Array * arr, int index);
-int GetValue_Array(Array * arr, int index);
-void Inversion_Array(Array* arr);
-void Allocate_Array(Array* arr);
-int GetSize_Array(Array* arr);
+ArrayList* InitArrayList(int size);
+void SetAllocatedType_ArrayList(ArrayList * arr, AllocationType type);
+Status IsEmpty_ArrayList(ArrayList * arr);
+Status IsFull_ArrayList(ArrayList * arr);
+void Traverse_ArrayList(ArrayList * arr);
+int GetSize_ArrayList(ArrayList* arr);
+TElement* GetValue_ArrayList(ArrayList * arr, int index);
+void Append_ArrayList(ArrayList * arr, TElement value);
+void Insert_ArrayList(ArrayList * arr, int index, TElement value);
+void Delete_ArrayList(ArrayList * arr, int index);
+void Inversion_ArrayList(ArrayList * arr);
+void Allocate_ArrayList(ArrayList * arr);
+void Destroy_ArrayList(ArrayList** arr);
 #pragma endregion
 
-//Array初始化
-Array* ArrInit(int size)
+/*初始化ArrayList.*/
+ArrayList* InitArrayList(int size)
 {
-    Array* ret = (Array*)malloc(sizeof(Array));
-    if (NULL == ret) {
-        PRINT_STRING("Array动态分配内存失败!");
+    if (size < 0) {
+        PRINT_STRING("ArrayList元素个数不能为负数");
         exit(-1);
-        return NULL;
     }
-    ret->Size = size;
-    ret->Count = 0;
-    ret->pBase = (int *)malloc(sizeof(int) * (size + 1));
-    ret->Increment = 2;
+
+    ArrayList* ret = (ArrayList*)malloc(sizeof(ArrayList));
+    if (NULL == ret) {
+        PRINT_STRING("ArrayList初始化动态分配内存失败!");
+        exit(-1);
+    }
+
+    ret->arr = (TElement*)malloc(sizeof(TElement) * (size));
+    if (ret->arr == NULL) {
+        PRINT_STRING("TElement[]初始化动态分配内存失败!");
+        exit(-1);
+    }
+
+    ret->size = size;
+    ret->count = 0;
+    ret->increment = INCREMENT;
+    ret->type = UNALLOCATED;
     return ret;
 }
 
-//通过手动赋值Array的value
-void CreateArray_ByInputKeyCode(Array * arr)
+/*设置是否可以动态扩充ArrayList.*/
+/*AllocationType枚举类型:
+ALLOCATED:动态扩充,
+UNALLOCATED:不动态扩充.*/
+void SetAllocatedType_ArrayList(ArrayList* arr, AllocationType type)
 {
-    if (NULL == arr) {
-        PRINT_STRING("Array为NUll");
-        return;
-    }
-    printf("当前数组的长度为 : %d\n",arr->Size);
-    int size;
-    PRINT_STRING("请输入初始化数组的元素数目Count: ");
-    scanf_s("%d", &size);
-    while (size > arr->Size)
-    {
-        printf("请输入一个小于等于%d的数值\n",arr->Size);
-        scanf_s("%d", &size);
-    }
-
-    for (int i = 0; i < size; i++){
-        printf("初始化第[%d]个元素的value为 :", i);
-        int arg;
-        scanf_s("%d", &arg);
-        Append_Array(arr, arg);
-    }
-    return arr;
+    if (arr != NULL) arr->type = type;
+    return;
 }
 
-//Array全部打印
-void Traverse_Array(Array * arr)
+/*判断ArrayList是否为空.*/
+Status IsEmpty_ArrayList(ArrayList* arr)
 {
-    if (IsEmptyArray(arr))
-        return;
-    for (int i = 0; i < arr->Count; i++){
-        printf("%d ", arr->pBase[i]);
+    if (arr == NULL) {
+        PRINT_STRING("ArrayList为NULL");
+        exit(-1);
+    }
+
+    if (arr->count == 0) return TRUE;
+    else return FALSE;
+}
+
+/*判断ArrayList是否已满.*/
+Status IsFull_ArrayList(ArrayList* arr)
+{
+    if (arr == NULL) {
+        PRINT_STRING("ArrayList为NULL");
+        exit(-1);
+    }
+
+    if (arr->count == arr->size) return TRUE;
+    else return FALSE;
+}
+
+/*遍历ArrayList.*/
+void Traverse_ArrayList(ArrayList* arr)
+{
+    for (int i = 0; i < arr->count; i++)
+    {
+        printf("%d ", arr->arr[i]);
     }
     PRINT_STRING("");
-    return;
 }
 
-//判断Array是否为空
-Status IsEmptyArray(Array * arr)
+/*返回ArrayList当前元素个数.*/
+int GetSize_ArrayList(ArrayList* arr)
 {
     if (arr == NULL) {
-        PRINT_STRING("Array为NULL");
-        exit(-1);
+        PRINT_STRING("ArrayList为NULL");
+        return 0;
     }
-
-    if (arr->Count == 0) return TRUE;
-    else return FALSE;
+    return arr->count;
 }
 
-//判断数组是否已满
-Status IsFullArray(Array * arr)
+/*返回该index的元素的指针.*/
+TElement* GetValue_ArrayList(ArrayList* arr, int index)
 {
-    if (arr == NULL) {
-        PRINT_STRING("Array为NULL");
-        exit(-1);
-    }
-
-    if (arr->Count == arr->Size) return TRUE;
-    else return FALSE;
-}
-
-//向数组末尾追加新元素
-void Append_Array(Array * arr, int value)
-{
-    if (IsFullArray(arr)) {
-        PRINT_STRING("超出数组边界");
-        return;
-    }
-
-    arr->pBase[arr->Count] = value;
-    arr->Count++;
-    return;
-}
-
-//插入指定index的value到数组内
-void Insert_Array(Array * arr, int index, int value)
-{
-    if (IsFullArray(arr)) {
-        PRINT_STRING("超出数组边界");
-        return;
-    }
-
-    if (arr->Count <= index || index < 0) {
+    if (IsEmpty_ArrayList(arr)) return;
+    if (arr->count <= index || index < 0) {
         printf("无法访问第[%d]个位置的value\n", index);
         return;
     }
 
-    for (int i = arr->Count - 1; i >= index; i--) {
-        arr->pBase[i + 1] = arr->pBase[i];
+    return &(arr->arr[index]);
+}
+
+/*追加元素ArrayList.*/
+void Append_ArrayList(ArrayList* arr, TElement value)
+{
+    if (IsFull_ArrayList(arr)) return;
+
+    arr->arr[arr->count++] = value;
+
+    //是否需要动态扩充
+    if (arr->type == ALLOCATED && arr->count + ALLOCATIONCOUNT >= arr->size) {
+        Allocate_ArrayList(arr);
     }
-    arr->Count++;
-    arr->pBase[index] = value;
     return;
 }
 
-//Delect指定index的value
-void Delete_Array(Array * arr, int index)
+/*插入元素ArrayList.*/
+/*index:插入的下标*/
+/*value:插入的元素data*/
+void Insert_ArrayList(ArrayList* arr, int index, TElement value)
 {
-    if (IsEmptyArray(arr)) {
-        PRINT_STRING("Array无任何元素");
+    if (IsFull_ArrayList(arr)) return;
+
+    if (arr->count <= index || index < 0) {
+        printf("无法访问第[%d]个位置的value\n", index);
         return;
     }
-    if (arr->Count <= index || index < 0) {
+
+    //[右移]
+    for (int i = arr->count - 1; i>= index; i--) {
+        arr->arr[i+1] = arr->arr[i];
+    }
+    arr->arr[index] = value;
+    arr->count++;
+
+    //是否需要动态扩充
+    if (arr->type == ALLOCATED && arr->count + ALLOCATIONCOUNT >= arr->size) {
+        Allocate_ArrayList(arr);
+    }
+    return;
+}
+
+/*动态扩充ArrayList.*/
+void Allocate_ArrayList(ArrayList* arr)
+{
+    if (arr->count > 1000) arr->increment = 1.25f;
+    arr->size = arr->size * arr->increment;
+    TElement* temp = (TElement*)malloc(sizeof(TElement) * (arr->size));
+    if (temp == NULL) {
+        PRINT_STRING("动态扩充TElement[]初始化分配内存失败");
+        exit(-1);
+    }
+
+    //Copy原来ArrayList的数据
+    for (int i = 0; i < arr->count; i++){
+        temp[i] = arr->arr[i];
+    }
+
+    //free掉旧TElement[]的内存
+    TElement* p = arr->arr;
+    arr->arr = temp;
+    free(p);
+    p = NULL;
+    return;
+}
+
+/*删除元素ArrayList*/
+/*index:删除元素的下标*/
+void Delete_ArrayList(ArrayList* arr, int index)
+{
+    if (IsEmpty_ArrayList(arr)) return;
+
+    if (arr->count <= index || index < 0) {
         printf("无法删除第[%d]个位置的value\n", index);
         return;
     }
 
-    for (int i = index + 1; i < arr->Count; i++) {
-        arr->pBase[i - 1] = arr->pBase[i];
+    //[左移]
+    for (int i = index; i < arr->count - 1 ; i++){
+        arr[i] = arr[i + 1];
     }
-    arr->Count--;
+
+    arr->count--;
     return;
 }
 
-//销毁Array
-void Destroy_Array(Array** arr)
+/*倒置ArrayList.*/
+void Inversion_ArrayList(ArrayList* arr)
+{
+    int i = arr->count-1;
+    for (int j = 0; j < arr->count/2 && i != j; j++)
+    {
+        TElement temp = arr->arr[i];
+        arr->arr[i] = arr->arr[j];
+        arr->arr[j] = temp;
+        i--;
+    }
+    return;
+}
+
+/*销毁Array.*/
+void Destroy_ArrayList(ArrayList** arr)
 {
     free(*arr);
     *arr = NULL;
     return;
-}
-
-//Array获取指定index的value
-int GetValue_Array(Array* arr, int index)
-{
-    if (IsEmptyArray(arr)) {
-        PRINT_STRING("Array无任何元素");
-        exit(-1);
-    }
-    if (arr->Count <= index || index < 0) {
-        printf("无法获取第[%d]个位置的value\n", index);
-        exit(-1);
-    }
-    return arr->pBase[index];
-}
-
-//Array倒置
-void Inversion_Array(Array* arr)
-{
-    if (IsEmptyArray(arr)) return;
-
-    for (int i = 0; i < arr->Count / 2; i++)
-    {
-        int temp = arr->pBase[i];
-        arr->pBase[i] = arr->pBase[arr->Count - 1 - i];
-        arr->pBase[arr->Count - 1 - i] = temp;
-    }
-    return;
-}
-
-//Array长度动态扩展
-void Allocate_Array(Array * arr)
-{
-    if (arr == NULL) {
-        PRINT_STRING("Array为Null");
-        return;
-    }
-
-    if (arr->Size >= 4 * 1000) arr->Increment = 1.25;    //1.25倍的速度
-    int* ret = (int*)malloc(sizeof(int)* arr->Size * arr->Increment);
-    if (NULL == ret) {
-        PRINT_STRING("动态扩展分配失败!");
-        return;
-    }
-    //Copy到新数组ret
-    for (int i = 0; i < arr->Count; i++){
-        ret[i] = arr->pBase[i];
-    }
-    arr->Size = arr->Size * arr->Increment;      //修改最大长度,Count不需要变
-    int* p = arr->pBase;                         //释放原来的数组
-    arr->pBase = ret;
-    free(p);
-    return;
-}
-
-//Array目前元素个数
-int GetSize_Array(Array * arr)
-{
-    if (arr == NULL) {
-        PRINT_STRING("Array为NULL");
-        return 0;
-    }
-    return arr->Count;
 }
