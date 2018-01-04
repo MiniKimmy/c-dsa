@@ -1,181 +1,126 @@
-#pragma once
 #include<stdio.h>
 #include<stdlib.h>
 #define PRINT_STRING(x) printf("%s\n",x)
 
-typedef enum Status
-{ 
-    FALSE, 
+
+typedef int TElement;  //import到其他文件时候需要修改该类型
+
+/*Bool枚举*/
+typedef enum Status {
+    FALSE,
     TRUE,
-}Status; //标志位
+}Status;
 
-typedef int Element; //Include到其他文件时候要修改Element的类型
+/*结点Node数据类型*/
+typedef struct Node {
+    TElement data;
+    struct Node* next;
+}Node;
 
-#pragma region Stack
-typedef struct SNode {
-    Element Data;
-    struct SNode *Next;
-}SNode;
-typedef struct LinkStack {
-    SNode *Top;
-    SNode *Bottom;
-    int Count;
+typedef struct Stack {
+    Node* top;
+    Node* bottom;
+    int count;
 }Stack;
-#pragma endregion
 
 #pragma region Functions
 Stack* InitStack();
-void CreateStack_ByInputArray(Stack * S, int *arr, int stacksize);
-void CreateStack_ByInputKeyCode(Stack * S);
-Status IsEmptyStack(Stack * S);
-void Push_Stack(Stack * S, Element value);
-Element* GetValue_Stack(Stack * S);
+Status IsEmpty_Stack(Stack * S);
+TElement* GetValue_Stack(Stack * S);
+void Push_Stack(Stack * S, TElement value);
 void Pop_Stack(Stack * S);
-void ClearStack(Stack * S);
-void DestroyStack(Stack** S);
-void Traverse_Stack(Stack * S);
+void Clear_Stack(Stack * S);
+void Destroy_Stack(Stack** S);
 #pragma endregion
 
 /*初始化Stack*/
 Stack* InitStack()
 {
     Stack* ret = (Stack*)malloc(sizeof(Stack));
-    if (ret == NULL){
-        PRINT_STRING("Stack初始化动态分配内存失败\n");
+    if (ret == NULL) {
+        PRINT_STRING("Stack初始化动态分配内存失败");
         exit(-1);
     }
-    ret->Count = 0;
-    ret->Top = NULL;
-    ret->Bottom = NULL;
+
+    ret->count = 0;
+    ret->top = NULL;
+    ret->bottom = NULL;
     return ret;
 }
-
-/*通过传入int数组的数据创建Stack*/
-/*S：Stack*栈对象,arr：int数组，arrsize：数组长度 */
-void CreateStack_ByInputArray(Stack * S, int *arr, int arrsize)
-{
-    if (S == NULL || arr == NULL) {
-        PRINT_STRING("传入的参数为NULL");
-        return;
-    }
-
-    if (arrsize < 0) {
-        PRINT_STRING("赋值个数不能为负数");
-        return;
-    }
-
-    for (int i = 0; i < arrsize; i++) {
-        Push_Stack(S, arr[i]);
-    }
-    return;
-}
-
-/*通过手动赋值创建Stack*/
-void CreateStack_ByInputKeyCode(Stack * S)
+/*判断Stack是否为空*/
+Status IsEmpty_Stack(Stack* S)
 {
     if (S == NULL) {
-        PRINT_STRING("Stack为NULL");
-        return;
+        printf("Stack为NULL");
+        return TRUE;
     }
 
-    PRINT_STRING("需要堆栈的元素个数是 : ");
-    int size;
-    scanf_s("%d", &size);
-    while (size < 0){
-        printf("无法产生%d个元素,请输入非负值的size\n", size);
-        scanf_s("%d", &size);
-    }
-
-    for (int i = 0; i < size; i++){
-        printf("请输入第[%d]个元素的Value : ", i);
-        Element arg;
-        scanf_s("%d", &arg);
-        Push_Stack(S, arg);
-    }
-    return;
-}
-
-/*判断Stack是否为空栈*/
-Status IsEmptyStack(Stack * S)
-{
-    if (S == NULL) {
-        PRINT_STRING("Stack为NULL");
-        exit(-1);
-    }
-
-    if (S->Bottom == NULL) return TRUE;
+    if (S->bottom == NULL) return TRUE;
     else return FALSE;
 }
 
 /*堆栈*/
-void Push_Stack(Stack * S, Element value)
+void Push_Stack(Stack* S, TElement value)
 {
-    SNode* p = (SNode*)malloc(sizeof(SNode));
-    p->Data = value;
-    p->Next = S->Top;
-    if (S->Bottom == NULL) {
-        S->Bottom = p;
+    if (S == NULL) return;
+    Node* node = (Node*)malloc(sizeof(Node));
+    if (node == NULL) {
+        PRINT_STRING("堆栈node初始化动态分配内存失败");
+        exit(-1);
     }
-    S->Top = p;
-    S->Count++;
+
+    node->data = value;
+    //添加第[0]个元素
+    if (S->count == 0){
+        S->bottom = node;
+    }
+    node->next = S->top;
+    S->top = node;
+    S->count++;
     return;
 }
 
-/*获取Top元素的value*/
-Element* GetValue_Stack(Stack * S)
+/*出栈*/
+void Pop_Stack(Stack* S)
 {
-    if (IsEmptyStack(S)) return NULL;
-    return &(S->Top->Data);
-}
-
-//出栈
-void Pop_Stack(Stack * S)
-{
-    if (IsEmptyStack(S)) return;
+    if (IsEmpty_Stack(S)) return;
     
-    SNode* p = S->Top;
-    if (p == S->Bottom) {
-        S->Bottom = NULL;
+    //删除最后第[0]个元素时
+    if (S->top == S->bottom) {
+        S->bottom = NULL;
     }
-    S->Top = S->Top->Next;
-    free(p);
-    p->Next = NULL;
-    S->Count--;
+
+    Node* node = S->top;
+    S->top = S->top->next;
+    free(node);
+    node = NULL;
+    S->count--;
     return;
 }
 
-/*清除所有的元素，Stack*对象不删除*/
-void ClearStack(Stack * S)
+/*返回栈顶的元素的指针*/
+TElement* GetValue_Stack(Stack* S)
 {
-    if (IsEmptyStack(S)) return;
-    while (S->Bottom) {
+    if (IsEmpty_Stack(S)) return NULL;
+    return &(S->top->data);
+}
+
+/*全部出栈*/
+void Clear_Stack(Stack* S)
+{
+    while (S->bottom != NULL)
+    {
         Pop_Stack(S);
     }
     return;
 }
 
-/*删除Stack所有内存，返回NULL*/
-void DestroyStack(Stack** S)
+/*销毁Stack*/
+void Destroy_Stack(Stack** S)
 {
-    if (*S == NULL) {
-        PRINT_STRING("Stack为NULL");
-        return;
-    }
-    ClearStack(*S);
+    if (*S == NULL) return;
+    Clear_Stack(*S);
+    free(*S);
     *S = NULL;
-    return;
-}
-
-/*遍历Stack*/
-void Traverse_Stack(Stack * S)
-{
-    if (IsEmptyStack(S)) return;
-
-    SNode* p = S->Top;
-    for (int i = 0; i < S->Count; i++)
-    {
-        printf("%d\n", p->Data);
-        p = p->Next;
-    }
     return;
 }
