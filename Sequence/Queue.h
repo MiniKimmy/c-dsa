@@ -105,6 +105,8 @@ void De_Queue(Queue* Q)
     }
 
     Q->front->next = node->next;
+    free(node);
+    node = NULL;
     Q->count--;
     return;
 }
