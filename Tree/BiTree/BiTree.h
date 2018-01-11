@@ -12,12 +12,13 @@ typedef struct BiNode {
 
 #pragma region Functions
 BiTree* InitBiTree();
+void Insert_BiTree(BiTree** T,BiTreeData value);
 BiTree* GetParent_BiTree(BiTree* T, BiTreeData value);
 BiTree* GetLeftChild_BiTree(BiTree* T, BiTreeData value);
 BiTree* GetRightChild_BiTree(BiTree* T, BiTreeData value);
 BiTree* GetBiNode(BiTree* T, BiTreeData value);
 void Destroy_BiTree(BiTree** T);
-int GetDepth(BiTree* T);
+int GetDepth_BiTree(BiTree* T);
 #pragma region Traverse
     void PreOrderTraverse(BiTree* T);
     void InOrderTraverse(BiTree* T);
@@ -35,13 +36,13 @@ BiTree* InitBiTree()
 }
 
 /*添加子BiNode*/
-void AddBiNode(BiTree** T,BiTreeData value)
+void Insert_BiTree(BiTree** T,BiTreeData value)
 {
     //如果树node是NULL
     if ((*T) == NULL) {
         (*T) = (BiTree*)malloc(sizeof(BiTree));
         if ((*T) == NULL) {
-            PRINT_STRING("biNode初始化动态分配内存失败");
+            PRINT_STRING("Binode初始化动态分配内存失败");
         }
         (*T)->data = value;
         (*T)->lchild = NULL;
@@ -51,9 +52,9 @@ void AddBiNode(BiTree** T,BiTreeData value)
 
     //如果树node不为NULL
     if ((*T)->data <= value) {
-        AddBiNode(&((*T)->rchild), value);
+        Insert_BiTree(&((*T)->rchild), value);
     }else {
-        AddBiNode(&((*T)->lchild), value);
+        Insert_BiTree(&((*T)->lchild), value);
     }
 }
 
@@ -167,7 +168,7 @@ void LevelOrderTraverse(BiTree* T)
 }
 
 /*获取树的深度*/
-int GetDepth(BiTree* T)
+int GetDepth_BiTree(BiTree* T)
 {
     if (T == NULL) return 0;
 
