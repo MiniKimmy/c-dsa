@@ -17,14 +17,14 @@ typedef struct BinarySearchNode {
 
 #pragma region Functions
 BSTree InitBSTree();
-void Insert(BSTree * T, KEY key, Element value);
+void Insert(BSTree* T, KEY key, Element value);
 Element* Search(BSTree T, KEY key);
 BSNode* GetMin(BSTree T);
 BSNode* GetMax(BSTree T);
-void DeleteMin(BSTree * T);
-void DeleteMax(BSTree * T);
-void DeleteBSNode(BSTree * T, BSTree * pre, KEY key);
-void DestroyBSTree(BSTree * T);
+void DeleteMin(BSTree* T);
+void DeleteMax(BSTree* T);
+void DeleteBSNode(BSTree* T, BSTree* pre, KEY key);
+void DestroyBSTree(BSTree* T);
 void InOrderTraverse(BSTree T);
 void PreOrderTraverse(BSTree T);
 void PostOrderTraverse(BSTree T);
@@ -87,11 +87,9 @@ void Insert(BSTree * T, KEY key, Element value)
         if (key == (*T)->Key) {
             (*T)->Data = value;
             return;
-        }
-        if (key < (*T)->Key) {
+        }else if (key < (*T)->Key) {
             Insert(&((*T)->Left),key, value);
-        }
-        else {
+        }else {
             Insert(&((*T)->Right),key, value);
         }
     }
@@ -109,11 +107,9 @@ Element* Search(BSTree T,KEY key)
 
     if (T->Key == key){
         return &(T->Data);
-    }
-    if (T->Key > key) {
+    }else if (T->Key > key) {
         return Search(T->Left, key);
-    }
-    else {
+    }else {
         return Search(T->Right, key);
     }
 }
@@ -170,8 +166,7 @@ void DeleteMin(BSTree * T)
 
     if (parent == NULL){
         *T = p->Right;
-    }
-    else {
+    }else {
         parent->Left = p->Right;
     }
     free(p);
@@ -197,8 +192,7 @@ void DeleteMax(BSTree * T)
 
     if (parent == NULL) {
         *T = p->Left;
-    }
-    else {
+    }else {
         parent->Right = p->Left;
     }
     free(p);
@@ -207,7 +201,7 @@ void DeleteMax(BSTree * T)
 }
 
 /*删除指定KEY的Node*/
-/*pre：传入NULL的BSTree*参数即可 */
+/*pre：传入NULL即可 --作为中间全局变量*/
 void DeleteBSNode(BSTree * T, BSTree * pre ,KEY key)
 {
     if (*T == NULL) {
