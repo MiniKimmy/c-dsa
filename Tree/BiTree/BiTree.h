@@ -1,209 +1,179 @@
-#pragma once
-#include <stdlib.h>
-#include <stdio.h>
+#include<stdio.h>
+#include<stdlib.h>
+#define PRINT_STRING(x) printf("%s\n",x)
 
-typedef int Element;    //BiNode_Data类型
-#pragma region BiTree
+typedef int BiTreeData;  //import到其他文件时候需要修改该类型
+
 typedef struct BiNode {
-    Element Data;
-    struct BiNode *Left;
-    struct BiNode *Right;
-}BiNode, *BiTree;
-#pragma endregion
-  
+    BiTreeData data;
+    struct BiNode* lchild;
+    struct BiNode* rchild;
+}BiTree;
+
 #pragma region Functions
-BiTree InitBiTree();
-void CreatBiTree_ByInputKeyCode(BiTree * T);
-void PreOrderTraverse(BiTree T);
-void InOrderTraverse(BiTree T);
-void PostOrderTraverse(BiTree T);
-void LevelOrderTraverse(BiTree T);
-void DestroyBiTree(BiTree * T);
-BiTree GetFirst_BiNode(BiTree T, Element value);
-BiTree Parent(BiTree T, Element value);
-BiTree GetLeftChild(BiTree T, Element value);
-BiTree GetRightChild(BiTree T, Element value);
-int GetDepth(BiTree T);
+BiTree* InitBiTree();
+BiTree* GetParent_BiTree(BiTree* T, BiTreeData value);
+BiTree* GetLeftChild_BiTree(BiTree* T, BiTreeData value);
+BiTree* GetRightChild_BiTree(BiTree* T, BiTreeData value);
+BiTree* GetBiNode(BiTree* T, BiTreeData value);
+void Destroy_BiTree(BiTree** T);
+int GetDepth(BiTree* T);
+#pragma region Traverse
+    void PreOrderTraverse(BiTree* T);
+    void InOrderTraverse(BiTree* T);
+    void PostOrderTraverse(BiTree* T);
+    void LevelOrderTraverse(BiTree* T);
+#pragma endregion
 #pragma endregion
 
 #include "queue.h" //在BiTree定义之后再Include
 
-//初始化BiTree
-BiTree InitBiTree()
+/*初始化BiTree*/
+BiTree* InitBiTree()
 {
     return NULL;
 }
 
-/*通过手动输入赋值空树,造一棵普通的二叉树*/
-/*输入到-1视为NULL*/
-void CreatBiTree_ByInputKeyCode(BiTree * T)
+/*添加子BiNode*/
+void AddBiNode(BiTree** T,BiTreeData value)
 {
-    printf("-1为NULL，请输入Value : ");
-    Element arg;
-    scanf_s("%d", &arg);
-    if (arg == -1)
+    //如果树node是NULL
+    if ((*T) == NULL) {
+        (*T) = (BiTree*)malloc(sizeof(BiTree));
+        if ((*T) == NULL) {
+            PRINT_STRING("biNode初始化动态分配内存失败");
+        }
+        (*T)->data = value;
+        (*T)->lchild = NULL;
+        (*T)->rchild = NULL;
+        return;
+    }
+
+    //如果树node不为NULL
+    if ((*T)->data <= value) {
+        AddBiNode(&((*T)->rchild), value);
+    }else {
+        AddBiNode(&((*T)->lchild), value);
+    }
+}
+
+/*返回匹配value的第一个树node*/
+BiTree* GetBiNode(BiTree* T, BiTreeData value)
+{
+    if (T == NULL) return NULL;
+
+    if (T->data == value) return T;
+    else if (T->data > value) {
+        return GetBiNode(T->lchild,value);
+    }else {
+        return GetBiNode(T->rchild,value);
+    }
+}
+
+/*返回匹配value的第一个树node的LChild*/
+BiTree* GetLeftChild_BiTree(BiTree* T, BiTreeData value)
+{
+    BiTree* result = GetBiNode(T, value);
+    if (result == NULL) return NULL;
+    else return result->lchild;
+}
+
+/*返回匹配value的第一个树node的RChild*/
+BiTree* GetRightChild_BiTree(BiTree* T, BiTreeData value)
+{
+    BiTree* result = GetBiNode(T, value);
+    if (result == NULL) return NULL;
+    else return result->rchild;
+}
+
+/*返回匹配value的第一个树node的Parent*/
+BiTree* GetParent_BiTree(BiTree* T, BiTreeData value)
+{
+    if (T == NULL || (T->lchild == NULL && T->rchild == NULL) || (T->data == value) ) return NULL;
+
+    if ((T->lchild && T->lchild->data == value) || (T->rchild && T->rchild->data == value) ) return T;
+    else if (T->data > value) {
+        return GetParent_BiTree(T->lchild, value);
+    }else {
+        return GetParent_BiTree(T->rchild, value);
+    }
+
+}
+
+/*销毁BiTree*/
+void Destroy_BiTree(BiTree** T)
+{
+    if (*T != NULL){
+        Destroy_BiTree(&((*T)->lchild));
+        Destroy_BiTree(&((*T)->rchild));
+        free(*T);
         *T = NULL;
-    else {
-        *T = (BiTree)malloc(sizeof(BiNode));
-        if (!(*T)) {
-            printf("BiTree 动态分配内存失败\n");
-            exit(-1);
-        }
-        (*T)->Data = arg;
-        CreatBiTree_ByInputKeyCode(&((*T)->Left));
-        CreatBiTree_ByInputKeyCode(&((*T)->Right));
-    }
-}
-
-/*先序遍历*/
-void PreOrderTraverse(BiTree T)
-{
-    if (T)
-    {
-        printf("%d\n", T->Data);
-        PreOrderTraverse(T->Left);
-        PreOrderTraverse(T->Right);
     }
     return;
 }
 
-/*中序遍历*/
-void InOrderTraverse(BiTree T)
+/*前序Traverse*/
+void PreOrderTraverse(BiTree* T)
 {
-    if (T)
+    if (T != NULL)
     {
-        InOrderTraverse(T->Left);
-        printf("%d\n", T->Data);
-        InOrderTraverse(T->Right);
+        printf("%d\n", T->data);
+        PreOrderTraverse(T->lchild);
+        PreOrderTraverse(T->rchild);
     }
     return;
 }
 
-/*后序遍历*/
-void PostOrderTraverse(BiTree T)
+/*中序Traverse*/
+void InOrderTraverse(BiTree* T)
 {
-    if (T)
+    if (T != NULL)
     {
-        InOrderTraverse(T->Left);
-        InOrderTraverse(T->Right);
-        printf("%d\n", T->Data);
+        PreOrderTraverse(T->lchild);
+        printf("%d\n", T->data);
+        PreOrderTraverse(T->rchild);
     }
     return;
 }
 
-/*层序遍历*/
-void LevelOrderTraverse(BiTree T)
+/*后序Traverse*/
+void PostOrderTraverse(BiTree* T)
 {
-    Queue* q = InitQueue();
-    if (T)
+    if (T != NULL)
     {
-        EnterQueue(q, T);
-        while (!IsEmptyQueue(q))
-        {
-            TElement result = *GetHeadValue(q);
-            DeleteQueue(q);
-            printf("%d\n", result->Data);
-            if (result->Left)  EnterQueue(q, result->Left);
-            if (result->Right) EnterQueue(q, result->Right);
-        }
+        PreOrderTraverse(T->lchild);
+        PreOrderTraverse(T->rchild);
+        printf("%d\n", T->data);
     }
-    DestroyQueue(&q);
+    return;
 }
 
-/*树的深度*/
-int GetDepth(BiTree T)
+/*层序Traverse*/
+void LevelOrderTraverse(BiTree* T)
 {
-    int i, j;
+    if (T == NULL) return;
+
+    Queue* Q = InitQueue();
+    En_Queue(Q, T);
+    while (!IsEmpty_Queue(Q)){
+        BiTree* temp = *GetValue_Queue(Q);
+        De_Queue(Q);
+        printf("%d\n", temp->data);
+        if (temp->lchild) En_Queue(Q, temp->lchild);
+        if (temp->rchild) En_Queue(Q, temp->rchild);
+    }
+    Destroy_Queue(&Q);
+    return;
+}
+
+/*获取树的深度*/
+int GetDepth(BiTree* T)
+{
     if (T == NULL) return 0;
-    i = GetDepth(T->Left);
-    j = GetDepth(T->Right);
+
+    int i = 0;
+    int j = 0;
+    i = GetDepth(T->lchild);
+    j = GetDepth(T->rchild);
     return i > j ? i + 1 : j + 1;
-}
-
-/*销毁子树*/
-void DestroyBiTree(BiTree * T)
-{
-    if (*T)
-    {
-        DestroyBiTree(&((*T)->Left));
-        DestroyBiTree(&((*T)->Right));
-        BiTree* p = T;
-        free(*p);
-        *p = NULL;
-    }
-    return;
-}
-
-/*返回第一个指定value匹配的BiNode*/
-/*value：需要指定匹配的value*/
-BiTree GetFirst_BiNode(BiTree T, Element value)
-{
-    Queue* q = InitQueue();
-    if (T)
-    {
-        EnterQueue(q, T);
-        while (!IsEmptyQueue(q))
-        {
-            TElement result = *GetHeadValue(q);
-            DeleteQueue(q);
-            if (result->Data == value) {
-                DestroyQueue(&q);
-                return result;
-            }
-            if (result->Left) EnterQueue(q, result->Left);
-            if (result->Right) EnterQueue(q, result->Right);
-        }    
-    }
-    DestroyQueue(&q);
-    return NULL;
-}
-
-/*找到第一个指定value匹配的BiNode的parent*/
-/*value：需要指定匹配的value*/
-BiTree Parent(BiTree T, Element value)
-{
-    Queue* q = InitQueue();
-    if (T)
-    {
-        EnterQueue(q, T);
-        while (!IsEmptyQueue(q))
-        {
-            TElement result = *GetHeadValue(q);
-            DeleteQueue(q);
-            if ((result->Left  && result->Left->Data  == value) || 
-                (result->Right && result->Right->Data == value)) 
-            {
-                DestroyQueue(&q);
-                return result;
-            }
-            if (result->Left) EnterQueue(q, result->Left);
-            if (result->Right) EnterQueue(q, result->Right);
-        }
-    }
-    DestroyQueue(&q);
-    return NULL;
-}
-
-/*找到第一个指定value匹配的BiNode的LeftChild*/
-/*value：需要指定匹配的value*/
-BiTree GetLeftChild(BiTree T, Element value)
-{
-    if (T)
-    {
-        BiTree p = GetFirst_BiNode(T, value);
-        if (p && p->Left) return p->Left;
-    }
-    return NULL;
-}
-
-/*找到第一个指定value匹配的BiNode的RightChild*/
-/*value：需要指定匹配的value*/
-BiTree GetRightChild(BiTree T, Element value)
-{
-    if (T)
-    {
-        BiTree p = GetFirst_BiNode(T, value);
-        if (p && p->Right) return p->Right;
-    }
-    return NULL;
 }
