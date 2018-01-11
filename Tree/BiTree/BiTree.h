@@ -2,7 +2,7 @@
 #include<stdlib.h>
 #define PRINT_STRING(x) printf("%s\n",x)
 
-typedef int BiTreeData;  //import到其他文件时候需要修改该类型
+typedef int BiTreeData;  //import到其他文件时候需要修改该类型,Destroy是否需要free掉BiTreeData
 
 typedef struct BiNode {
     BiTreeData data;
@@ -107,6 +107,7 @@ void Destroy_BiTree(BiTree** T)
     if (*T != NULL){
         Destroy_BiTree(&((*T)->lchild));
         Destroy_BiTree(&((*T)->rchild));
+        //free((*T)->data)
         free(*T);
         *T = NULL;
     }
