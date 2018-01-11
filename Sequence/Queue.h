@@ -18,7 +18,7 @@ typedef struct Node {
 }Node;
 
 typedef struct Queue {
-    Node* front;    //Í·ÉÚ±ø
+    Node* front;    //Í·ÉÚ±ø[²»´ædata]
     Node* rear;     //Î²ÉÚ±ø
     int count;
 }Queue;
@@ -90,7 +90,7 @@ void En_Queue(Queue* Q, TElement value)
 TElement* GetValue_Queue(Queue* Q)
 {
     if (IsEmpty_Queue(Q)) return NULL;
-    return &(Q->front->data);
+    return &(Q->front->next->data);
 }
 
 /*³ö¶Ó*/
