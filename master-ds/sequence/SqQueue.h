@@ -89,6 +89,7 @@ int destroySqQueue(SqQueue** Q)
     if (clearSqQueue(*Q) == 0) return 0;
     free((*Q)->data);
     (*Q)->data = NULL;
+    free(*Q);
     *Q = NULL;
     return 1;
 }
