@@ -87,9 +87,7 @@ int destroyQueue(Queue** Q)
         p = NULL;
     }
     free((*Q)->front);
-    (*Q)->front = NULL;
-    (*Q)->front = NULL;
-    (*Q)->count = 0;
+    free(*Q);
     *Q = NULL;
     return 1;
 }
