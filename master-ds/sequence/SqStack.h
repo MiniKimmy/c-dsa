@@ -27,7 +27,7 @@ SqStack* initSqStack()
     stack->data = (int*)malloc(sizeof(int) * SqStackInitSIZE);
     stack->capacity = SqStackInitSIZE;
     stack->top = -1;
-    return stack;    
+    return stack;
 }
 
 
@@ -88,6 +88,7 @@ int destroySqStack(SqStack** S)
 
     free((*S)->data);
     (*S)->data = NULL;
+    free(*S);
     *S = NULL;
     return 1;
 }
