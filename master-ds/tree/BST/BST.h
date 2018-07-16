@@ -6,6 +6,7 @@ typedef struct BNode {
 }BST;
 
 #define EXITTAG -2018
+#define ARRAYSIZE 10
 #include"queue.h"
 
 #pragma region BSTFunctions
@@ -27,17 +28,19 @@ void inOrderBST(BST* T);
 void preOrderBST(BST* T);
 void postOrderBST(BST* T);
 void levelOrderBST(BST* T);
+void levelOrderBST_SqQueue(BST* T);
+void inOrderNonrecursion(BST* T);
+void preOrderNonrecursion(BST* T);
+void postOrderNonrecursion(BST* T);
 #pragma endregion
 
 
-BST* initBST()
-{
+BST* initBST(){
     BST* ret = NULL;
     return ret;
 }
 
-BST* createBSTByKeys()
-{
+BST* createBSTByKeys(){
     int n;
     printf("请输入需要添加的结点总数(输入-2018退出): ");
     scanf_s("%d", &n);
@@ -57,18 +60,19 @@ BST* createBSTByKeys()
     {
         printf("请输入第[%d]个的结点key: ", i);
         scanf_s("%d", &key);
+        if (key == EXITTAG) exit(0);
+    
         printf("请输入第[%d]个的结点value: ", i);
         scanf_s("%d", &value);
-
-        if (key == EXITTAG) exit(0);
-        insertBST(&root, key, i + 1);
+        if (value == EXITTAG) exit(0);
+    
+        insertBST(&root, key, value);
     }
 
     return root;
 }
 
-int insertBST(BST** T, int key, int value)
-{
+int insertBST(BST** T, int key, int value){
     if (*T == NULL) {
         *T = (BST*)malloc(sizeof(BST));
         (*T)->lchild = NULL;
@@ -85,8 +89,7 @@ int insertBST(BST** T, int key, int value)
     return 0 ;
 }
 
-BST* getParentBST(BST* T ,int key)
-{
+BST* getParentBST(BST* T ,int key){
     if (T == NULL || (T && T->key == key)) return NULL;
     if ((T->lchild && T->lchild->key == key) || (T->rchild &&T->rchild->key == key) ) return T;
     else if (T->key > key) {
@@ -97,20 +100,17 @@ BST* getParentBST(BST* T ,int key)
     return NULL;
 }
 
-BST* getLChildBST(BST* T, int key)
-{
+BST* getLChildBST(BST* T, int key){
     BST* p = searchBST(T, key);
     return p?p->lchild:NULL;
 }
 
-BST* getRChildBST(BST* T, int key)
-{
+BST* getRChildBST(BST* T, int key){
     BST* p = searchBST(T, key);
     return p?p->rchild:NULL;
 }
 
-BST* getMaxBST(BST* T)
-{
+BST* getMaxBST(BST* T){
     if (T == NULL) return T;
     if (T->rchild) {
         return getMaxBST(T->rchild);
@@ -119,8 +119,7 @@ BST* getMaxBST(BST* T)
     }
 }
 
-BST* getMinBST(BST* T)
-{
+BST* getMinBST(BST* T){
     if (T == NULL) return T;
     if (T->lchild) {
         return getMinBST(T->lchild);
@@ -129,8 +128,7 @@ BST* getMinBST(BST* T)
     }
 }
 
-int deleteMinBST(BST** T)
-{
+int deleteMinBST(BST** T){
     if (*T == NULL) return 0;
 
     if ((*T)->lchild && (*T)->lchild->lchild == NULL) {
@@ -148,8 +146,7 @@ int deleteMinBST(BST** T)
     }
 }
 
-int deleteMaxBST(BST** T)
-{
+int deleteMaxBST(BST** T){
     if (*T == NULL) return 0;
 
     if ((*T)->rchild && (*T)->rchild->rchild == NULL) {
@@ -167,8 +164,7 @@ int deleteMaxBST(BST** T)
     }
 }
 
-int deleteBST(BST** T, int key)
-{
+int deleteBST(BST** T, int key){
     if ((*T) == NULL) return 0;
 
     if ((*T)->key > key) {
@@ -207,17 +203,18 @@ int deleteBST(BST** T, int key)
             lChild_max = NULL;
             (*T)->data = mark_lChild->data;
             (*T)->key = mark_lChild->key;
+            return 1;
         }else {
             //若无左右Child直接free,使用**指针ref,所删掉即与原Souce同步删除.
             free(*T);
             *T = NULL;
+            return 1;
         }
     }
     return 0;
 }
 
-BST* searchBST(BST* T, int key)
-{
+BST* searchBST(BST* T, int key){
     if (T == NULL) return NULL;
 
     if (T->key > key) {
@@ -230,16 +227,14 @@ BST* searchBST(BST* T, int key)
     return NULL;
 }
 
-int getDepthBST(BST* T)
-{
+int getDepthBST(BST* T){
     int i,j = 0;
     i = T->lchild? getDepthBST(T->lchild) : 0;
     j = T->rchild? getDepthBST(T->rchild) : 0;
     return i > j ? ++i : ++j;
 }
 
-int destroyBST(BST** T)
-{
+int destroyBST(BST** T){
     if (*T == NULL) return 0;
     
     destroyBST(&((*T)->lchild));
@@ -249,8 +244,7 @@ int destroyBST(BST** T)
     return 1;
 }
 
-void inOrderBST(BST* T)
-{
+void inOrderBST(BST* T){
     if (T == NULL) return;
 
     inOrderBST(T->lchild);
@@ -259,8 +253,7 @@ void inOrderBST(BST* T)
     return;
 }
 
-void preOrderBST(BST* T)
-{
+void preOrderBST(BST* T){
     if (T == NULL) return;
 
     printf("%d\n", T->data);
@@ -269,8 +262,7 @@ void preOrderBST(BST* T)
     return;
 }
 
-void postOrderBST(BST* T)
-{
+void postOrderBST(BST* T){
     if (T == NULL) return;
 
     postOrderBST(T->lchild);
@@ -279,8 +271,7 @@ void postOrderBST(BST* T)
     return;
 }
 
-void levelOrderBST(BST* T)
-{
+void levelOrderBST(BST* T){
     if (T == NULL) return;
     Queue* q = initQueue();
     enQueue(q, T);
@@ -294,5 +285,104 @@ void levelOrderBST(BST* T)
     }
 
     destroyQueue(&q);
+    return;
+}
+
+void levelOrderBST_SqQueue(BST* T) {
+    
+    if (T == NULL) return;
+    int front = 0;
+    int rear = 0;
+
+    BST** sqQueue = (BST**)malloc(sizeof(BST*) * ARRAYSIZE);
+    sqQueue[rear] = T;
+    rear = (rear + 1) % ARRAYSIZE;
+
+    while (rear != front) {
+        BST* t = sqQueue[front];
+        front = (front + 1) % ARRAYSIZE;
+        printf("[%d]=%d, ", t->key,t->data);
+
+        if (t->lchild) {
+            sqQueue[rear] = t->lchild;
+            rear = (rear + 1) % ARRAYSIZE;
+        }
+        if (t->rchild) {
+            sqQueue[rear] = t->rchild;
+            rear = (rear + 1) % ARRAYSIZE;
+        }
+    }
+
+    free(sqQueue);
+    return;
+}
+
+void preOrderNonrecursion(BST* T) {
+
+    if (T == NULL) return NULL;
+    BST** stack = (BST**)malloc(sizeof(BST*) * ARRAYSIZE);
+    int top = -1;
+    stack[++top] = T;
+
+    while (top != -1) {
+        BST* t = stack[top--];
+        printf("[%d]=%d, ", t->key, t->data);
+        if (t->rchild) stack[++top] = t->rchild;
+        if (t->lchild) stack[++top] = t->lchild;
+    }
+
+    free(stack);
+    return;
+}
+
+void inOrderNonrecursion(BST* T) {
+
+    if (T == NULL) return NULL;
+    BST** stack = (BST**)malloc(sizeof(BST*) * ARRAYSIZE);
+    int top = -1;
+
+    BST* t = T; //root视作无parent的左Child
+    while (top != -1 || t != NULL) {
+        while (t != NULL) {
+            stack[++top] = t;
+            t = t->lchild;            
+        }
+
+        if (top != -1) {
+            t = stack[top--]; //重置上一个左Child
+            printf("[%d]=%d, ", t->key, t->data);
+            t = t->rchild;   //右移一下,然后把左边的树都先输出~
+        }    
+    }
+
+    free(stack);
+    return;
+}
+
+void postOrderNonrecursion(BST* T) {
+    //先序(非递归)的左Child/右Child进栈顺序相反-->获得逆后续遍历(非递归)-->再重新堆栈逆一遍则是后续遍历(非递归)
+    if (T == NULL) return NULL;
+    BST** stack1 = (BST**)malloc(sizeof(BST*) * ARRAYSIZE);
+    int top1 = -1;
+    
+    BST** stack2 = (BST**)malloc(sizeof(BST*) * ARRAYSIZE);
+    int top2 = -1;
+
+    stack1[++top1] = T;
+    while (top1 != -1) {
+        BST* t1 = stack1[top1--];
+        
+        stack2[++top2] = t1;
+        if (t1->lchild) stack1[++top1] = t1->lchild;
+        if (t1->rchild) stack1[++top1] = t1->rchild;
+    }
+
+    while (top2 != -1) {
+        BST* t2 = stack2[top2--];
+        printf("[%d]=%d, ", t2->key,t2->data); 
+    }
+
+    free(stack1);
+    free(stack2);
     return;
 }
