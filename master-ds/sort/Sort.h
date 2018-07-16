@@ -22,7 +22,6 @@ void heapSort(int* arr,int arrSize);
 void heapSort_sink(int* heap, int start, int arrSize);
 #pragma endregion
 
-
 void bubbleSort(R arr){
     if (arr == NULL) {
         printf("NullReferenceException. method:'bubbleSort'\n");
@@ -46,8 +45,8 @@ void selectSort(R arr) {
     {
         int pos = i;
         for (int j = i+1; j < arr->len; j++){
-            if (comparerCustom(NULL, arr, pos, j) == SORTORDER) 
-                pos = j;    
+            if (comparerCustom(NULL, arr, pos, j) == SORTORDER)
+                pos = j;
         }
 
         if (pos != i) swapCustom(NULL, arr, i, pos);
@@ -68,7 +67,7 @@ void insertSort(R arr)
             arr->data[j+1] = arr->data[j];
             pos = j;
         }
-        
+
         if (pos != i) {
             arr->data[pos] = temp;
         }
@@ -87,7 +86,7 @@ void shellSort(R arr)
     while (k >= 1) {
         for (int i = k; i < arr->len; i=i+k)
         {
-            int pos = i; 
+            int pos = i;
             E temp = arr->data[i];
             for (int j = i-k; j >= 0 && comparerDefault(NULL,arr->data[j],temp) == SORTORDER; j = j-k)
             {
@@ -125,17 +124,17 @@ void mergeSort_merge(R arr, int left, int right, int mid) {
 
     int i = left;
     int j = mid+1;
-    
+
     R temp = (R)malloc(sizeof(T));
     temp->len = right - left + 1;
     temp->data = (int*)malloc(sizeof(int) * temp->len);
-    
+
     for (int k = 0; k < temp->len; k++) {
         temp->data[k] = arr->data[k+left];
     }
 
     for (int k = left; k < left + temp->len; k++){
-        
+
         if (i > mid) arr->data[k] = temp->data[j++ - left];
         else if(j>right) arr->data[k] = temp->data[i++ - left];
         else if(comparerDefault(NULL,temp->data[i-left],temp->data[j-left]) == SORTORDER) arr->data[k] = temp->data[j++ - left];
@@ -151,14 +150,14 @@ void quickSort_doubleWay(R arr)
         printf("NullReferenceException. method:'quickSort_doubleWay'\n");
         return;
     }
-    
+
     quickSort_doubleWay_portion(arr, 0, arr->len-1);
 }
 
 void quickSort_doubleWay_portion(R arr, int left, int right)
 {
     if (left >= right) return;
-    
+
     int random = rand() % (right-left +1) + left; //ex: rand()%11 + 10表示 "10~20"的整数
     swapCustom(NULL, arr, left, random);
 

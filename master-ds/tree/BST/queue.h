@@ -1,6 +1,7 @@
 #include<stdlib.h>
 #include<stdio.h>
 
+#define ISDATAREFERENCE 1
 typedef BST* TElement;
 
 typedef struct QNode {
@@ -43,8 +44,7 @@ int enQueue(Queue* Q, TElement value)
     if (Q->count == 0) {
         Q->front = p;
         Q->rear = p;
-    }
-    else {
+    }else {
         Q->rear->next = p;
         Q->rear = p;
     }
@@ -56,7 +56,7 @@ int deQueue(Queue* Q)
 {
     if (Q == NULL || Q->count == 0) return 0;
     if (Q->front == Q->rear) {
-        //free(Q->front->data);    //TElement是指针时不要使用free(front->data)
+        ///free(Q->front->data);    //data是指针的话不要free掉.外部获取到后自行处理free.
         free(Q->front);
         Q->front = NULL;
         Q->rear = NULL;
@@ -71,7 +71,7 @@ int deQueue(Queue* Q)
     return 1;
 }
 
-TElement* peek(Queue* Q) // TElement = BST*  -- TElement* = BST**  
+TElement* peek(Queue* Q) 
 {
     if (Q == NULL || Q->count == 0) return NULL;
     else return &(Q->front->data);
@@ -85,7 +85,10 @@ int destroyQueue(Queue** Q)
     while ((*Q)->front != (*Q)->rear) {
         p = (*Q)->front;
         (*Q)->front = p->next;
-        free(p->data);    //TElement是指针时使用free(p->data)
+#if ISDATAREFERENCE
+//TElement是指针时使用free(p->data)
+        free(p->data);    
+#endif // ISDATAREFERENCE
         free(p);
         p = NULL;
     }

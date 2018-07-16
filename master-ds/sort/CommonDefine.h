@@ -50,7 +50,6 @@ E minExample(E e1, E e2) {
     return e1 < e2 ? e1 : e2;
 }
 
-
 int maxIndexExample(R r, int i, int j ) {
     return comparerDefault(ComparerExample,r->data[i], r->data[j]) != 1 ? j : i;
 }
@@ -107,14 +106,12 @@ void disposeDefault(void** t);
 #pragma endregion
 
 
-void swapCustom(void(*swap)(R r, int i, int j), R r, int i, int j)
-{
+void swapCustom(void(*swap)(R r, int i, int j), R r, int i, int j){
     if (*swap == NULL) swapExample(r, i, j);
     else swap(r, i, j);
 }
 
-void swapDefault(int* t, int i, int j)
-{
+void swapDefault(int* t, int i, int j){
     if (t == NULL) {
         printf("NullReferenceException. method:'swapDefault' ");
     }
@@ -124,8 +121,7 @@ void swapDefault(int* t, int i, int j)
     t[j] = temp;
 }
 
-int minIndexDefault(int* t, int i, int j)
-{
+int minIndexDefault(int* t, int i, int j){
     if (t == NULL) {
         printf("NullReferenceException. method:'minIndexDefault' ");
         return -1;
@@ -133,8 +129,7 @@ int minIndexDefault(int* t, int i, int j)
     return t[i] > t[j] ? j : i;
 }
 
-int maxIndexDefault(int* t, int i, int j)
-{
+int maxIndexDefault(int* t, int i, int j){
     if (t == NULL) {
         printf("NullReferenceException. method:'maxIndexDefault' ");
         return -1;
@@ -149,7 +144,6 @@ void disposeDefault(void** t) {
     free(*t);
     *t = NULL;
 }
-
 
 int maxIndexCustom(int(*maxIndex)(R r,int i,int j), R r, int i, int j) {
     if (*maxIndex == NULL) maxIndexExample(r, i, j);
@@ -182,11 +176,11 @@ int comparerCustom(int(*Comparer)(R r, int i,int j), R r, int i,int j) {
 }
 
 void traverseCustom(void(*traverse)(R r), R r) {
-    if (*traverse == NULL) traverseExample(r); 
+    if (*traverse == NULL) traverseExample(r);
     else traverse(r);
 }
 
 void disposeCustom(void(*dispose)(R* r), R* r) {
-    if (*dispose == NULL) disposeExample(r); 
+    if (*dispose == NULL) disposeExample(r);
     else dispose(r);
 }
