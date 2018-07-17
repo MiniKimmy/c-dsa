@@ -54,18 +54,18 @@ BST* createBSTByKeys(){
 
     BST* root = initBST();
 
-    int value; 
+    int value;
     int key;
     for (int i = 0; i < n; i++)
     {
         printf("请输入第[%d]个的结点key: ", i);
         scanf_s("%d", &key);
         if (key == EXITTAG) exit(0);
-    
+
         printf("请输入第[%d]个的结点value: ", i);
         scanf_s("%d", &value);
         if (value == EXITTAG) exit(0);
-    
+
         insertBST(&root, key, value);
     }
 
@@ -189,7 +189,7 @@ int deleteBST(BST** T, int key){
             (*T)->key = mark_rChild->key;
             return 1;
         }
-        
+
         //如果只有LChild
         else if((*T)->lchild){
             BST* lChild_max = getMaxBST((*T)->lchild);
@@ -236,7 +236,7 @@ int getDepthBST(BST* T){
 
 int destroyBST(BST** T){
     if (*T == NULL) return 0;
-    
+
     destroyBST(&((*T)->lchild));
     destroyBST(&((*T)->rchild));
     free(*T);
@@ -275,7 +275,7 @@ void levelOrderBST(BST* T){
     if (T == NULL) return;
     Queue* q = initQueue();
     enQueue(q, T);
-    
+
     while (q->count != 0) {
         BST* t = *peek(q);
         deQueue(q);
@@ -289,7 +289,7 @@ void levelOrderBST(BST* T){
 }
 
 void levelOrderBST_SqQueue(BST* T) {
-    
+
     if (T == NULL) return;
     int front = 0;
     int rear = 0;
@@ -319,7 +319,7 @@ void levelOrderBST_SqQueue(BST* T) {
 
 void preOrderNonrecursion(BST* T) {
 
-    if (T == NULL) return NULL;
+    if (T == NULL) return;
     BST** stack = (BST**)malloc(sizeof(BST*) * ARRAYSIZE);
     int top = -1;
     stack[++top] = T;
@@ -337,7 +337,7 @@ void preOrderNonrecursion(BST* T) {
 
 void inOrderNonrecursion(BST* T) {
 
-    if (T == NULL) return NULL;
+    if (T == NULL) return;
     BST** stack = (BST**)malloc(sizeof(BST*) * ARRAYSIZE);
     int top = -1;
 
@@ -345,14 +345,14 @@ void inOrderNonrecursion(BST* T) {
     while (top != -1 || t != NULL) {
         while (t != NULL) {
             stack[++top] = t;
-            t = t->lchild;            
+            t = t->lchild;
         }
 
         if (top != -1) {
             t = stack[top--]; //重置上一个左Child
             printf("[%d]=%d, ", t->key, t->data);
             t = t->rchild;   //右移一下,然后把左边的树都先输出~
-        }    
+        }
     }
 
     free(stack);
@@ -361,17 +361,17 @@ void inOrderNonrecursion(BST* T) {
 
 void postOrderNonrecursion(BST* T) {
     //先序(非递归)的左Child/右Child进栈顺序相反-->获得逆后续遍历(非递归)-->再重新堆栈逆一遍则是后续遍历(非递归)
-    if (T == NULL) return NULL;
+    if (T == NULL) return;
     BST** stack1 = (BST**)malloc(sizeof(BST*) * ARRAYSIZE);
     int top1 = -1;
-    
+
     BST** stack2 = (BST**)malloc(sizeof(BST*) * ARRAYSIZE);
     int top2 = -1;
 
     stack1[++top1] = T;
     while (top1 != -1) {
         BST* t1 = stack1[top1--];
-        
+
         stack2[++top2] = t1;
         if (t1->lchild) stack1[++top1] = t1->lchild;
         if (t1->rchild) stack1[++top1] = t1->rchild;
@@ -379,7 +379,7 @@ void postOrderNonrecursion(BST* T) {
 
     while (top2 != -1) {
         BST* t2 = stack2[top2--];
-        printf("[%d]=%d, ", t2->key,t2->data); 
+        printf("[%d]=%d, ", t2->key,t2->data);
     }
 
     free(stack1);
