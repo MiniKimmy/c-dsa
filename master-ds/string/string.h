@@ -40,7 +40,7 @@ String* charArrayToString(char* ch)
 
     for (int i = 0; i < charSize; i++)
         str->ch[i] = ch[i];
-    
+
     str->ch[charSize] = '\0';
     return str;
 }
@@ -51,6 +51,7 @@ int getCharArrayLength(char* ch)
 
     int len = 0;
     char* c = ch;  //获取ch的第一个元素的地址
+                   //若使用char str[maxsize]配合gets_s赋值来传入给ch也可以
     while (*c) {   //必须以 "hello" 或者 {'h','i','\0'} 的形式传参给ch
         len++;
         c++;       //指向下一个地址
@@ -99,9 +100,9 @@ int compareString(String* str1, String* str2) {
 
 int compareCharArray(char* ch1, char* ch2) {
 
-    char* i = ch1;   
+    char* i = ch1;
     char* j = ch2;
-    while (*i && *j) {   
+    while (*i && *j) {
         if (*i > *j) return 1;
         else if (*i < *j) return -1;
         else {
@@ -139,9 +140,9 @@ String* subStr(String* str, int start, int end)
     ret->length = end - start + 1;
     ret->ch = (char*)malloc(sizeof(char) * (ret->length + 1));
 
-    for (int i = start; i <= end; i++) 
+    for (int i = start; i <= end; i++)
         ret->ch[i- start] = str->ch[i];
-    
+
     ret->ch[ret->length] = '\0';
     return ret;
 }
@@ -180,7 +181,7 @@ String* concat(String* str1, String* str2)
 
     for (int i = 0; i < str2->length; i++)
         ret->ch[i + str1->length] = str2->ch[i];
-    
+
     ret->ch[ret->length + 1] = '\0';
     return ret;
 }
