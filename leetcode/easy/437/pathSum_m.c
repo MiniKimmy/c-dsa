@@ -19,8 +19,7 @@ The tree has no more than 1,000 nodes and the values are in the range -1,000,000
  * };
  */
 
-//ä¸‹é¢è¿™æ ·åšæ³•æ˜?æ‰¾åˆ°ç¬¦åˆ'sum'å°±ç«‹åˆ»è¿”å›ä¸ç»§ç»­å¾€ä¸‹æ‰¾.
-//ps:[ä¸æ˜¯åŸæ¥é¢˜ç›®çš„è¦æ±‚é‚£æ ·å°±ç®—ç¬¦åˆäº†â€˜sumâ€™ä¹Ÿç»§ç»­å¾€ä¸‹æ‰¾åˆ°æ ‘åº•~]
+//Q437ÌâÄ¿ÊÇÒ»Ö±ÕÒ£¬ÕÒµ½Ê÷µ×£¬ÏÂÃæµÄĞ´·¨ÊÇÕÒµ½¡®sum¡¯¾ÍÁ¢¿Ì·µ»Ø.
 
 int getRes(struct TreeNode* root, int sum){
     if(root->val == sum) return 1;
