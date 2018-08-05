@@ -35,8 +35,9 @@ Explanation: 4 boats (3), (3), (4), (5)
 
 ## hints:
 ```
-   collision-pointers
-   ![可类比这里](../../easy/680/validPalindrome.c): Leetcode的一道题.
+   ------Collision-pointers------
+
+   ![可类比这里](../leetcode/easy/680/validPalindrome.c): Leetcode的一道题.
    1.quick sort first and I'd believe the ascending order is better.
 
    Like:   small     ...      big
