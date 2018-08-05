@@ -23,7 +23,7 @@ Output: 17
 **Explanation:**:
 Here are the three projections ("shadows") of the shape made with each axis-aligned plane.
 <br/>
-<img src="https://raw.githubusercontent.com/MiniKimmy/Repositories/master/c-dsa/leetcode/weekly/887/shadow.png" alt="can't find pic" width="800px">
+<img src="https://raw.githubusercontent.com/MiniKimmy/c-dsa/master/leetcode/weekly/887/shadow.png" alt="can't find pic" width="800px">
 <br/>
 
 **Example3:**
@@ -45,9 +45,9 @@ Output: 21
 ```
 
 
-**Note:**
-    1 <= grid.length = grid[0].length <= 50
-    0 <= grid[i][j] <= 50
+**Note:**<br/>
+    1 <= grid.length = grid[0].length <= 50<br/>
+    0 <= grid[i][j] <= 50<br/>
 
 
 ## hints:
