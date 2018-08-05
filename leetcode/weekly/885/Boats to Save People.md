@@ -34,7 +34,7 @@ Explanation: 4 boats (3), (3), (4), (5)
     1 <= people[i] <= limit <= 30000 <br/>
 
 ## hints:
-![可类比这里](../../leetcode/easy/680/): Leetcode的一道题.
+![可类比这里](../../easy/680/): Leetcode的一道题.
 ```
    ------Collision-pointers------
    1.quick sort first and I'd believe the ascending order is better.
