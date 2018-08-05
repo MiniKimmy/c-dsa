@@ -1,6 +1,5 @@
 ## Q887.Projection Area of 3D Shapes
 
-# Des
 On a N * N grid, we place some 1 * 1 * 1 cubes that are axis-aligned with the x, y, and z axes.
 Each value v = grid[i][j] represents a tower of v cubes placed on top of grid cell (i, j).
 Now we view the projection of these cubes onto the xy, yz, and zx planes.
@@ -10,56 +9,55 @@ Here, we are viewing the "shadow" when looking at the cubes from the top, the fr
 
 Return the total area of all three projections.
 
+**Example1:**
 ```
-# Example 1:
 Input: [[2]]
 Output: 5
 ```
 
+**Example2:**
 ```
-# Example 2:
 Input: [[1,2],[3,4]]
 Output: 17
-
-Explanation:
+```
+**Explanation:**:
 Here are the three projections ("shadows") of the shape made with each axis-aligned plane.
 <br/>
-<img src="file://C:/Users/MiniKimmy/Desktop/shadow.png" alt="can't find pic" width="800px">
+<img src="https://raw.githubusercontent.com/MiniKimmy/Repositories/master/c-dsa/leetcode/weekly/887/shadow.png" alt="can't find pic" width="800px">
 <br/>
-```
 
+**Example3:**
 ```
-# Example 3:
 Input: [[1,0],[0,2]]
 Output: 8
 ```
 
+**Example4:**
 ```
-# Example 4:
 Input: [[1,1,1],[1,0,1],[1,1,1]]
 Output: 14
 ```
 
+**Example5:**
 ```
-# Example 5:
 Input: [[2,2,2],[2,1,2],[2,2,2]]
 Output: 21
 ```
 
-```
-Note:
+
+**Note:**
     1 <= grid.length = grid[0].length <= 50
     0 <= grid[i][j] <= 50
-```
 
-# minikimmy-hints:
+
+## hints:
 ```
 define: row    --> i
         column --> j
 
- * top view: the elements' count of every i, but careful the element is 0
- * front view: max element in each i
- * left view: max element in each j
+ 1.top view: the elements' count of every i, but careful the element is 0
+ 2.front view: max element in each i
+ 3.left view: max element in each j
 ```
 
 ## Solutions
