@@ -15,14 +15,15 @@ Explanation:
 The average value of nodes on level 0 is 3,  on level 1 is 14.5, and on level 2 is 11. Hence return [3, 14.5, 11].
 ```
 
-**Note:**<br\>
-    The range of node's value is in the range of 32-bit signed integer.<br\>
+**Note:**<br/>
+    The range of node's value is in the range of 32-bit signed integer.<br/>
 
 ## hints:
     * BFS Skill
 ```
     1. When first time got the whole 'Border Path' in one Node, we can let it flush all this Paths at this moment.
-    2. It means we finds all ways in a crossroad such as called "A-Road", we can show around. Every path we also can see another crossroads, and mark down this crossroad in Queue with the order the path of "A-Road" you comes first.
+    2. It means we finds all ways in a crossroad such as called "A-Road", we can show around.
+    Every path we also can see another crossroads, and mark down this crossroad in Queue with the order the path of "A-Road" you comes first.
 
     just like this Question Example:
     ex: "A-Road"(3)  : 9 20
@@ -42,7 +43,7 @@ The average value of nodes on level 0 is 3,  on level 1 is 14.5, and on level 2 
 ```
 
 ## Solution
-
+``` c
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -180,3 +181,5 @@ double* averageOfLevelsInner(struct TreeNode* root, int* returnSize){
     return ret;
 }
 */
+
+```
