@@ -41,7 +41,7 @@ Output: false
           3.preorder %% postorder failed.
 
     caution:DONT UES GLOBAL VARIABLE.
-    because GitHub 'Submit Solution' is one-off test all data.
+    because leetcode 'Submit Solution' is one-off test all data.
 ```
 
 ## Solution
