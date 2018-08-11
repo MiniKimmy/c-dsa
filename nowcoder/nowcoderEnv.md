@@ -1,17 +1,14 @@
-## Env
+## CODING INDEX:
 
 * https://www.nowcoder.com/activity/oj
 * https://www.nowcoder.com/kaoyan/detail/12002/68
 
-## predefined
+## Env
+* Need predefined
+* Need typedef
 ``` c
 #include <stdio.h>
-#include <stdlib.h>
-#define N 101
-```
 
-## STRUCT
-```c
 typedef struct example{
     struct Node* lchild;
     struct Node* rchild;
@@ -19,17 +16,16 @@ typedef struct example{
 }Node;
 ```
 
+
 ## INPUT
 
-* read a Line string
-
+### Read a Line string
 **Example 1:**
-```
+``` c
  input:"abcdefg" \n  //('\n' is ending)
  str = "abcdefg"
-```
-**demo**
-``` c
+//--------------------------------------
+
 unsigned pos; //cur_str
 char str[N];  //get testdata from console.
 
@@ -52,39 +48,35 @@ int main(void){
   return 0;
 }
 ```
-<br/>
-<br/>
-* read int[]
+
+### read int[]
 **Example 1:**
-```
+``` c
 int test[5]
    intput: 1 2 3 4
    test = {1,2,3,4, 1118823424};
-```
-**Example 2:**
-```
+
 int test[5]
    intput: 1 2 3 4 5
    test = {1,2,3,4,5};
-```
-**demo**
-``` c
+//-----------------------------
+
 int main(){
   int test[5];
   int i = 0;
   while(scanf("%d", &(test[i++])) != EOF);
 }
 ```
-<br/>
-* read Temp and int[]
+
+
+### Read Temp and int[]
 **Example 3:**
-```
+``` c
 intput:100 1 2 3 4 5
 test[5] test={1,2,3,4,5};
 temp=100;
-```
-**demo:**
-```c
+//---------------------------
+
 int main(){
     int temp;
     scanf("%d",&temp);
@@ -94,17 +86,17 @@ int main(){
     while(i<5){
         scanf("%d", &(test[i++]));
     }
+
 ```
-<br/>
-* read Temp1 and Temp2
+
+### read Temp1 and Temp2
 **Example 4:**
-```
+``` c
 input 100 200
 temp1 = 100
 temp2 = 200
-```
-   **demo:**
-```c
+//------------------------
+
 int main(void){
     int temp1,temp2;
     scanf("%d%d",&temp1,%temp2);

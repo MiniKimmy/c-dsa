@@ -1,136 +1,118 @@
-## Q885.Boats to Save People
+## Q887.Projection Area of 3D Shapes
 
-The i-th person has weight people[i], and each boat can carry a maximum weight of limit.
+On a N * N grid, we place some 1 * 1 * 1 cubes that are axis-aligned with the x, y, and z axes.
+Each value v = grid[i][j] represents a tower of v cubes placed on top of grid cell (i, j).
+Now we view the projection of these cubes onto the xy, yz, and zx planes.
 
-Each boat carries at most 2 people at the same time, provided the sum of the weight of those people is at most limit.
+A projection is like a shadow, that maps our 3 dimensional figure to a 2 dimensional plane.
+Here, we are viewing the "shadow" when looking at the cubes from the top, the front, and the side.
 
-Return the minimum number of boats to carry every given person.  (It is guaranteed each person can be carried by a boat.)
+Return the total area of all three projections.
 
-
-
-**Example 1:**
+**Example1:**
 ```
-Input: people = [1,2], limit = 3
-Output: 1
-Explanation: 1 boat (1, 2)
-```
-
-**Example 2:**
-```
-Input: people = [3,2,2,1], limit = 3
-Output: 3
-Explanation: 3 boats (1, 2), (2) and (3)
+Input: [[2]]
+Output: 5
 ```
 
-**Example 3:**
+**Example2:**
 ```
-Input: people = [3,5,3,4], limit = 5
-Output: 4
-Explanation: 4 boats (3), (3), (4), (5)
+Input: [[1,2],[3,4]]
+Output: 17
+```
+**Explanation:**:
+Here are the three projections ("shadows") of the shape made with each axis-aligned plane.
+<br/>
+<img src="https://raw.githubusercontent.com/MiniKimmy/c-dsa/master/leetcode/weekly/887/shadow.png" alt="can't find pic" width="800px">
+<br/>
+
+**Example3:**
+```
+Input: [[1,0],[0,2]]
+Output: 8
 ```
 
-**Note:**<br/>
-    1 <= people.length <= 50000 <br/>
-    1 <= people[i] <= limit <= 30000 <br/>
+**Example4:**
+```
+Input: [[1,1,1],[1,0,1],[1,1,1]]
+Output: 14
+```
+
+**Example5:**
+```
+Input: [[2,2,2],[2,1,2],[2,2,2]]
+Output: 21
+```
+
+
+**Note:**
+    1 <= grid.length = grid[0].length <= 50
+    0 <= grid[i][j] <= 50
+
 
 ## hints:
-![可类比这里](../../easy/680/validPalindrome.c): Leetcode的一道题.
 ```
-   ------Collision-pointers------
-   1.quick sort first and I'd believe the ascending order is better.
+define: row    --> i
+        column --> j
 
-   Like:   small     ...      big
-          left->              <-right
-
-   2.left-pointer and right-pointer running at the same time
-   3.let right people get on the boat first, then try to allow left people get on the boat.
-   And the troble comes as follows:
-        A. After the left people getting on, and if the boat is overweight, so just let right people leave alone.
-        B. If the boat wasn't still full, it means this time the left person on the boat can leave althougt we dont know whether it can take one more person, it definitly can take at least the left person who have gotten on this boat.
-        C. So the last problem is that, we need to mark a flag to insure the previous boat is whether still have people or not.
-    4. And one more caution is that: check the boat whether still have people on the final boat.
+ 1.top view: the elements' count of every i, but careful the element is 0
+ 2.front view: max element in each i
+ 3.left view: max element in each j
 ```
 
 ## Solutions
 
 ``` csharp
-#region
-void swap(int* arr,int i ,int j){
-    int temp = arr[i];
-    arr[i] = arr[j];
-    arr[j] = temp;
-}
+    public class Solution {
+    public int ProjectionArea(int[][] grid) {
+        if(grid == null) return 0;
 
-void qSort(int* people, int left, int right)
-{
-    if(left >= right){
-        insertSort(people,left,right);
-        return ;
-    }
+        int top = 0;
+        int front = 0;
+        int left = 0;
+        int n = grid.Length;
 
-    int i = left + 1;
-    int j = right;
-
-    while(true){
-        while(i<=right && people[i] < people[left]) ++i;
-        while(j>=left + 1 && people[j] >= people[left]) --j;
-        if(i>j) break;
-        swap(people,i,j);
-        ++i;
-        --j;
-    }
-    swap(people,left,j);
-
-    qSort(people,left,j-1);
-    qSort(people,j+1,right);
-    return;
-}
-
-void insertSort(int* arr,int left,int right){
-    for(int i = left;i<=right;i++){
-        int pos = i;
-        int temp = arr[i];
-        for(int j = i-1; j>= left && arr[j] > temp;j--){
-            arr[j+1] = arr[j];
-            pos = j;
+        //top
+        for (int i = 0; i < n; i++)
+        {
+            int temp_t_max = 0;
+            for (int j = 0; j < n; j++){
+                if(grid[i][j] != 0){
+                    temp_t_max++;
+                }
+            }
+            top += temp_t_max;
         }
-        if(pos != i) arr[i] = temp;
-    }
-}
-#endregion
 
-int numRescueBoats(int* people, int peopleSize, int limit) {
-    if(people == NULL || peopleSize == 0) return 0;
-
-    qSort(people,0,peopleSize-1);
-    int filter = 0;
-    int ret = 0;
-    int left = 0;
-    int right = peopleSize-1;
-    int flag = 0;
-
-    while(left<right){
-        int pre = filter;
-
-        filter = flag ==1
-            ? pre + people[left] + people[right]
-            : people[left] + people[right];
-        if(filter > limit){
-           --right;
-           ++ret;
-           flag = 0;
-        }else if(filter < limit){
-            ++left;
-            flag = 1;
-            filter = pre + people[left];
-        }else{
-            ++left;
-            --right;
-            ++ret;
-            flag = 0;
+        //front
+        for (int i = 0; i < n; i++){
+            int temp_f_max = grid[i][0];
+            for (int j = 1; j < n; j++)
+            {
+               if(grid[i][j] > temp_f_max)
+               {
+                    temp_f_max = grid[i][j];
+               }
+            }
+            front += temp_f_max;
         }
-    }
 
-    return left==right?ret+1:ret; //watch out the final boat.
+        //left
+        for (int i = 0; i < n; i++)
+        {
+            int temp_l_max = grid[0][i];
+            for (int j = 1; j < n; j++)
+            {
+                if (grid[j][i] > temp_l_max)
+                {
+                    temp_l_max = grid[j][i];
+                }
+            }
+            left += temp_l_max;
+        }
+
+        return top + left + front;
+    }
 }
 ```
+
