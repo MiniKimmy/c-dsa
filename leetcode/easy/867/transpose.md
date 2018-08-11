@@ -4,7 +4,7 @@ Given a matrix A, return the transpose of A.
 The transpose of a matrix is the matrix flipped over it's main diagonal, switching the row and column indices of the matrix.
 
 
-Example 1:
+**Example 1:**
 ```
 Input: [[1,2,3],[4,5,6],[7,8,9]]
 Output: [[1,4,7],[2,5,8],[3,6,9]]
@@ -36,17 +36,18 @@ Output: [[1,4],[2,5],[3,6]]
  * Note: Both returned array and *columnSizes array must be malloced, assume caller calls free().
  */
 
+
 int** transpose(int** A, int ARowSize, int *AColSizes, int** columnSizes, int* returnSize) {
-    if(A==NULL)return NULL;
+    if(A == NULL) return NULL;
 
     *columnSizes = (int*)malloc(sizeof(int) * (*AColSizes));
     int** ret = (int**)malloc(sizeof(int*) * (*AColSizes));
 
-    for(int i = 0;i<ARowSize;i++){
+    for(int i = 0;i<(*AColSizes);i++){
         ret[i] = (int*)malloc(sizeof(int) * ARowSize);
         (*columnSizes)[i] = ARowSize;
 
-        for(int j = 0;j<(*AColSizes);j++){
+        for(int j = 0;j<ARowSize;j++){
             ret[i][j] = A[j][i];
         }
     }
