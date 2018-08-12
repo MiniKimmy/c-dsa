@@ -4,7 +4,7 @@ Starting from point (0,0) on a plane, we have written all non-negative integers 
 
 You are to write a program that reads the coordinates of a point (x, y), and writes the number (if any) that has been written at that point. (x, y) coordinates in the input are in the range 0...5000.
 <br/>
-<img src="https://raw.githubusercontent.com/MiniKimmy/c-dsa/master/nowcoder/Peking%20University/easy/numberSteps/img.png" alt="can't find.png" width="250px">
+<img src="https://raw.githubusercontent.com/MiniKimmy/c-dsa/master/nowcoder/PekingUniversity/easy/numberSteps/img.png" alt="can't find.png" width="250px">
 <br/>
 
 ## Input
