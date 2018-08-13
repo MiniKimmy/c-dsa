@@ -13,7 +13,7 @@ each line, there is x, and y representing the coordinates (x, y) of a point.
 ## Output
 For each point in the input, write the number written at that point or write No Number if there is none.
 
-## hint:
+## hint
 ```
     1.see the graph, and find the regulation between x or y with (x,y)
     2.watch out the points didnt exist.
