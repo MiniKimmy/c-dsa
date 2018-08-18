@@ -14,7 +14,7 @@ Input:
 Target = 9
 
 Output: True
-``
+```
 **Example 2:**
 ```
 Input:
@@ -28,6 +28,7 @@ Target = 28
 
 Output: False
 ```
+
 ## hints
 ```
     hashTable && pre-traverse.
@@ -40,6 +41,7 @@ Output: False
 ```
 
 ## Solution
+``` csharp
 
 /**
  * Definition for a binary tree node.
@@ -79,3 +81,4 @@ public class Solution {
         return ret;
     }
 }
+```
