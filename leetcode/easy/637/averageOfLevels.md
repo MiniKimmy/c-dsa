@@ -83,7 +83,6 @@ double* averageOfLevels(struct TreeNode* root, int* returnSize) {
     double sum = 0;
     int level = 0;
 
-    long n = 0;
     while(rear != front){
         long curNodeCount = (rear - front + ARRAYSIZE) % ARRAYSIZE;
         sum = 0.0f;
