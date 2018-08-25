@@ -4,7 +4,6 @@ It is assumed that there are two linear tables in an ascending order of element 
 
 Write an algorithm to merge the two single-linked lists into a single-linked list in descending order of element values.
 
-**Note**
 It is also required to use the nodes of the original two single-linked lists to store the merged single-linked lists.
 
 ## CHINESE
