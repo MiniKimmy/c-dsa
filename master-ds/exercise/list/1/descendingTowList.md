@@ -32,6 +32,11 @@ Output: [10,9,8,7,6,5,3,2,1]
 
 ```
 
+## Analogous
+|                         Nav                               |
+| :--------------------------------------------------------:|
+| ![unionSetTowList](unionSetTowList.md)                    |
+
 
 ## Solution
 ``` c

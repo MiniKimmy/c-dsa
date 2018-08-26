@@ -1,5 +1,5 @@
-## Last 120days.
-* learn coding from leetcode && nowcoder c-dst
+## Last 100days.
+* learn coding from leetcode && nowcoder && c-dst for myself
 
 * ![Leetcode](leetcode/)
 
@@ -7,8 +7,8 @@
 
 * ![exercise](master-ds/exercise/)
 
-### Nav
-| ID   |      CLICK  |                  Dec                  |
-| :----| -----------:|:-------------------------------------:|
-| 1    | ![Solution](master-ds/exercise/list/1/descendingTowList.md)|descendingTowList|
+### Nav-exercise
+| ID   |                                LINK                                          |
+| :----| ----------------------------------------------------------------------------:|
+| 1    | ![descendingTowList](master-ds/exercise/list/1/descendingTowList.md)         |
 
