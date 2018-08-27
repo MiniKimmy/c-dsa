@@ -9,9 +9,9 @@ Please write an algorithm to find the union of A and B AUB.
 两表中的元素皆为递增有序。请写一算法求A和B的并集AUB。
 要求该并集中的元素仍保持递增有序。且要利用A和B的原有结点空间。
 
-**Notes**
-Requires that the elements in the merge set remain ascending in order.
-And we want to use the original node space of A and B.
+**Notes** <br />
+Requires that the elements in the merge set remain ascending in order. <br />
+And we want to use the original node space of A and B. <br />
 
 **Example 1:**
 ```
@@ -39,9 +39,10 @@ Output: [1,2,3,4,5]
 ```
 
 ## Analogous
-|                         Nav                               |
-| :--------------------------------------------------------:|
-| ![descendingTowList](descendingTowList.md)                |
+|                         Nav               |                   Des            |
+| :----------------------------------------:|:--------------------------------:|
+| ![descendingTowList](descendingTowList.md)|将2个升序的链表归并为1个降序的链表|
+| ![interSetTowList](interSetTowList.md)    |将2个升序的链表A∩B为1个链表       |
 
 
 ## Solution

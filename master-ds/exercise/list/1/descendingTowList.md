@@ -4,12 +4,15 @@ It is assumed that there are two linear tables in an ascending order of element 
 
 Write an algorithm to merge the two single-linked lists into a single-linked list in descending order of element values.
 
-It is also required to use the nodes of the original two single-linked lists to store the merged single-linked lists.
+
 
 ## CHINESE
 假设有两个按元素值递增次序排列的线性表，均以单链表形式存储。
 请编写算法将这两个单链表归并为一个按元素值递减次序排列的单链表，
 并要求利用原来两个单链表的结点存放归并后的单链表。
+
+**Note** <br />
+It is also required to use the nodes of the original two single-linked lists to store the merged single-linked lists.
 
 **Example:**
 ```
@@ -33,9 +36,10 @@ Output: [10,9,8,7,6,5,3,2,1]
 ```
 
 ## Analogous
-|                         Nav                               |
-| :--------------------------------------------------------:|
-| ![unionSetTowList](unionSetTowList.md)                    |
+|                         Nav            |           Des             |
+| :-------------------------------------:|:-------------------------:|
+| ![unionSetTowList](unionSetTowList.md) |将2个升序的链表A∪B为1个链表|
+| ![interSetTowList](interSetTowList.md) |将2个升序的链表A∩B为1个链表|
 
 
 ## Solution
