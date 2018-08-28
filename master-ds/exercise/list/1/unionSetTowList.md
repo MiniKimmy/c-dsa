@@ -43,7 +43,7 @@ Output: [1,2,3,4,5]
 | :----------------------------------------:|:--------------------------------:|
 | ![descendingTowList](descendingTowList.md)|将2个升序的链表归并为1个降序的链表|
 | ![interSetTowList](interSetTowList.md)    |将2个升序的链表A∩B为1个链表       |
-
+| ![mixThreeList](mixThreeList.md)          |将3个升序的链表AU(B∩C)为1个链表   |
 
 ## Solution
 ``` c

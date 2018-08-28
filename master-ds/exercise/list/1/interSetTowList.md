@@ -40,7 +40,7 @@ Output: [1,2,5]
     1.we can assume that ListB is ReadOnly.
     2.Start : q < p  , just let q move next merely.
     3.when q > p, we had to move headA's pos.
-    4.when q == p at the first, notify flag set up, which means we couldn't move headA's pos any more.
+    4.when q == p at the first time, set up the flag, which means we couldn't move headA's pos any more.
     5.Hence, we just need to tail-delete pointer "p", and move next pointer "q".
 
 ```
@@ -50,6 +50,7 @@ Output: [1,2,5]
 | :----------------------------------------:|:--------------------------------:|
 | ![descendingTowList](descendingTowList.md)|将2个升序的链表归并为1个降序的链表|
 | ![unionSetTowList](unionSetTowList.md)    |将2个升序的链表A∪B为1个链表       |
+| ![mixThreeList](mixThreeList.md)          |将3个升序的链表AU(B∩C)为1个链表   |
 
 ## Solution
 
