@@ -31,6 +31,12 @@ The Output is unique. Count minList->maxList, or L1->L2 when they are same count
     3.continue to traverse maxList to its tail(max), let tail(max)->next = head(min).
 ```
 
+## Analogous
+|                         Nav            |                   Des                 |
+| :-------------------------------------:|:-------------------------------------:|
+| ![connectCLinkList](connectCLinkList.md)|将循环列表和单链表合成为1个的单链表   |
+
+
 ## Solution
 ``` c
 /**
