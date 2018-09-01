@@ -15,13 +15,18 @@ Input:
 Output: [1,3,4,7]
 ```
 
+**Note**<br />
+The complexity of the space is O(1). <br />
+
 ## hints
 ```
     just like sort array.
 ```
 
-**Note**<br />
-The complexity of the space is O(1). <br />
+## Analogous
+|                         Nav            |                   Des                 |
+| :-------------------------------------:|:-------------------------------------:|
+| ![insertSortLinkList](insertSortLinkList.md)|单链表排序(插入)                  |
 
 ## Solution
 ``` c
