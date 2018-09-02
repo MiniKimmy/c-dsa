@@ -1,6 +1,6 @@
 ## InsertSort LinkList
 
-Given a sigle-list , use insert sort form small to big.
+Given a sigle-list , sort single-list with insertSort.
 
 **Example :**
 ```

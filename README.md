@@ -13,4 +13,5 @@
 | 1    | ![descendingTowList](master-ds/exercise/list/1/descendingTowList.md)         |
 | 2    | ![circleList](master-ds/exercise/list/2/mergeTwoCircleLinkList.md)           |
 | 3    | ![sortList](master-ds/exercise/list/3/sortLinkList.md)                       |
+| 4    | ![splitList](master-ds/exercise/list/4/splitParityList.md)                   |
 
