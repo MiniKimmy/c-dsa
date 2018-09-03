@@ -1,7 +1,7 @@
 ## Select Odd and Even in a Single List
 Given a single-list, split list with two list, one is only has odd elements, another only has even elements.
 
-## CHINEST
+## CHINESE
 设head为一单链表的头指针，将head链中结点分成一个奇数链和一个偶数链，分别由P,Q指向，每个链中的数据按由小到大排列。程序中不得使用malloc过程申请空间。
 
 **Example :**
@@ -20,6 +20,12 @@ You'd better dont use "malloc".  <br />
     1.select element of odd and even.
     2.sort the odd-list, even-list.
 ```
+
+## Analogous
+|                         Nav            |                   Des                 |
+| :-------------------------------------:|:-------------------------------------:|
+| ![splitP&NList](splitPositiveAndNegativeList.md)|把链表分成2个链表(正数链,负数链)    |
+
 
 ## Solution
 ``` c
