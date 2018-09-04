@@ -27,9 +27,10 @@ Output: [-7,-3,-5,-1],[6,4]
 List-B and List-C only can use List-A's Nodes。<br />
 
 ## Analogous
-|                         Nav            |                   Des                 |
-| :-------------------------------------:|:-------------------------------------:|
-| ![splitParityList](splitParityList.md)|把链表分成2个升序链表(偶数链,奇数链)    |
+|                         Nav            |                   Des                    |
+| :-------------------------------------:|:----------------------------------------:|
+| ![splitParityList](splitParityList.md) |把链表分成2个升序链表(偶数链,奇数链)      |
+| ![moveNegativeToTheFront](moveNegativeToTheFront.md)|将链表的负数val移置链表前面  |
 
 
 ## Solution
