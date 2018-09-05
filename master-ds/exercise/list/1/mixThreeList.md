@@ -50,7 +50,7 @@ The time complexity of the algorithm is required to be O(|A|+|B|+|C|).
 |:-------------------------------------:|:-----------------------------:|
 |![unionSetTowList](unionSetTowList.md) |将2个升序的链表A∪B为1个链表    |
 |![interSetTowList](interSetTowList.md) |将2个升序的链表A∩B为1个链表    |
-
+|![differentSetTowList](differentSetTowList.md)|将2个升序的链表求出其差集链表 |
 
 ## Solution
 ``` c

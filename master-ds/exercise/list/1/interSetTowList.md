@@ -51,6 +51,8 @@ Output: [1,2,5]
 | ![descendingTowList](descendingTowList.md)|将2个升序的链表归并为1个降序的链表|
 | ![unionSetTowList](unionSetTowList.md)    |将2个升序的链表A∪B为1个链表       |
 | ![mixThreeList](mixThreeList.md)          |将3个升序的链表AU(B∩C)为1个链表   |
+| ![differentSetTowList](differentSetTowList.md)|将2个升序的链表求出其差集链表 |
+
 
 ## Solution
 

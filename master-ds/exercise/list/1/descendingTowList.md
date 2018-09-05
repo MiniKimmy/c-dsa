@@ -36,11 +36,12 @@ Output: [10,9,8,7,6,5,3,2,1]
 ```
 
 ## Analogous
-|                Nav                    |               Des             |
-|:-------------------------------------:|:-----------------------------:|
-|![unionSetTowList](unionSetTowList.md) |将2个升序的链表A∪B为1个链表    |
-|![interSetTowList](interSetTowList.md) |将2个升序的链表A∩B为1个链表    |
-|![mixThreeList](mixThreeList.md)       |将3个升序的链表AU(B∩C)为1个链表|
+|                Nav                    |                 Des                 |
+|:-------------------------------------:|:-----------------------------------:|
+|![unionSetTowList](unionSetTowList.md) |将2个升序的链表A∪B为1个链表          |
+|![interSetTowList](interSetTowList.md) |将2个升序的链表A∩B为1个链表          |
+|![mixThreeList](mixThreeList.md)       |将3个升序的链表AU(B∩C)为1个链表      |
+|![differentSetTowList](differentSetTowList.md)|将2个升序的链表求出其差集链表 |
 
 ## Solution
 ``` c
