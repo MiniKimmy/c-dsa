@@ -79,6 +79,6 @@ Node* differentSetTowList(Node* headA, Node* headB) {
         }
     }
     if (p != NULL) tail->next = p;
-    return dummy->next;
+    return tail==NULL?headA:dummy->next;
 }
 ```
