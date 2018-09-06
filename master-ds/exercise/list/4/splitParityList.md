@@ -22,9 +22,10 @@ You'd better dont use "malloc".  <br />
 ```
 
 ## Analogous
-|                         Nav            |                   Des                 |
-| :-------------------------------------:|:-------------------------------------:|
-| ![splitP&NList](splitPositiveAndNegativeList.md)|把链表分成2个链表(正数链,负数链)    |
+|                         Nav            |                   Des                   |
+|:--------------------------------------:|:---------------------------------------:|
+|![splitP&NList](splitPositiveAndNegativeList.md)|把链表分成2个链表(正数链,负数链) |
+|![splitNums](splitNums.md)              |以某个值为参考将数组分成2半              |
 
 
 ## Solution
