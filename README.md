@@ -14,4 +14,5 @@
 | 2    | ![circleList](master-ds/exercise/list/2/mergeTwoCircleLinkList.md)           |
 | 3    | ![sortList](master-ds/exercise/list/3/sortLinkList.md)                       |
 | 4    | ![splitList](master-ds/exercise/list/4/splitParityList.md)                   |
+| 5    | ![DivideAndConquer](master-ds/exercise/list/5/putOddForward.md)              |
 
