@@ -24,7 +24,7 @@ Output: [-7,-3,-5,-1,6,4]
 |                         Nav            |                   Des                 |
 | :-------------------------------------:|:-------------------------------------:|
 | ![splitParityList](splitParityList.md)|把链表分成2个升序链表(偶数链,奇数链)    |
-
+| ![putMinusForward1](../5/putMinusForward.md)|把负数放在正数前面(数组)          |
 
 ## Solution
 ```c

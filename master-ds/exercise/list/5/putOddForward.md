@@ -20,6 +20,10 @@ Output: [1,3,7,5,6,4,4]
     3.swap (left,right) under the condition of "left<=right"
 
 ```
+## Analogous
+|                         Nav            |                   Des                 |
+| :-------------------------------------:|:-------------------------------------:|
+| ![putMinusForward](putMinusForward.md) |把负数放在正数前面                     |
 
 ## Solution
 ``` c
