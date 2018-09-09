@@ -1,4 +1,4 @@
-## Last 100days.
+## Last 90 days.
 * learn coding from leetcode && nowcoder && c-dst for myself
 
 * ![Leetcode](leetcode/) : 关于经典算法思维操作 + 面试.
@@ -14,5 +14,6 @@
 | 2    | ![circleList](master-ds/exercise/list/2/mergeTwoCircleLinkList.md)           |
 | 3    | ![sortList](master-ds/exercise/list/3/sortLinkList.md)                       |
 | 4    | ![splitList](master-ds/exercise/list/4/splitParityList.md)                   |
-| 5    | ![DivideAndConquer](master-ds/exercise/list/5/putOddForward.md)              |
+| 5    | ![divideAndConquer](master-ds/exercise/list/5/putOddForward.md)              |
+| 6    | ![deleteMinNode](master-ds/exercise/list/6/deleteMinNode.md)                 |
 
