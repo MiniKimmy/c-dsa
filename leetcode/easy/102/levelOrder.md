@@ -24,7 +24,7 @@ return its level order traversal as:
 ## hints
 ![averageOfLevels](../637/averageOfLevels.md) : 一道类似的题目
 ```
-    Queue + LevelOrder + BFS
+    Queue + LevelOrder + BFS.
 ```
 
 ## Solution
