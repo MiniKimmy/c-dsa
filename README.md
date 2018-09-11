@@ -1,11 +1,11 @@
-## Last 90 days.
+## LAST 90 Days
 * learn coding from leetcode && nowcoder && c-dst for myself
 
-* ![Leetcode](leetcode/) : 关于经典算法思维操作 + 面试.
+* ![Leetcode](leetcode/): About classical algorithm operation && interview
 
-* ![Nowcoder](nowcoder/) : 关于各高校c语言的复试题目
+* ![Nowcoder](nowcoder/): About higher education universities oj problems.
 
-* ![exercise](master-ds/exercise/) : 关于c语言数据结构各个板块的题目
+* ![exercise](master-ds/exercise/): About some exercises for c language.
 
 ### Nav-exercise
 | ID   |                                Nav                                           |
