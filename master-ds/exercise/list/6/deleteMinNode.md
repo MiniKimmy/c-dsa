@@ -20,6 +20,12 @@ Output: [1,3,4,-5,-6,4]
     ps:At the beginning of dummy->val = head->val + 1 , which means we mark the "head" node successfully.
 ```
 
+## Analogous
+|                         Nav            |                   Des                 |
+| :-------------------------------------:|:-------------------------------------:|
+| ![moveMinHead](moveMinHead.md)         |把单链表最小的结点移动到头结点         |
+
+
 ## Solution
 ``` c
 /**
