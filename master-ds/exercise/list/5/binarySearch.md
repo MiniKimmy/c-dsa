@@ -1,13 +1,13 @@
 ## Find target in ascending Array
 
-Given a ascending array, find "x",
-1.if "x" find ok, swap the next index with "x" unless "x" is the end of the array.
-2.if "x" can't find, insert "x" to the array and keep ascending order.
+Given a ascending array, find "x" <br />
+1.if "x" find ok, swap the next index with "x" unless "x" is the end of the array. <br />
+2.if "x" can't find, insert "x" to the array and keep ascending order. <br />
 
 ## CHINESE
-给定一个升序线性表(a1,a2,a3,…,an),用最少时间在表中查找数值为x的元素。
-(1)若找到将其与后继元素位置相交换,若是最后一个位置则不需要交换。
-(2)若找不到将其插入表中并使表中元素仍递增有序。
+给定一个升序线性表(a1,a2,a3,…,an),用最少时间在表中查找数值为x的元素。<br />
+(1)若找到将其与后继元素位置相交换,若是最后一个位置则不需要交换。<br />
+(2)若找不到将其插入表中并使表中元素仍递增有序。<br />
 
 **Example 1:**
 ```
@@ -34,7 +34,8 @@ OutPut:[0,1,2,3,4,5]
 ```
     binarySearch + mark position.
     1.normal binarySearch and mark the final index.
-    2.if it can't find, malloc new Array and for(0 to pos) && pos && for(pos+1 to arrsize+1) as 3 situation to copy old array.
+    2.if it can't find, malloc new Array
+    and for(0 to pos) && pos && for(pos+1 to arrsize+1) as 3 situation to copy old array.
 ```
 
 ## Analogous
