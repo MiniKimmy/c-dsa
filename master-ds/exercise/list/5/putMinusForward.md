@@ -24,7 +24,7 @@ Time Complexity is O(n) <br />
 | :-------------------------------------:|:-------------------------------------:|
 | ![putOddForward](putOddForward.md)     |把偶数放在奇数前面                     |
 | ![putMinusForward2](../4/moveNegativeToTheFront.md)|把负数放在正数前面(单链表) |
-
+| ![binarySearch1](binarySearch.md)      |二分查找1                              |
 
 ## Solution
 ``` c
