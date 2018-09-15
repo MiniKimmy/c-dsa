@@ -16,4 +16,5 @@
 | 4    | ![splitList](master-ds/exercise/list/4/splitParityList.md)                   |
 | 5    | ![divideAndConquer](master-ds/exercise/list/5/putOddForward.md)              |
 | 6    | ![deleteMinNode](master-ds/exercise/list/6/deleteMinNode.md)                 |
+| 7    | ![symmetryList](master-ds/exercise/list/7/isSymmetrical.md)                  |
 
