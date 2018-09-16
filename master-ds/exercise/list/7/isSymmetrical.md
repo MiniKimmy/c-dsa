@@ -37,7 +37,7 @@ OutPut:false
 ```
 
 ## hints
-![reverseList](../../../leetcode/easy/206/) : leetcode的一道题.
+![reverseList](../../../../leetcode/easy/206/) : leetcode的一道题.
 ```
     1.copy List as new ListA and reverseList as ListB.
     2.check the elemets ListA == ListB
@@ -46,7 +46,8 @@ OutPut:false
 ## Analogous
 |                         Nav            |                   Des                 |
 | :-------------------------------------:|:-------------------------------------:|
-| ![reverseList](../../../leetcode/easy/680/) |数组对称(允许删除其中某1个元素)   |
+| ![validPalindrome](../../../../leetcode/easy/680/) |数组对称(允许删除其中某1个元素)  |
+| ![isPalindrome](../../../../leetcode/easy/234/) |回文链表                         |
 
 
 ## Solution
