@@ -24,6 +24,7 @@ Space Complexity is O(1).<br />
 |                         Nav            |                   Des                 |
 | :-------------------------------------:|:-------------------------------------:|
 | ![deleteMinNode](deleteMinNode.md)     |删除单链表最小的结点                   |
+| ![moveMinHead](moveMinHead.md)         |把单链表最小的结点移动到头结点         |
 
 
 ## Solution
