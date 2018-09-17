@@ -23,6 +23,11 @@ Output: true
     [Caution]: the counts 'left-list >= right-list'.
 ```
 
+## Analogous
+|                         Nav            |                   Des                 |
+| :-------------------------------------:|:-------------------------------------:|
+| ![validPalindrome](../680/validPalindrome.c) |数组对称(允许删除其中某1个元素)  |
+
 ## Solution
 ``` c
 /**
@@ -70,8 +75,6 @@ bool isPalindrome(struct ListNode* head) {
         fast = fast->next?fast->next->next:NULL;
         slow = slow->next;
     }
-
-    //if(slow->val == 2) return false;
 
     struct ListNode* p = head;
     struct ListNode* q = reverseList(slow->next);
