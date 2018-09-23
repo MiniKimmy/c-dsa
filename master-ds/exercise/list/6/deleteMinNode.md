@@ -26,6 +26,7 @@ Output: [1,3,4,-5,-6,4]
 | ![moveMinHead](moveMinHead.md)         |把单链表最小的结点移动到头结点         |
 | ![inde](inde.md)                       |把单链表A的的子链插入到单链表B中       |
 | ![deleteDumplicate](deleteDumplicate.md) |删除递增单链表的重复元素             |
+| ![deleteMulNode](deleteMultipleIdenticalNodes.md) |删除单链表中所有指定val的元素 |
 
 
 ## Solution

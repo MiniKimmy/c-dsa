@@ -22,11 +22,13 @@ OutPut:[1]
 ```
      front-back pointers.
 ```
+
 ## Analogous
 |                         Nav            |                   Des                 |
 | :-------------------------------------:|:-------------------------------------:|
 | ![moveMinHead](moveMinHead.md)         |把单链表最小的结点移动到头结点         |
 | ![inde](inde.md)                       |把单链表A的的子链插入到单链表B中       |
+| ![deleteMulNode](deleteMultipleIdenticalNodes.md) |删除单链表中所有指定val的元素 |
 
 
 ## Solution
