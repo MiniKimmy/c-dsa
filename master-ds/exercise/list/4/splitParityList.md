@@ -26,6 +26,7 @@ You'd better dont use "malloc".  <br />
 |:--------------------------------------:|:---------------------------------------:|
 |![splitP&NList](splitPositiveAndNegativeList.md)|把链表分成2个链表(正数链,负数链) |
 |![splitNums](splitNums.md)              |以某个值为参考将数组分成2半              |
+|![selectThreeTypes](selectThreeTypes.md)|把1个单链表分类为3个循环单链表           |
 
 
 ## Solution

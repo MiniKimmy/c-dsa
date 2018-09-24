@@ -31,6 +31,7 @@ One of Output: [1,3,2,4,7,6,9]
 |                         Nav            |                   Des                    |
 | :-------------------------------------:|:----------------------------------------:|
 | ![moveNegativeToTheFront](moveNegativeToTheFront.md)|将链表的负数val移置链表前面  |
+| ![selectThreeTypes](selectThreeTypes.md)|把1个单链表分类为3个循环单链表           |
 
 
 ## Solution

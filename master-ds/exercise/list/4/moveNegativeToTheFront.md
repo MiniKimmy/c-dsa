@@ -25,6 +25,7 @@ Output: [-7,-3,-5,-1,6,4]
 | :-------------------------------------:|:-------------------------------------:|
 | ![splitParityList](splitParityList.md)|把链表分成2个升序链表(偶数链,奇数链)    |
 | ![putMinusForward1](../5/putMinusForward.md)|把负数放在正数前面(数组)          |
+| ![selectThreeTypes](selectThreeTypes.md)|把1个单链表分类为3个循环单链表        |
 
 ## Solution
 ```c

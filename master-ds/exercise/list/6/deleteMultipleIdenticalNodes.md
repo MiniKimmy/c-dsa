@@ -1,8 +1,10 @@
 ## Delete Multiple Identical Nodes
 
+Given a single list and k=value, delete element whose value equals k in the list.
+
 ## CHINESE
-已知长度为n的单链表，删除单链表中所有值为k的元素结点。
-时间复杂度为0(n),空间复杂度要求O(1)。
+已知长度为n的单链表，删除单链表中所有值为k的元素结点。<br />
+时间复杂度为0(n),空间复杂度要求O(1)。<br />
 
 **Example 1:**
 ```
@@ -14,6 +16,9 @@ OutPut: [3,5]
 Input : [1,1,3,1,5], 0
 OutPut: [1,1,3,1,5]
 ```
+
+**Note**
+Time Complexity is O(n), Space Complexity is O(1).
 
 ## hints
 ```
