@@ -38,7 +38,7 @@ OutPut: ['s','d']
 /**
 * Definition for singly-linked list.
 * struct Node {
-*     int val;
+*     char val;
 *     struct Node *next;
 * }Node;
 */
