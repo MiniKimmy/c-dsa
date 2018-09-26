@@ -5,13 +5,11 @@ Given a char[] with "()[]" elements, and check the char[] whether matches the '(
 ## CHINESE
 设表达式以字符形式已存入数组中，‘#’为表达式的结束符，试写出判断表达式中括号'()'和'[]'是否配对.
 
-
 **Example 1:**
 ```
 Input : ['(','(',')',')']
 OutPut: true
 ```
-
 **Example 2:**
 ```
 Input : ['(',']']
@@ -28,6 +26,7 @@ OutPut: false
 
 ## Solution
 ``` c
+/*return 1 means true, 0 means false*/
 int matchBracket(char* str) {
     if (str == NULL) return 1;
 
