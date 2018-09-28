@@ -18,4 +18,5 @@
 | 6    | ![deleteMinNode](master-ds/exercise/list/6/deleteMinNode.md)                 |
 | 7    | ![symmetryList](master-ds/exercise/list/7/isSymmetrical.md)                  |
 | 8    | ![sqstack-easy](master-ds/exercise/list/8/matchBracket.md)                   |
+| 9    | ![dfs](master-ds/exercise/dfs/1/checkPath.md)                                |
 
