@@ -23,6 +23,11 @@ Output:0
     easy..
 ```
 
+## Analogous
+|                Nav                    |                 Des                 |
+|:-------------------------------------:|:-----------------------------------:|
+|![selectNum](selectNum.md)             |挑选出每组连续数字字符               |
+
 ## Solution
 ``` c
 int isSubString(char* s, int m, char* t, int n) {
