@@ -10,6 +10,7 @@ Given a string, find the consecutive digit.
 ```
 Input: "ak123x456"
 Output:["123","456"]
+```
 **Example 2:**
 ```
 Input:"17960?302gef4563"
@@ -25,6 +26,7 @@ Output:["17960","302","4563"]
 |                Nav                    |                 Des                 |
 |:-------------------------------------:|:-----------------------------------:|
 |![isSubString](isSubString.md)         |查找第一个子串                       |
+|![selectSubString](selectMaxDuplicateSubString.md) |挑选出最长重复字符的子串 |
 
 ## Solution
 ``` c
@@ -36,6 +38,10 @@ int isDigit(char c) {
 }
 
 char** selectNum(char* str, int* returnSize) {
+    if(str == NULL) {
+        *returnSize = 0;
+        return NULL;
+    }
 
     char** ret = (char**)malloc(sizeof(char*) * MAXSIZE);
     int retSize = 0;

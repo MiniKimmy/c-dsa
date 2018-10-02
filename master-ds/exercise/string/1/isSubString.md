@@ -27,6 +27,7 @@ Output:0
 |                Nav                    |                 Des                 |
 |:-------------------------------------:|:-----------------------------------:|
 |![selectNum](selectNum.md)             |挑选出每组连续数字字符               |
+|![selectSubString](selectMaxDuplicateSubString.md) |挑选出最长重复字符的子串 |
 
 ## Solution
 ``` c
