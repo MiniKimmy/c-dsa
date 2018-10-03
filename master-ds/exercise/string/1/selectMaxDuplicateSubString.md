@@ -1,6 +1,10 @@
 ## Select Max Duplicate SubString
 
-Given a string with '0-9'、'a-z','A-Z',find the max duplicate symbol.
+Given a string with '0-9'、'a-z','A-Z',find the max duplicate substring.
+
+## CHINESE
+如果字符串的一个子串（其长度大于1）的各个字符均相同，则称之为等值子串。<br />
+输入字符串S,若串S中不存在等值子串,则返回NULL，否则返回第一个长度最大的等值子串。<br />
 
 **Example 1:**
 ```

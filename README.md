@@ -1,4 +1,4 @@
-## LAST 90 Days
+## LAST 80 Days
 * learn coding from leetcode && nowcoder && c-dst for myself
 
 * ![Leetcode](leetcode/): About classical algorithm operation && interview
@@ -20,4 +20,5 @@
 | 8    | ![sqstack-easy](master-ds/exercise/list/8/matchBracket.md)                   |
 | 9    | ![dfs](master-ds/exercise/dfs/1/checkPath.md)                                |
 | 10   | ![subString](master-ds/exercise/string/1/isSubString.md)                     |
+| 11   | ![insertStr](master-ds/exercise/string/2/insertStr.md)                       |
 
