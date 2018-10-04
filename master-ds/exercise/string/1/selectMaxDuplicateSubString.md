@@ -23,6 +23,7 @@ Output:"ddddd"
 |:-------------------------------------:|:-----------------------------------:|
 |![selectNum](selectNum.md)             |挑选出每组连续数字字符               |
 |![isSubString](isSubString.md)         |查找第一个子串                       |
+|![int16Parse](int16Parse.md)           |将数字字符串转化为整数               |
 
 ## Solution
 ``` c

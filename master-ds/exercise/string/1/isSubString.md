@@ -28,6 +28,7 @@ Output:0
 |:-------------------------------------:|:-----------------------------------:|
 |![selectNum](selectNum.md)             |挑选出每组连续数字字符               |
 |![selectSubString](selectMaxDuplicateSubString.md) |挑选出最长重复字符的子串 |
+|![int16Parse](int16Parse.md)           |将数字字符串转化为整数               |
 
 ## Solution
 ``` c

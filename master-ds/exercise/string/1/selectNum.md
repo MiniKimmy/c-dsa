@@ -27,6 +27,7 @@ Output:["17960","302","4563"]
 |:-------------------------------------:|:-----------------------------------:|
 |![isSubString](isSubString.md)         |查找第一个子串                       |
 |![selectSubString](selectMaxDuplicateSubString.md) |挑选出最长重复字符的子串 |
+|![int16Parse](int16Parse.md)           |将数字字符串转化为整数               |
 
 ## Solution
 ``` c
