@@ -21,4 +21,5 @@
 | 9    | ![dfs](master-ds/exercise/dfs/1/checkPath.md)                                |
 | 10   | ![subString](master-ds/exercise/string/1/isSubString.md)                     |
 | 11   | ![insertStr](master-ds/exercise/string/2/insertStr.md)                       |
+| 12   | ![reverseStr](master-ds/exercise/string/3/reverseString.md)                  |
 
