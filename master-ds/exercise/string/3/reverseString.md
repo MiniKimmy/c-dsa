@@ -26,6 +26,12 @@ Output:"a"
     2.like for(i=0;i<len/2;++i)
 ```
 
+## Analogous
+|                Nav                    |                 Des                 |
+|:-------------------------------------:|:-----------------------------------:|
+|![splitOddEvenStr](splitOddEvenStr.md) |将字符串奇数下标偶数下标拆散重排     |
+
+
 ## Solution
 ``` c
 void reverseStrInner(char* c, int left, int right) {
