@@ -12,6 +12,7 @@ Input: "ABCDEFGHIJKL"
 Output: "ACEGIKLJHFDB"
 ```
 **Explaination:**
+```
 odd-list:"ACEGIK" as left-size
 even-list:"BDFHJL"(reverse)->"LJHFDB" as right-size
 ```
@@ -29,7 +30,7 @@ even-list:"bd"(reverse)->"db" as right
 ## hints
 ```
     1.getLength(S)
-    2.judge i%2==0 or i%2!=0 to put it the right pos.
+    2.judge (i%2==0) or (i%2!=0) to put it the right pos.
 ```
 
 ## Analogous
@@ -41,7 +42,6 @@ even-list:"bd"(reverse)->"db" as right
 ## Solution
 ``` c
 char* splitOddEvenStr(char* str) {
-
     int len = 0;
     while (str[len])
         len++;
