@@ -17,7 +17,7 @@ But the following [1,2,2,null,3,null,3] is not:
   2   2
    \   \
    3    3
-
+```
 **Note:**
 Bonus points if you could solve it both recursively and iteratively.
 
@@ -56,10 +56,8 @@ bool isSymmetric(struct TreeNode* root) {
 
     int front = 0;
     int rear = 0;
-    int level = 0;
     sqQueue[rear] = root;
     rear = (rear+1)%MAXSIZE;
-
 
     while(rear != front){
         int size = (rear-front+MAXSIZE)%MAXSIZE;
@@ -100,8 +98,6 @@ bool isSymmetric(struct TreeNode* root) {
                     return false;
             }
         }
-
-
     }
 
     free(sqQueue);

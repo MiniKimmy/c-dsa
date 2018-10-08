@@ -36,7 +36,7 @@ even-list:"bd"(reverse)->"db" as right
 ## Analogous
 |                Nav                    |                 Des                 |
 |:-------------------------------------:|:-----------------------------------:|
-|![reverseStrInner](reverseStrInner.md) |递归翻转字符串                       |
+|![reverseString](reverseString.md)     |递归翻转字符串                       |
 
 
 ## Solution
