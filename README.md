@@ -12,6 +12,7 @@
 | ID   |                                Nav                                           |
 | :----| ----------------------------------------------------------------------------:|
 | 101  | ![TreeOrder](leetcode/easy/101/isSymmetric.md)                               |
+| 791  | ![StringOrder](leetcode/medium/791/customSortString.md)                      |
 
 
 ### Nav-exercise
