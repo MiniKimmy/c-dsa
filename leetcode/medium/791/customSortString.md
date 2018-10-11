@@ -27,6 +27,11 @@ Since "d" does not appear in S, it can be at any position in T. "dcba", "cdba", 
     S and T consist of lowercase letters only.
 ```
 
+## Analogous
+|                         Nav               |                   Des            |
+| :----------------------------------------:|:--------------------------------:|
+| ![reverseOnlyLetters](../../easy/917/reverseOnlyLetters.md)|仅字母翻转       |
+
 ## hints
 ```
     1.hash all the exist char of ("S")
