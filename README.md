@@ -11,8 +11,9 @@
 ### Nav-leetcode
 | ID   |                                Nav                                           |
 | :----| ----------------------------------------------------------------------------:|
-| 101  | ![TreeOrder](leetcode/easy/101/isSymmetric.md)                               |
+| 101  | ![BFS](leetcode/easy/101/isSymmetric.md)                                     |
 | 791  | ![StringOrder](leetcode/medium/791/customSortString.md)                      |
+| 94   | ![TreeOrder](leetcode/medium/94/inorderTraversal.md)                         |
 
 
 ### Nav-exercise
