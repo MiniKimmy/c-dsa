@@ -25,6 +25,10 @@ Output: [1,3,2]
     4.when top != -1, add to ret[]
 ```
 
+## Analogous
+|                         Nav               |                   Des            |
+| :----------------------------------------:|:--------------------------------:|
+| ![preorderTraversal](preorderTraversal.md)|无递归前序遍历二叉树              |
 
 ## Solution
 ``` c
