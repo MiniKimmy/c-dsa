@@ -15,6 +15,7 @@
 | 791  | ![StringOrder](leetcode/medium/791/customSortString.md)                      |
 | 94   | ![TreeOrder](leetcode/medium/94/inorderTraversal.md)                         |
 | 136  | ![Xor](leetcode/easy/136/singleNumber.md)                                    |
+| 13   | ![EasyHash](leetcode/easy/13/romanToInt.md)                                  |
 
 
 ### Nav-exercise
