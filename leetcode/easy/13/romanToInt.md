@@ -55,6 +55,12 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
     hash problem.
 ```
 
+## Analogous
+|                Nav                    |                 Des                 |
+|:-------------------------------------:|:-----------------------------------:|
+|![MajorityElement](MajorityElement.md) |找出出现频率超过一半的数             |
+
+
 ## Solution
 ``` c
 int romanToInt(char* s) {
