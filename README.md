@@ -17,7 +17,7 @@
 | 136  | ![Xor](leetcode/easy/136/singleNumber.md)                                    |
 | 13   | ![EasyHash](leetcode/easy/13/romanToInt.md)                                  |
 | 171  | ![EasyDp](leetcode/easy/171/titleToNumber.md)                                |
-| 121  | ![qSortMind](leetcode/easy/121/maxProfit.md)                                 |
+| 122  | ![qSortMind](leetcode/easy/122/maxProfit.md)                                 |
 
 
 ### Nav-exercise
