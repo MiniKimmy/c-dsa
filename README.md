@@ -1,4 +1,4 @@
-## LAST 70 Days
+## LAST 50 Days
 * learn coding from leetcode && nowcoder && c-dst for myself
 
 * ![Leetcode](leetcode/): About classical algorithm operation && interview
