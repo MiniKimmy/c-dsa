@@ -6,3 +6,4 @@
 | ID |                                Nav                            |
 |:---|--------------------------------------------------------------:|
 | 1  | ![removeArrRange](chapter2/removeArrRange.md)                 |
+| 2  | ![deleteSameVal](chapter2/deleteSameVal.md)                   |
