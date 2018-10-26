@@ -26,9 +26,10 @@ Output: [1,3,2]
 ```
 
 ## Analogous
-|                         Nav               |                   Des            |
+|                       Nav                 |                   Des            |
 | :----------------------------------------:|:--------------------------------:|
 | ![preorderTraversal](preorderTraversal.md)|无递归前序遍历二叉树              |
+| ![sumOfLeftLeaves](../../easy/404/sumOfLeftLeaves.md)|仅添加左叶节点         |
 
 ## Solution
 ``` c
