@@ -22,7 +22,7 @@ Output:24
 ## Analogous
 |                       Nav                 |                   Des            |
 | :----------------------------------------:|:--------------------------------:|
-| ![sumOfLeftLeaves](../../medium/94/inorderTraversal.md)|无递归中序遍历二叉树 |
+| ![inorderTraversal](../../medium/94/inorderTraversal.md)|无递归中序遍历二叉树|
 
 ## Solution
 ``` c
