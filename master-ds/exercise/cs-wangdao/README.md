@@ -8,3 +8,4 @@
 | 1  | ![removeArrRange](chapter2/removeArrRange.md)                 |
 | 2  | ![deleteSameVal](chapter2/deleteSameVal.md)                   |
 | 3  | ![exchangeArr](chapter2/exchangeArr.md)                       |
+| 4  | ![getMedian](chapter2/getMedian.md)                           |
