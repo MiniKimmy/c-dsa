@@ -36,6 +36,11 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
     3.refresh the buy price every day.
 ```
 
+## Analogous
+|                       Nav                 |                   Des            |
+| :----------------------------------------:|:--------------------------------:|
+| ![reverseVowels](reverseVowels.md)|仅翻转元音字母                            |
+
 ## Solution
 ``` c
 int maxProfit(int* prices, int pricesSize) {
