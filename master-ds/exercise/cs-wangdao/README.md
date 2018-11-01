@@ -1,6 +1,10 @@
 ## CS-WangDao -2019 master
 
 
+### Nav-Analogue
+| ID |                                Nav                            |
+|:---|--------------------------------------------------------------:|
+| 2  | ![getMaxProfit](Analogue/getMaxProfit.md)                     |
 
 ### Nav-Chapter2
 | ID |                                Nav                            |
