@@ -19,7 +19,7 @@ Explaination:16-5=11
 ## Analogous
 |                         Nav               |                Des              |
 |:----------------------------------------:|:--------------------------------:|
-|![reverseOnlyLetters](../../../../leetcode/easy/122/maxProfit.md)|           |
+|![maxProfit](../../../../leetcode/easy/122/maxProfit.md)|122.leetcode        |
 
 
 ## Solution
