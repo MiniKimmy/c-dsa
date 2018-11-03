@@ -37,6 +37,7 @@ Output: "Qedo1ct-eeLg=ntse-T!"
 | :----------------------------------------:|:--------------------------------:|
 | ![customSortString](../../medium/791/customSortString.md)|自定义模板排序字母 |
 | ![rotateString](rotateString.md)         |检查旋转字符串                     |
+| ![compress](compress.md)|压缩字母                                            |
 
 ## Solution
 ``` c

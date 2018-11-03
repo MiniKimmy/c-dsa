@@ -30,6 +30,7 @@ Output: false
 |                         Nav               |                   Des            |
 | :----------------------------------------:|:--------------------------------:|
 | ![reverseOnlyLetters](../../easy/917/reverseOnlyLetters.md)|仅字母翻转       |
+| ![compress](compress.md)|压缩字母                                            |
 
 ## Solution
 ``` c
