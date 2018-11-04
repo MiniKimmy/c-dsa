@@ -70,16 +70,20 @@ Notice each digit has it's own entry in the array.
 ``` c
 int compress(char* chars, int charsSize) {
     if(chars == NULL || charsSize<=0) return 0;
+
     int len = 0;
     int count = 1;
     char c = chars[0];
 
-    for(int i = 1;i<charsSize;++i){
+    for(int i = 1; i<charsSize; ++i){
         if(c == chars[i]){
             count++;
         }else{
             chars[len++] = c;
+
             if(count > 1) {
+
+                // handle the 'count' with multiply digit.
                 if(count >= 10){
                     int* buffer = (int*)malloc(sizeof(int)*4);
                     int j = 0;
@@ -92,19 +96,27 @@ int compress(char* chars, int charsSize) {
                     }
 
                     free(buffer);
-                }else{
+                }
+
+            // just one digit in the 'count'.
+                else{
                     chars[len++] = count+'0';
                 }
 
             }
+
+            //reset the 'count'
             c = chars[i];
             count = 1;
         }
     }
 
+    // handle the last element.
     if(count==1) chars[len++] = chars[charsSize-1];
     else {
         chars[len++] = c;
+
+        // handle the 'count' with multiply digit.
         if(count >= 10){
             int* buffer = (int*)malloc(sizeof(int)*4);
             int j = 0;
@@ -115,13 +127,12 @@ int compress(char* chars, int charsSize) {
                 for(int k = j-1;k>=0;--k){
                     chars[len++] = buffer[k] + '0';
                 }
-
                 free(buffer);
-                }else{
+                }
+        // just one digit in the 'count'.
+        else{
             chars[len++] = count +'0';
         }
-
-
     }
 
     return len;
