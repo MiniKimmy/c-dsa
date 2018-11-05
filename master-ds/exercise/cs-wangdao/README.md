@@ -19,3 +19,4 @@
 | ID |                                Nav                            |
 |:---|--------------------------------------------------------------:|
 | 1  | ![recursionDelSList](chapter3/recursionDelSList.md)           |
+| 2  | ![deleteSameVal](chapter3/recursionDeleteSameVal.md)          |
