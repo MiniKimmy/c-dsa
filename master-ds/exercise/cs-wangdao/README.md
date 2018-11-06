@@ -20,3 +20,5 @@
 |:---|--------------------------------------------------------------:|
 | 1  | ![recursionDelSList](chapter3/recursionDelSList.md)           |
 | 2  | ![deleteSameVal](chapter3/recursionDeleteSameVal.md)          |
+| 3  | ![upsidePrintSList](chapter3/upsidePrintSList.md)             |
+| 4  | ![reverseList](chapter3/reverseList.md)                       |
