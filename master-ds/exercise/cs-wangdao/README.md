@@ -23,3 +23,4 @@
 | 3  | ![upsidePrintSList](chapter3/upsidePrintSList.md)             |
 | 4  | ![reverseList](chapter3/reverseList.md)                       |
 | 5  | ![separateList](chapter3/separateList.md)                     |
+| 6  | ![getFirstCommonNode](chapter3/getFirstCommonNode.md)         |
