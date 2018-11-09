@@ -14,7 +14,6 @@
 | 3  | ![exchangeArr](chapter2/exchangeArr.md)                       |
 | 4  | ![getMedian](chapter2/getMedian.md)                           |
 
-
 ### Nav-Chapter3
 | ID |                                Nav                            |
 |:---|--------------------------------------------------------------:|
@@ -24,3 +23,8 @@
 | 4  | ![reverseList](chapter3/reverseList.md)                       |
 | 5  | ![separateList](chapter3/separateList.md)                     |
 | 6  | ![getFirstCommonNode](chapter3/getFirstCommonNode.md)         |
+
+### Nav-Chapter5
+| ID |                                Nav                                 |
+|:---|-------------------------------------------------------------------:|
+| 1  | ![findTheFirstCommonParent](chapter5/findTheFirstCommonParent.md)  |
