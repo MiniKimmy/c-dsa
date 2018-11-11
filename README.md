@@ -12,7 +12,8 @@
 | ID   |                                Nav                                           |
 | :----| ----------------------------------------------------------------------------:|
 | 2    | ![ReverseList](leetcode/medium/2/addTwoNumbers.md)                           |
-| 101  | ![BFS](leetcode/easy/101/isSymmetric.md)                                     |
+| 101  | ![bfs](leetcode/easy/101/isSymmetric.md)                                     |
+| 257  | ![dfs](leetcode/easy/257/binaryTreePaths.md)                                 |
 | 791  | ![StringOrder](leetcode/medium/791/customSortString.md)                      |
 | 94   | ![TreeOrder](leetcode/medium/94/inorderTraversal.md)                         |
 | 136  | ![Xor](leetcode/easy/136/singleNumber.md)                                    |
