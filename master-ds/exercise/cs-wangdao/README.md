@@ -28,3 +28,4 @@
 | ID |                                Nav                                 |
 |:---|-------------------------------------------------------------------:|
 | 1  | ![findTheFirstCommonParent](chapter5/findTheFirstCommonParent.md)  |
+| 2  | ![getBinaryPath](chapter5/getBinaryPath.md)                        |
