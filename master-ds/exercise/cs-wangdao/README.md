@@ -29,3 +29,6 @@
 |:---|-------------------------------------------------------------------:|
 | 1  | ![findTheFirstCommonParent](chapter5/findTheFirstCommonParent.md)  |
 | 2  | ![getBinaryPath](chapter5/getBinaryPath.md)                        |
+| 3  | ![calcDoubleBranch](chapter5/calcDoubleBranch.md)                  |
+| 4  | ![descendingLevelOrder](chapter5/descendingLevelOrder.md)          |
+

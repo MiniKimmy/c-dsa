@@ -15,6 +15,17 @@ Input :
 i=13
 Output : ["4"->"-22"->"13"]
 ```
+
+## hints
+```
+    1.String method
+        * intParse() Like int n=22 -> str = "-22"
+        * concat() Like: str = str1+str2
+    2.dfs
+        * Add(item)
+        * Copy buffer str.
+```
+
 ## Solution
 ``` c
 /**
