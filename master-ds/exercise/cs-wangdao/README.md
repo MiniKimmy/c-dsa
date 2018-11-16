@@ -32,4 +32,4 @@
 | 3  | ![calcDoubleBranch](chapter5/calcDoubleBranch.md)                  |
 | 4  | ![descendingLevelOrder](chapter5/descendingLevelOrder.md)          |
 | 5  | ![getDepthNonrecursion](chapter5/getDepthNonrecursion.md)          |
-
+| 6  | ![getMaxWidth](chapter5/getMaxWidth.md)                            |
