@@ -33,3 +33,4 @@
 | 4  | ![descendingLevelOrder](chapter5/descendingLevelOrder.md)          |
 | 5  | ![getDepthNonrecursion](chapter5/getDepthNonrecursion.md)          |
 | 6  | ![getMaxWidth](chapter5/getMaxWidth.md)                            |
+| 7  | ![linkTreeNode](chapter5/linkTreeNode.md)                          |
