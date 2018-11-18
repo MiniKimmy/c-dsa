@@ -34,3 +34,9 @@
 | 5  | ![getDepthNonrecursion](chapter5/getDepthNonrecursion.md)          |
 | 6  | ![getMaxWidth](chapter5/getMaxWidth.md)                            |
 | 7  | ![linkTreeNode](chapter5/linkTreeNode.md)                          |
+
+
+### Nav-os-semaphore
+| ID |                                   Nav                                    |
+|:---|-------------------------------------------------------------------------:|
+| 1  | ![ProducerAndConsumerIssues](os-semaphore/ProducerAndConsumerIssues.md)  |
