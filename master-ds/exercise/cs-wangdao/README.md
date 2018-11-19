@@ -40,3 +40,4 @@
 | ID |                                   Nav                                    |
 |:---|-------------------------------------------------------------------------:|
 | 1  | ![ProducerAndConsumerIssues](os-semaphore/ProducerAndConsumerIssues.md)  |
+| 2  | ![EatFruitInFamily](os-semaphore/EatFruitInFamily.md)                    |
