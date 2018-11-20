@@ -41,3 +41,6 @@
 |:---|-------------------------------------------------------------------------:|
 | 1  | ![ProducerAndConsumerIssues](os-semaphore/ProducerAndConsumerIssues.md)  |
 | 2  | ![EatFruitInFamily](os-semaphore/EatFruitInFamily.md)                    |
+| 3  | ![SmokersIssues](os-semaphore/SmokersIssues.md)                          |
+| 4  | ![PutAndGetOddAndEven](os-semaphore/PutAndGetOddAndEven.md)              |
+
