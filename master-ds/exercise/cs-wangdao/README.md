@@ -34,6 +34,7 @@
 | 5  | ![getDepthNonrecursion](chapter5/getDepthNonrecursion.md)          |
 | 6  | ![getMaxWidth](chapter5/getMaxWidth.md)                            |
 | 7  | ![linkTreeNode](chapter5/linkTreeNode.md)                          |
+| 8  | ![isSimilarTree](chapter5/isSimilarTree.md)                        |
 
 
 ### Nav-os-semaphore
@@ -43,4 +44,5 @@
 | 2  | ![EatFruitInFamily](os-semaphore/EatFruitInFamily.md)                    |
 | 3  | ![SmokersIssues](os-semaphore/SmokersIssues.md)                          |
 | 4  | ![PutAndGetOddAndEven](os-semaphore/PutAndGetOddAndEven.md)              |
+| 5  | ![BarberShop](os-semaphore/BarberShop.md)                                |
 
