@@ -45,4 +45,5 @@
 | 3  | ![SmokersIssues](os-semaphore/SmokersIssues.md)                          |
 | 4  | ![PutAndGetOddAndEven](os-semaphore/PutAndGetOddAndEven.md)              |
 | 5  | ![BarberShop](os-semaphore/BarberShop.md)                                |
+| 6  | ![BankService](os-semaphore/BankService.md)                              |
 
