@@ -46,4 +46,4 @@
 | 4  | ![PutAndGetOddAndEven](os-semaphore/PutAndGetOddAndEven.md)              |
 | 5  | ![BarberShop](os-semaphore/BarberShop.md)                                |
 | 6  | ![BankService](os-semaphore/BankService.md)                              |
-
+| 7  | ![ReadersAndWriters](os-semaphore/ReadersAndWriters.md)                  |
