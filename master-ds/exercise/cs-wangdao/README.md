@@ -47,5 +47,5 @@
 | 5  | ![BarberShop](os-semaphore/BarberShop.md)                                |
 | 6  | ![BankService](os-semaphore/BankService.md)                              |
 | 7  | ![ReadersAndWriters](os-semaphore/ReadersAndWriters.md)                  |
-| 8  | ![MailsDiliverAndSend.md](os-semaphore/MailsDiliverAndSend.md.md)        |
-
+| 8  | ![MailsDiliverAndSend](os-semaphore/MailsDiliverAndSend.md)              |
+| 9  | ![WoodenBridge](os-semaphore/WoodenBridge.md)                            |
