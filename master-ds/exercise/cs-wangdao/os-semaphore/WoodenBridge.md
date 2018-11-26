@@ -16,13 +16,12 @@
 
 ## Solution
 ```
-int left = 0;
-int right = 0;
-semaphore lmutex = 1;
-semaphore rmutex = 1;
-semaphore mutex = 1;
-semaphore stateA = 1;
-semaphore stateB = 1;
+int left = 0;           // count VillageA people
+int right = 0;          // count VillageB people
+semaphore lmutex = 1;   // protect "left"
+semaphore rmutex = 1;   // protect "right"
+semaphore stateA = 1;   // VillageA go first
+semaphore stateB = 1;   // VillageB go first
 
 /*lmutex as VillageA*/
 VillageA(){
@@ -50,7 +49,7 @@ VillageA(){
 
 /*rmutex as VillageB*/
 VillageB(){
-while(true){   //while--> if right>2, return to the queue waiting.
+    while(true){   //while--> if right>2, return to the queue waiting.
     P(rmutex);
         if(right == 0){
             P(stateA);
@@ -61,7 +60,7 @@ while(true){   //while--> if right>2, return to the queue waiting.
             V(rmutex);
                 ..过桥..
             P(rmutex);
-                right;
+                right--;
                 if(right == 0){
                     V(stateA);
                 }
@@ -71,5 +70,4 @@ while(true){   //while--> if right>2, return to the queue waiting.
         }
     }
 }
-
 ```
