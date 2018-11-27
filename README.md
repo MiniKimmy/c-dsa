@@ -1,4 +1,4 @@
-## LAST 50 Days
+## LAST 20 Days
 * learn coding from leetcode && nowcoder && c-dst for myself
 
 * ![Leetcode](leetcode/): About classical algorithm operation && interview
@@ -37,4 +37,5 @@
 | 10   | ![subString](master-ds/exercise/string/1/isSubString.md)                     |
 | 11   | ![insertStr](master-ds/exercise/string/2/insertStr.md)                       |
 | 12   | ![reverseStr](master-ds/exercise/string/3/reverseString.md)                  |
+| 13   | ![Permutation](master-ds/exercise/list/9/Permutation.md)                     |
 
