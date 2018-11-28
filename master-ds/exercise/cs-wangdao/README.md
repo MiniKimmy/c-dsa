@@ -49,3 +49,4 @@
 | 7  | ![ReadersAndWriters](os-semaphore/ReadersAndWriters.md)                  |
 | 8  | ![MailsDiliverAndSend](os-semaphore/MailsDiliverAndSend.md)              |
 | 9  | ![WoodenBridge](os-semaphore/WoodenBridge.md)                            |
+| 10 | ![VisitMuseum](os-semaphore/VisitMuseum.md)                              |

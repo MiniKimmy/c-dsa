@@ -1,5 +1,7 @@
 ## Permutation
 
+Given a int[], permutation it.
+
 ## CHINESE
 对一个n个元素的数组全排列输出
 
@@ -45,7 +47,7 @@ ex:1,2,3
 
 ## Solution
 ``` c
-    void swap(int* arr, int i, int j) {
+void swap(int* arr, int i, int j) {
     int temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
