@@ -79,3 +79,40 @@ void permutation(int* arr, int n){
     permutationInner(arr, 0, n - 1);
 }
 ```
+
+## Solution2
+```
+/*Store int** as return */
+
+void swap(int* arr, int i, int j) {
+    int temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+}
+
+void permutationInner(int* arr, int left, int right, int** ret, int* count){
+    if (left >= right) {
+        int* item = (int*)malloc(sizeof(int) * (right + 1));
+        for (int j = 0; j < right+1; ++j) {
+            item[j] = arr[j];
+        }
+        (*ret)[(*count)] = item;   // must use "(*ret)[(*count)]" but not use “*ret[(*count)]”
+        *count = *count + 1;
+    }else{
+        for (int i = left; i <= right; ++i) {
+            swap(arr, left, i);
+            permutationInner(arr, left + 1, right, ret, count);
+            swap(arr, left, i);
+        }
+    }
+}
+
+int** permutation(int* arr, int n,int* returnSize){
+    if (arr == NULL || n <= 0) return;
+    int** ret = (int**)malloc(sizeof(int*) * 500);  // "500" is const.
+    int count = 0;
+    permutationInner(arr, 0, n - 1, &ret, &count);
+    *returnSize = count;
+    return ret;
+}
+```
