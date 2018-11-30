@@ -81,7 +81,7 @@ void permutation(int* arr, int n){
 ```
 
 ## Solution2
-```
+``` c
 /*Store int** as return */
 
 void swap(int* arr, int i, int j) {
@@ -112,6 +112,7 @@ int** permutation(int* arr, int n,int* returnSize){
     int** ret = (int**)malloc(sizeof(int*) * 500);  // "500" is const.
     int count = 0;
     permutationInner(arr, 0, n - 1, &ret, &count);
+
     *returnSize = count;
     return ret;
 }

@@ -35,6 +35,7 @@
 | 6  | ![getMaxWidth](chapter5/getMaxWidth.md)                            |
 | 7  | ![linkTreeNode](chapter5/linkTreeNode.md)                          |
 | 8  | ![isSimilarTree](chapter5/isSimilarTree.md)                        |
+| 9  | ![getLevelTreeNode](chapter5/getLevelTreeNode.md)                  |
 
 
 ### Nav-os-semaphore
