@@ -37,6 +37,7 @@
 | 8  | ![isSimilarTree](chapter5/isSimilarTree.md)                        |
 | 9  | ![getLevelTreeNode](chapter5/getLevelTreeNode.md)                  |
 | 10 | ![getLevelpreOrderTraverse](chapter5/getLevelpreOrderTraverse.md)  |
+| 11 | ![getSumPaths](chapter5/getSumPaths.md)                            |
 
 
 ### Nav-os-semaphore
