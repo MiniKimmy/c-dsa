@@ -26,6 +26,23 @@ Explanation: 4+2+10=16, 4+5+6+1=16, 4+5+7=16
 
 ## Solution
 ``` c
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     struct TreeNode *left;
+*     struct TreeNode *right;
+* };
+*/
+
+void traverseArray(int* arr, int n)
+{
+    for (int i = 0; i < n; ++i){
+        printf("%d ", arr[i]);
+    }
+    printf("\n");
+}
+
 void dfs(TreeNode* root, int* buffer, int level, int sum, int x){
     if (root == NULL) return;
 
@@ -44,5 +61,67 @@ void dfs(TreeNode* root, int* buffer, int level, int sum, int x){
 void getSumPaths(TreeNode* root, int x){
     int* buffer = (int*)malloc(sizeof(int) * 100);
     dfs(root, buffer, 0, 0, x);
+}
+```
+
+## Solution2
+``` c
+/*Store int[][] as return*/
+
+/**
+* Definition for a binary tree node.
+* struct TreeNode {
+*     int val;
+*     struct TreeNode *left;
+*     struct TreeNode *right;
+* };
+*/
+
+void dfs(TreeNode* root, int* buffer, int level, int sum, int x, int** ret, int* count, int* lens){
+    if (root == NULL) return;
+    int val = root->val;
+    if (sum + val == x) {
+        buffer[level] = val;
+        int len = level + 1;
+        lens[(*count)] = len;
+
+        int* item = (int*)malloc(sizeof(int) * len);
+        for (int i = 0; i < len; ++i) {
+            item[i] = buffer[i];
+        }
+        ret[(*count)] = item;
+        *count = *count + 1;
+
+    }else {
+        buffer[level] = val;
+    }
+
+    dfs(root->left, buffer, level + 1, sum + val, x,ret,count,lens);
+    dfs(root->right, buffer, level + 1, sum + val, x,ret,count,lens);
+}
+
+int** getSpecialPaths(TreeNode* root, int x, int* returnSize,int** returnSize1){
+    if(root==NULL) {
+        *returnSize1 = (int*)malloc(sizeof(int) * 1);
+        returnSize1[0] = 0;
+        return NULL;
+    }
+
+    int* buffer = (int*)malloc(sizeof(int) * 100);
+    int** ret = (int**)malloc(sizeof(int*) * 100);
+    int* lens = (int*)malloc(sizeof(int) * 100);
+
+    int count = 0;
+    dfs(root, buffer, 0, 0, x, ret, &count, lens);
+    *returnSize = count;
+
+    *returnSize1 = (int*)malloc(sizeof(int) * count);
+    for (int i = 0; i < count; ++i) {
+        (*returnSize1)[i] = lens[i];
+    }
+
+    free(lens);
+    free(buffer);
+    return ret;
 }
 ```
