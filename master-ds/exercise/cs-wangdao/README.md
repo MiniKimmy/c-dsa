@@ -38,7 +38,7 @@
 | 9  | ![getLevelTreeNode](chapter5/getLevelTreeNode.md)                  |
 | 10 | ![getLevelpreOrderTraverse](chapter5/getLevelpreOrderTraverse.md)  |
 | 11 | ![getSumPaths](chapter5/getSumPaths.md)                            |
-
+| 12 | ![getSumPathsII](chapter5/getSumPathsII.md)                        |
 
 ### Nav-os-semaphore
 | ID |                                   Nav                                    |
