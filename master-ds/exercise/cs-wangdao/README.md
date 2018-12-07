@@ -40,6 +40,7 @@
 | 11 | ![getSumPaths](chapter5/getSumPaths.md)                            |
 | 12 | ![getSumPathsII](chapter5/getSumPathsII.md)                        |
 | 13 | ![getWPL](chapter5/getWPL.md)                                      |
+| 14 | ![getSpecialMinVal](chapter5/getSpecialMinVal.md)                  |
 
 
 ### Nav-os-semaphore
