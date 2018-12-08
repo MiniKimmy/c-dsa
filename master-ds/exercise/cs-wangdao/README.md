@@ -4,7 +4,7 @@
 ### Nav-Analogue
 | ID |                                Nav                            |
 |:---|--------------------------------------------------------------:|
-| 2  | ![getMaxProfit](Analogue/getMaxProfit.md)                     |
+| 1  | ![getMaxProfit](Analogue/getMaxProfit.md)                     |
 
 ### Nav-Chapter2
 | ID |                                Nav                            |
@@ -13,6 +13,7 @@
 | 2  | ![deleteSameVal](chapter2/deleteSameVal.md)                   |
 | 3  | ![exchangeArr](chapter2/exchangeArr.md)                       |
 | 4  | ![getMedian](chapter2/getMedian.md)                           |
+| 5  | ![getMinPositityNum](chapter2/getMinPositityNum.md)           |
 
 ### Nav-Chapter3
 | ID |                                Nav                            |
