@@ -1,4 +1,4 @@
-## LAST 20 Days
+## Prepare for Second interview
 * learn coding from leetcode && nowcoder && c-dst for myself
 
 * ![Leetcode](leetcode/): About classical algorithm operation && interview
