@@ -75,3 +75,36 @@ public class Solution {
     }
 }
 ```
+
+## hint2
+```
+    1. n==1 as special
+    2. same char -->count++
+        (1)normal:count = 0
+        (2)count++ each time.
+        (3)meet different
+            use "||" --> avoid boundary overflow
+```
+
+## Solution2
+``` csharp
+public class Solution {
+    public string CountAndSay(int n) {
+        string ret = "1";
+        for(int i = 2;i<=n;++i) {
+            int count = 0;
+            string temp = "";
+
+            for(int j = 0;j<ret.Length;++j){
+                count++;
+                if(j == ret.Length - 1 || ret[j] != ret[j+1]){
+                    temp = temp + count.ToString() + ret[j].ToString();
+                    count = 0;
+                }
+            }
+            ret = temp;
+        }
+        return ret;
+    }
+}
+```
