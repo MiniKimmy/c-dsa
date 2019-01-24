@@ -38,6 +38,7 @@ Output: "1211"
 
 ## Solution
 ``` csharp
+/*168ms*/
 public class Solution {
     public string CountAndSay(int n) {
         if(n == 1) return "1";
@@ -75,7 +76,6 @@ public class Solution {
     }
 }
 ```
-
 ## hint2
 ```
     1. n==1 as special
@@ -85,9 +85,9 @@ public class Solution {
         (3)meet different
             use "||" --> avoid boundary overflow
 ```
-
 ## Solution2
 ``` csharp
+/*108ms*/
 public class Solution {
     public string CountAndSay(int n) {
         string ret = "1";
@@ -107,4 +107,47 @@ public class Solution {
         return ret;
     }
 }
+```
+## Solution2
+``` c
+/*0ms -->csharp to c */
+int getLen(char* str){
+    if(str == NULL) return 0;
+
+    int len = 0;
+    while(str[len]){
+        len++;
+    }
+    return len;
+}
+
+char* countAndSay(int n) {
+    char* ret = (char*)malloc(sizeof(char) * 2);
+    ret[0] = '1';
+    ret[1] = '\0';
+
+    for(int i = 2; i<=n ; ++i){
+        int retLen = getLen(ret);
+
+        int count = 0;
+        int bufferLen = 0;
+        char* buffer = (char*)malloc(sizeof(char) * (retLen*2 + 1) );
+        buffer[retLen*2] = '\0';
+
+        for(int j = 0; j < retLen; ++j){
+            count++;
+            if(j == retLen - 1 || ret[j] != ret[j+1]){
+                buffer[bufferLen++] = count + '0';
+                buffer[bufferLen++] = ret[j];
+                count = 0;
+            }
+        }
+
+        free(ret);
+        ret = buffer;
+        ret[bufferLen] = '\0';
+    }
+    return ret;
+}
+
 ```
