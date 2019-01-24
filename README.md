@@ -1,11 +1,13 @@
 ## Prepare for Second interview
-* learn coding from leetcode && nowcoder && c-dst for myself
+* learn coding from leetcode && nowcoder && acwing for myself
 
 * ![Leetcode](leetcode/): About classical algorithm operation && interview
 
 * ![Nowcoder](nowcoder/): About higher education universities oj problems.
 
 * ![exercise](master-ds/exercise/): About some exercises for c language.
+
+* ![AcWing](AcWing/): About job recruitment for interview in Spring.
 
 
 ### Nav-leetcode
@@ -38,4 +40,9 @@
 | 11   | ![insertStr](master-ds/exercise/string/2/insertStr.md)                       |
 | 12   | ![reverseStr](master-ds/exercise/string/3/reverseString.md)                  |
 | 13   | ![Permutation](master-ds/exercise/list/9/Permutation.md)                     |
+
+### Nav-AcWing
+| ID   |                                Nav                                           |
+| :----| ----------------------------------------------------------------------------:|
+| 1    | ![Week1](AcWing/Week1/)                                                      |
 
