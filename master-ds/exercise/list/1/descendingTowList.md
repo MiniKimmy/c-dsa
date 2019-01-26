@@ -78,33 +78,30 @@ Node* reverseList(Node* head) {
 
 
 Node* descendingTowList(Node* headA, Node* headB) {
-    Node* p = headA;
-    Node* q = headB;
+    Node* dummy = (Node*)malloc(sizeof(Node));
+    dummy->next = headA;
 
-    while (p && q) {
-        if (q->val < p->val) {
-            Node* k = q->next;
-            q->next = p;
+    Node* back = dummy;
+    Node* front = headA;
+    Node* p = l2;
 
-            if (headA->val > q->val) headA = q;
-            q = k;
-
-        }else {
-            if (p->next == NULL ||  p->next && p->next->val > q->val) {
-                Node* k = p->next;
-                Node* s = q->next;
-
-                p->next = q;
-                p->next->next = k;
-                q = s;
-                p = k;
-            }else {
-                p = p->next;
-            }
+    while(front && p){
+        if(front->val <= p->val){
+            back = back->next;
+            front = front->next;
+        }else{
+            Node* t = p->next;
+            back->next = p;
+            p->next = front;
+            back = p;
+            p = t;
         }
     }
 
-    return reverseList(headA);
+    if(p) back->next = p;
+    Node* ret = reverseList(dummy->next);
+    free(dummy);
+    return ret;
 }
 
 ```
