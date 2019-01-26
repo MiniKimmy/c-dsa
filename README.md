@@ -22,6 +22,7 @@
 | 13   | ![EasyHash](leetcode/easy/13/romanToInt.md)                                  |
 | 171  | ![EasyDp](leetcode/easy/171/titleToNumber.md)                                |
 | 122  | ![qSortMind](leetcode/easy/122/maxProfit.md)                                 |
+| 275  | ![bSearch](leetcode/medium/275/hIndex.md)                                    |
 
 
 ### Nav-exercise
@@ -45,4 +46,5 @@
 | ID   |                                Nav                                           |
 | :----| ----------------------------------------------------------------------------:|
 | 1    | ![Week1](AcWing/Week1/)                                                      |
+| 2    | ![Week2](AcWing/Week2/)                                                      |
 

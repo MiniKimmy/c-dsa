@@ -1,9 +1,8 @@
 ## 21. 斐波那契数列
 [这里](https://www.acwing.com/problem/content/19/)
-输入一个整数 n ，求斐波那契数列的第n项。
+输入一个整数n,求斐波那契数列的第n项。
 
-**Note:**n从0开始，n=0时返回0。(n<=39)
-
+**Note:** n从0开始,n=0时返回0。(n<=39)
 **Example :**
 ```
 Input:n=5

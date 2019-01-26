@@ -30,3 +30,55 @@ int duplicateInArray(int* nums, int numsSize){
     return -1;
 }
 ```
+## hints2
+```
+    1.每次交换到一个正确的位置。修改Source数组
+    2.已知值域是0~n-1,思考数组映射之外，还有映射排序。坑上的编号和坑上的值相等。
+    3.注意这个swap,容易写错为（这种是错误的）
+            int temp = nums[i];
+            nums[i] = nums[nums[i]];
+            nums[nums[i]] = temp;
+    4.写while的时候，可以想一个特殊例子开始写：
+
+        (1).坑的值是例子。[0]上的4，[4]上的1; 坑上的值与坑下标不一致.
+        ______________________________________________________
+坑位置: 0    1    2   3   4   5   6   7
+坑的值: 4   xx   xx  xx   1   ..  ..
+
+        (2).第[0]坑上的4，与第[4]的坑，交换--把4放到第[4]上
+
+        ______________________________________________________
+坑位置: 0    1    2   3   4   5   6   7
+坑的值: 1   xx   xx  xx   4   ..  ..
+
+       (3).第[0]坑上的1，重复(2)继续交换。即 第[0]坑上的1与第[1]坑上的数继续交换
+       (4).直到遇到，要交换的坑已经有对应的数，这时候就出现重复.就返回这个重复的数。
+
+    5.关于重复的问题的思想
+        * 出现2次以上。
+        * 坑的数量比数的数量少[抽屉原理]。（假设一个坑只放一个数）
+```
+## Solution2
+``` c
+/*时间O(n),空间O(1)*/
+int duplicateInArray(int* nums, int numsSize){
+
+    int duplicateInArray(int *nums, int numsSize){
+    for(int i = 0;i<numsSize;++i){
+        if(nums[i] < 0 || nums[i] >= numsSize) return -1;
+    }
+
+    for(int i = 0;i<numsSize;++i){
+        while(i != nums[i] && nums[i] != nums[nums[i]] ) {
+            int temp = nums[i];
+            nums[i] = nums[nums[i]];
+            nums[temp] = temp;
+        }
+        if(i != nums[i] && nums[i] == nums[nums[i]])
+            return nums[i];
+    }
+
+    return -1;
+}
+}
+```
