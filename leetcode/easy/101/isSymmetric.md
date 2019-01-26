@@ -104,3 +104,47 @@ bool isSymmetric(struct TreeNode* root) {
     return true;
 }
 ```
+## hints
+```
+    1.dfs的方向。一边先左后右，一边先右后左
+    2.同时传入同一个root去dfs
+```
+
+## Solition2
+```
+/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     struct TreeNode *left;
+ *     struct TreeNode *right;
+ * };
+ */
+
+void dfs(struct TreeNode* t1, struct TreeNode* t2, int* ret){
+    if(!t1 && !t2) return;
+
+    if((!t1 && t2) || (t1 && !t2)){
+        *ret = 0;
+        return;
+    }
+
+    if(t1->val != t2->val){
+        *ret = 0;
+        return;
+    }
+
+    dfs(t1->left,t2->right,ret);
+    dfs(t1->right,t2->left,ret);
+}
+
+bool isSymmetric(struct TreeNode* root) {
+    if(root == NULL) return true;
+
+    int refRet = 1;
+    dfs(root,root,&refRet);
+
+    if(refRet == 1) return true;
+    else return false;
+}
+```
