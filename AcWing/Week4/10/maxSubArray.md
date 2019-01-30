@@ -43,7 +43,7 @@ int maxSubArray(int* nums, int numsSize) {
 }
 ```
 
-## hints
+## hints2
 ```
     1.把一段数（在本题是一堆连续的数之和），看作一个数s
     2.s代表经历过在下标i之前得到的最大的sum
