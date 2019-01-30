@@ -14,7 +14,7 @@ Input:[8, 12, 2, null, null, 6, null, 4, null, null, null]
 Output:[8, 12, 2, 6, 4]
 ```
 
-##hints
+## hints
 ```
     levelOrder
 ```
@@ -70,9 +70,9 @@ int* printFromTopToBottom(struct TreeNode* root , int* returnSize){
     for(int i = 0;i<count;++i){
         ret[i] = buffer[i];
     }
+
     free(queue);
     free(buffer);
-
     *returnSize = count;
     return ret;
 }
