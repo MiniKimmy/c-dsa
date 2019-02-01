@@ -1,7 +1,8 @@
 ## 43. 不分行从上往下打印二叉树
 [这里](https://www.acwing.com/problem/content/description/41/)
 从上往下打印出二叉树的每个结点，同一层的结点按照从左到右的顺序打印。
-## hints
+
+**Example :**
 ```
 Input:[8, 12, 2, null, null, 6, null, 4, null, null, null]
     8

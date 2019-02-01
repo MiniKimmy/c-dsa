@@ -3,7 +3,8 @@
 实现函数double Power(double base, int exponent)，求base的 exponent次方。
 不得使用库函数，同时不需要考虑大数问题。
 
-**Note:**不会出现底数和指数同为0的情况
+**Note :**
+* 不会出现底数和指数同为0的情况
 
 **Example 1:**
 ```
