@@ -50,4 +50,5 @@
 | 3    | ![Week3](AcWing/Week3/)                                                      |
 | 4    | ![Week4](AcWing/Week4/)                                                      |
 | 5    | ![Week5](AcWing/Week5/)                                                      |
-
+| 6    | ![Week6](AcWing/Week6/)                                                      |
+| 7    | ![Week7](AcWing/Week7/)                                                      |
