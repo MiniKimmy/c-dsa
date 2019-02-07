@@ -1,5 +1,3 @@
-## CODING INDEX:
-
 * https://www.nowcoder.com/activity/oj
 * https://www.nowcoder.com/kaoyan/detail/12002/68
 
@@ -15,10 +13,7 @@ typedef struct example{
     char val;
 }Node;
 ```
-
-
 ## INPUT
-
 ### Read a Line string
 **Example 1:**
 ``` c
@@ -37,6 +32,7 @@ int getLen(char* s){
         ret++;
         p++;
     }
+
     return ret;
 }
 
@@ -48,7 +44,6 @@ int main(void){
   return 0;
 }
 ```
-
 ### read int[]
 **Example 1:**
 ``` c
@@ -67,8 +62,6 @@ int main(){
   while(scanf("%d", &(test[i++])) != EOF);
 }
 ```
-
-
 ### Read Temp and int[]
 **Example 3:**
 ``` c
@@ -88,7 +81,6 @@ int main(){
     }
 
 ```
-
 ### read Temp1 and Temp2
 **Example 4:**
 ``` c
@@ -99,9 +91,8 @@ temp2 = 200
 
 int main(void){
     int temp1,temp2;
-    scanf("%d%d",&temp1,%temp2);
+    scanf("%d%d",&temp1,&temp2);
 
     return 0;
 }
-
 ```
