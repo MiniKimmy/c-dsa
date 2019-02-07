@@ -7,7 +7,7 @@
 
 * ![exercise](master-ds/exercise/): About some exercises for c language.
 
-* ![AcWing](AcWing/): About job recruitment for interview in Spring.
+* ![AcWing](AcWing/): About job recruitment for interview in the future.
 
 
 ### Nav-leetcode
@@ -52,3 +52,4 @@
 | 5    | ![Week5](AcWing/Week5/)                                                      |
 | 6    | ![Week6](AcWing/Week6/)                                                      |
 | 7    | ![Week7](AcWing/Week7/)                                                      |
+| 8    | ![0x00](AcWing/0x00/)                                                        |

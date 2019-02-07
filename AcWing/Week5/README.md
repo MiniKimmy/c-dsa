@@ -4,7 +4,7 @@
 ### Nav-AcWing
 | ID   |                                Nav                                            |
 | :----| -----------------------------------------------------------------------------:|
-| 57   | ![digitAtIndex](2/digitAtIndex.md)                                            |
+| 57   | ![digitAtIndex](1/digitAtIndex.md)                                            |
 | 58   | ![printMinNumber](2/printMinNumber.md)                                        |
 | 59   | ![getTranslationCount](3/getTranslationCount.md)                              |
 | 61   | ![longestSubstringWithoutDuplication](5/longestSubstringWithoutDuplication.md)|
