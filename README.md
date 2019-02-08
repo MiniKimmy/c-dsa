@@ -45,11 +45,7 @@
 ### Nav-AcWing
 | ID   |                                Nav                                           |
 | :----| ----------------------------------------------------------------------------:|
-| 1    | ![Week1](AcWing/Week1/)                                                      |
-| 2    | ![Week2](AcWing/Week2/)                                                      |
-| 3    | ![Week3](AcWing/Week3/)                                                      |
-| 4    | ![Week4](AcWing/Week4/)                                                      |
-| 5    | ![Week5](AcWing/Week5/)                                                      |
-| 6    | ![Week6](AcWing/Week6/)                                                      |
-| 7    | ![Week7](AcWing/Week7/)                                                      |
-| 8    | ![0x00](AcWing/0x00/)                                                        |
+| 1    | ![jzOffer](AcWing/jzOffer/)                                                  |
+| 2    | ![module](AcWing/module/)                                                    |
+| 3    | ![algorithmicContests](AcWing/algorithmicContests/)                          |
+
