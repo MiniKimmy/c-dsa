@@ -6,6 +6,7 @@
 **Note**
 * 输入的二叉树不为空；
 * 输入的两个节点一定不为空，且是二叉树中的节点；
+
 **Example :**
 ```
 [8, 12, 2, null, null, 6, 4, null, null, null, null]
@@ -17,7 +18,7 @@
 Explanation:
 1. 如果输入的树节点为2和12，则输出的最低公共祖先为树节点8。
 2. 如果输入的树节点为2和6，则输出的最低公共祖先为树节点2。
-````
+```
 
 ## Solution
 ``` c
@@ -60,7 +61,6 @@ struct TreeNode* lowestCommonAncestor(struct TreeNode* root, struct TreeNode* p,
     dfs(root,p,buffer,0,&arr1,&len1);
     dfs(root,q,buffer,0,&arr2,&len2);
 
-    //printf("l1=%d,l2=%d\n",len1,len2);
     while(len1 > 0 && len2 > 0){
         if(arr1[len1-1] == arr2[len2-1]) return arr1[len1-1];
         if(len1>len2){

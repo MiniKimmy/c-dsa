@@ -17,7 +17,7 @@ Input:
   [4,6,1]
 ]
 Output:19
-Explanation:
+Explanation:沿着路径 2→3→7→6→1 可以得到拿到最大价值礼物。
 ```
 ## hints
 ```

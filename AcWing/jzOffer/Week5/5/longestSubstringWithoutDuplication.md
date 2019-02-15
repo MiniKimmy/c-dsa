@@ -2,7 +2,7 @@
 [这里](https://www.acwing.com/problem/content/57/)
 请从字符串中找出一个最长的不包含重复字符的子字符串，计算该最长子字符串的长度。
 
-*Note**
+**Note**
 * 假设字符串中只包含从’a’到’z’的字符。
 
 **Example :**
@@ -20,8 +20,7 @@ Explanation: "abc"是无重复的连续字符串最大长度为3
 
 ## Solution
 ``` c
-void longestSubstringWithoutDuplicationInner(char* s, int start, int* ret)
-{
+void longestSubstringWithoutDuplicationInner(char* s, int start, int* ret){
     if(!s[start]) return;
 
     int* hash = (int*)malloc(sizeof(int) * 255);
@@ -50,6 +49,7 @@ void longestSubstringWithoutDuplicationInner(char* s, int start, int* ret)
 
 int longestSubstringWithoutDuplication(char* s) {
     int refRet = 0;
+
     longestSubstringWithoutDuplicationInner(s,0,&refRet);
     return refRet;
 }
