@@ -1,6 +1,7 @@
 ## 58. 把数组排成最小的数
 [这里](https://www.acwing.com/problem/content/54/)
 输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。
+
 **Example :**
 ```
 Input:[3, 32, 321]
@@ -79,7 +80,7 @@ int pow_(int a, int e)
     return ret;
 }
 
-// 0:a==b; 1:a>b;-1:a<b
+/// 0:a==b; 1:a>b;-1:a<b
 int compare(int a, int b)
 {
     int len1 = getBit(a);
@@ -93,16 +94,12 @@ int compare(int a, int b)
         // 处理位数不同的2个数
         while(t1>1 || t2>1)
         {
-            //printf("a=%d--b=%d--\n",a,b);
             int a1 = a / t1;
             int b1 = b / t2;
-            //printf("t1=%d--t2=%d\n",t1,t2);
             if(a1 > b1) {
-                //printf("a1=%d--b1=%d -- 1\n",a1,b1);
                 return 1;
             }
             else if(a1 < b1){
-              //printf("a1=%d--b1=%d--fu1\n",a1,b1);
               return -1;
             }
             else{
@@ -206,7 +203,7 @@ char* printMinNumber(int* nums, int numsSize) {
     if(nums == NULL || numsSize<=0) return "";
 
     //printf("test=%d\n",compare(474,47));
-    //return "";          //用于测试某一组数的debug
+    //return "";              //用于测试某一组数的debug
 
     insertSort(nums,numsSize);
 
@@ -232,5 +229,4 @@ char* printMinNumber(int* nums, int numsSize) {
     free(buffer);
     return ret;
 }
-
 ```
