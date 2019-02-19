@@ -111,3 +111,74 @@ int** updateMatrix(int** matrix, int matrixRowSize, int matrixColSize, int** col
     return ret;
 }
 ```
+
+## hints2
+```
+    4方向bfs
+1.把‘0’的(i,j)位置先存到队列，初始dist[i,j] = -1
+2.从‘0’的地方开始bfs一下4个方向，每次能距离+1
+
+```
+## Solution2
+``` csharp
+public class Pair
+{
+    public int x{ get;set;}
+    public int y{ get;set;}
+
+    public Pair(){}
+    public Pair(int x,int y){
+        this.x = x;
+        this.y = y;
+    }
+}
+
+public class Solution {
+    public int[,] UpdateMatrix(int[,] matrix) {
+        int n = matrix.GetLength(0);
+        int m = matrix.GetLength(1);
+        Queue<Pair> que = new Queue<Pair>();
+
+        int[,] dist = new int[n,m];
+
+        for(int i = 0;i<n;++i){
+            for(int j = 0;j<m;++j){
+                dist[i,j] = -1;
+            }
+        }
+
+
+        for(int i = 0;i<n;++i)
+        {
+            for(int j = 0;j<m;++j)
+            {
+                if(matrix[i,j] == 0)
+                {
+                    dist[i,j] = 0;
+                    Pair item = new Pair(i,j);
+                    que.Enqueue(item);
+                }
+            }
+        }
+
+        int[] dx = {-1,0,1,0};
+        int[] dy = {0,1,0,-1};
+        while(que.Count>0)
+        {
+            var t = que.Dequeue();
+            for(int i = 0;i<4;++i)
+            {
+                int a = t.x + dx[i];
+                int b = t.y + dy[i];
+                if(a>=0 && a < n && b>=0 && b< m && dist[a,b] == -1){
+                    Pair item = new Pair(a,b);
+                    dist[a,b] = dist[t.x,t.y] + 1;
+                    que.Enqueue(item);
+                }
+            }
+        }
+
+        return dist;
+    }
+}
+```
