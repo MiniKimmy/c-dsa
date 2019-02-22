@@ -125,7 +125,6 @@ bool canFinish(int numCourses, int** prerequisites, int prerequisitesRowSize, in
     return true;
 }
 ```
-
 ## hints2
 ```
     邻接表+拓扑排序bfs
@@ -205,6 +204,64 @@ public class Solution {
         }
 
         return st != numCourses ? false:true;
+    }
+}
+```
+## hints3
+```
+    基于hint2优化
+1.不需要自定义一个链表，直接使用List<List<int>>当作邻接表
+2.注意的是List<List<int>>实例化之后，要for一遍Add(null),才可使用list[index]访问，否则会报数组越界错误。
+```
+## Solution3
+``` csharp
+public class Solution {
+    public bool CanFinish(int numCourses, int[,] prerequisites) {
+        int n = prerequisites.GetLength(0);
+        if( n == 0 ) return true;
+
+        List<List<int>> g = new List<List<int>>();
+        int[] dist = new int[numCourses];
+        for(int i = 0;i<numCourses;++i){
+            g.Add(null);  //初始化graph
+        }
+
+        for(int i = 0; i<n; ++i){
+            var first = prerequisites[i,0];
+            var second = prerequisites[i,1];
+
+            dist[first]++;
+            if(g[second] == null){
+                g[second] = new List<int>();
+            }
+
+            g[second].Add(first);
+        }
+
+        Queue<int> que = new Queue<int>();
+        for(int i = 0;i<numCourses;++i){
+            if(dist[i] == 0){
+                que.Enqueue(i);
+            }
+        }
+
+
+        int st = 0;
+        while(que.Count>0){
+            var t = que.Dequeue();
+            st++;
+            int len = g[t]==null?0:g[t].Count;
+            for(int i = 0;i<len;++i)
+            {
+                dist[g[t][i]]--;
+                if(dist[g[t][i]] == 0)
+                {
+                    que.Enqueue(g[t][i]);
+                }
+            }
+        }
+
+        return st!=numCourses?false:true;
     }
 }
 ```

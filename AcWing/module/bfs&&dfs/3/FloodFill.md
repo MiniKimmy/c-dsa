@@ -1,5 +1,6 @@
 ## 733. Flood Fill
 [这里](https://leetcode.com/problems/flood-fill/)
+
 **Example:**
 ```
 Input:
@@ -10,12 +11,14 @@ Input:
 ]
 起点:(sr,sc)=(1,1)
 newColor:新的val
+
 Ouput:
 [
     [2 2 2]
     [2 2 0]
     [2 0 1]
 ]
+
 Explanation:从(1,1)开始，把所有附近（4个方向）的1都变成2.
 ```
 ## hints
