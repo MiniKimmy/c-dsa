@@ -1,3 +1,5 @@
+## 136. Single Number
+[这里](https://leetcode.com/problems/single-number/)
 
 ## hints
 ```
@@ -5,8 +7,7 @@ qSort将相同的数字放在一堆
 ```
 ## Solution
 ``` c
-void swap(int* arr,int i,int j)
-{
+void swap(int* arr,int i,int j){
     int temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
@@ -51,10 +52,10 @@ int singleNumber(int* nums, int numsSize) {
 ```
 ## hints2
 ```
-异或找不同
+    利用异或找不同
 1.异或
     * 0不变，1相反
-    * 相同就是0，不同就是1
+    * 相同=0，不同=1
 ex:1 2 2 4 4
     2^2 = 0;
     4^4 = 0;
