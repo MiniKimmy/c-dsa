@@ -44,6 +44,7 @@ public class Solution {
     public ListNode ReverseList(ListNode head) {
 
         ListNode dummy = new ListNode(-1);
+        //dummy.next = null;
 
         ListNode p = head;
         while(p != null)

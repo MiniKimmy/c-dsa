@@ -2,7 +2,8 @@
 [这里](https://leetcode.com/problems/copy-list-with-random-pointer/)
 
 ## hints1
-* ![参考](../../../leetcode/medium/138/copyRandomList.md)
+* ![参考](../../../../leetcode/medium/138/copyRandomList.md)
+* [youtube_VedioTutorial](https://www.youtube.com/watch?time_continue=911&v=OvpKeraoxW0)
 ## Solution1
 ``` cpp
 class Solution {
