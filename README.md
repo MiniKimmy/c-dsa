@@ -85,9 +85,8 @@
 | SelectionSort | 选择排序；O(n²)；不稳定    | TODO |
 | InsertionSort | 插入排序；O(n²)；稳定      | TODO |
 | ShellSort     | 希尔排序；稳定             | TODO |
-| MergeSort     | 归并排序；O(nlogn)；稳定   | TODO |
-
-| QuickSort     | 快速排序；O(nlogn)；不稳定 | [查看代码](https://github.com/MiniKimmy/c-dsa/algorithms/sort/quickSort.cpp) |
+| MergeSort     | 归并排序；O(nlogn)；稳定   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/mergeSort.cpp) |
+| QuickSort     | 快速排序；O(nlogn)；不稳定 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/quickSort.cpp) |
 | CountSort     | 计数排序                   | TODO                                                         |
 | RadixSort     | 基数排序                   | TODO                                                         |
 
