@@ -81,10 +81,10 @@
 
 | 算法名        | 说明                       | 代码                                                         |
 | ------------- | -------------------------- | ------------------------------------------------------------ |
-| BubbleSort    | 冒泡排序；O(n²)；稳定      | [查看代码](https://github.com/gothicrush/go-dsa/tree/master/algorithms/sort) |
-| SelectionSort | 选择排序；O(n²)；不稳定    | TODO |
-| InsertionSort | 插入排序；O(n²)；稳定      | TODO |
-| ShellSort     | 希尔排序；稳定             | TODO |
+| BubbleSort    | 冒泡排序；O(n²)；稳定      | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/bubbleSort.cpp) |
+| SelectionSort | 选择排序；O(n²)；不稳定    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/selectSort.cpp) |
+| InsertionSort | 插入排序；O(n²)；稳定      | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/insertSort.cpp) |
+| ShellSort     | 希尔排序；稳定             | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/shellSort.cpp) |
 | MergeSort     | 归并排序；O(nlogn)；稳定   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/mergeSort.cpp) |
 | QuickSort     | 快速排序；O(nlogn)；不稳定 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/quickSort.cpp) |
 | CountSort     | 计数排序                   | TODO                                                         |
