@@ -1,14 +1,13 @@
 ### 用 c/cpp 语言实现常见数据结构与算法
 
 
-
 ## 数据结构
 
 ### 线性表
 
 | 结构名     | 说明     | 代码                                                         |
 | ---------- | -------- | ------------------------------------------------------------ |
-| singlelist | 单向链表 | TODO |
+| singlelist | 单向链表 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/singlelist/staticlist.cpp) |
 | sqlist     | 顺序表   | TODO|
 | doublelist | 双向链表 | TODO                                                         |
 | looplist   | 循环链表 | TODO                                                         |
@@ -20,17 +19,17 @@
 | 结构名        | 说明  | 代码                                                         |
 | ------------- | ---------------------------- | ------------------------------------------------------------ |
 | linkedstack   | 基于singlelist实现的链式栈   | TODO |
-| slicestack    | 基于slice实现的链式栈        | TODO |
+| vectorstack   | 基于vector实现的链式栈        | TODO |
 | sqstack       | 基于sqlist实现的链式栈       | TODO |
 | linkedqueue   | 基于linkedlist实现的链式队列 | TODO |
 | sqlistqueue   | 基于sqlist实现的链式队列     | TODO |
-| priorityqueue | 优先队列                     | TODO |
+| priorityqueue | 优先队列                    | TODO |
 
 
 
 ### 树结构
 
-| 结构名      | 说明                    | 代码                                                         |
+| 结构名       | 说明                    | 代码                                                         |
 | ----------- | ----------------------- | ------------------------------------------------------------ |
 | BST         | 二叉搜索树              | TODO |
 | AVL         | 二叉搜索平衡树 - AVL树  | TODO |
@@ -44,7 +43,7 @@
 
 ### 堆结构
 
-| 结构名    | 说明                 | 代码                                                         |
+| 结构名     | 说明                 | 代码                                                         |
 | --------- | -------------------- | ------------------------------------------------------------ |
 | maxheap   | 基于数组实现的最大堆 | TODO |
 | minheap   | 基于数组实现的最小堆 | TODO |
@@ -56,7 +55,7 @@
 
 ### 集合
 
-| 结构名    | 说明                    | 代码                                                         |
+| 结构名     | 说明                    | 代码                                                         |
 | --------- | ----------------------- | ------------------------------------------------------------ |
 | mapset    | 基于 map 实现的集合     | TODO |
 | hashtable | 哈希表                  | TODO                                                         |
@@ -68,18 +67,15 @@
 
 | 结构名                 | 说明                  | 代码                                                         |
 | ---------------------- | --------------------- | ------------------------------------------------------------ |
-| unionfind - quickfind  | 并查集 - 快速查找版本 | TODO |
-| unionfind - quickunion | 并查集 - 快速联合版本 | TODO |
-| sparsegraph            | 稀疏图 - 邻接表       | TODO |
-| densegraph             | 稠密图 - 邻接矩阵     | TODO |
+| sparsegraph  | 稀疏图 - 邻接表       | TODO |
+| densegraph   | 稠密图 - 邻接矩阵     | TODO |
 
 
 
-## 算法
 
 ### 排序算法
 
-| 算法名        | 说明                       | 代码                                                         |
+| 算法名         | 说明                       | 代码                                                         |
 | ------------- | -------------------------- | ------------------------------------------------------------ |
 | BubbleSort    | 冒泡排序；O(n²)；稳定      | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/bubbleSort.cpp) |
 | SelectionSort | 选择排序；O(n²)；不稳定    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/selectSort.cpp) |
@@ -92,14 +88,19 @@
 
 
 
-### 图算法
+
+### 图论
 
 | 算法名       | 说明                              | 代码                                                         |
 | ------------ | --------------------------------- | ------------------------------------------------------------ |
+| unionfind    | 并查集 - 压缩路径版本 | TODO |
+| unionfind    | 并查集 - 压缩路径+压缩体积版本 | TODO |
 | components   | 联通分量算法                      | TODO |
 | shorestpath  | 无权图最短路径算法                | TODO |
 | prim         | 最小生成树 - prim算法             | TODO       |
-| krusk        | 最小生成树 - krusk算法            | TODO               |
+| kruskal      | 最小生成树 - kruskal算法         | TODO               |
 | dijkstra     | 有权图最短路径 - dijkstra算法     | TODO           |
+| dijkstra     | 堆优化版     | TODO           |
 | bellman-ford | 有权图最短路径 - bellman-ford算法 | TODO                |
-
+| spfa         | 有权图最短路径 - spfa算法 | TODO                |
+| floyd        | 多源最短路 - floyd算法 | TODO                |
