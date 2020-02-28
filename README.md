@@ -1,46 +1,47 @@
 ### 用 C ++ 语言实现常见数据结构与算法
 
 
-## 数据结构
+### 数据结构
 
-| 结构名     | 说明     | 代码                                                         |
-| ---------- | -------- | ------------------------------------------------------------ |
-| singlelist | 单向链表     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/singlelist/staticlist.cpp) |
-| doublelist | 双链表       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/doublelist/doublelist.cpp) |
-| looplist   | 循环链表     | TODO                                                         |
-| stack      | 数组模拟栈   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/sqstack.cpp) |
-| stack      | 单调栈   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/dullstack.cpp) |
-| queue      | 数组模拟队列 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/sqqueue.cpp) |
-| queue      | 单调队列 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/dullqueue.cpp) |
-| BST         | 二叉搜索树              | TODO |
-| AVL         | 二叉搜索平衡树 - AVL树  | TODO |
-| RBTree      | 二叉搜索平衡树 - 红黑树 | TODO                                                         |
-| Trie        | 前缀树                  | TODO                                                         |
-| B+Tree      | B+ 树                   | TODO                                                         |
-| kd 树       | kd 树                   | TODO                                                         |
-| segmentTree | 线段树                  | TODO                                                         |
-| hashtable   | 哈希表                  | TODO                                                         |
-| sparsegraph  | 稀疏图 - 邻接表       | TODO |
-| densegraph   | 稠密图 - 邻接矩阵     | TODO |
+| 序号 | 结构名      | 说明         | C ++ 代码                                                                                                 |
+|------|-------------|--------------|------------------------------------------------------------------------------------------------------|
+| 1    | stack       | 数组模拟栈   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/sqstack.cpp)              |
+| 3    | stack       | 单调栈       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/dullstack.cpp)            |
+| 4    | queue       | 数组模拟队列 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/sqqueue.cpp)              |
+| 5    | queue       | 单调队列     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/dullqueue.cpp)            |
+| 6    | singlelist  | 单链表       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/singlelist/staticlist.cpp) |
+| 7    | doublelist  | 双链表       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/doublelist/doublelist.cpp) |
+| 8    | looplist    | 循环链表     | TODO                                                                                                 |
+| 9    | BST         | 二叉搜索树   | TODO                                                                                                 |
+| 10   | AVL         | 平衡树       | TODO                                                                                                 |
+| 11   | RBTree      | 平衡树       | TODO                                                                                                 |
+| 12   | trie        | 前缀树       | TODO                                                                                                 |
+| 13   | B+Tree      | B+ 树        | TODO                                                                                                 |
+| 14   | kd 树       | kd 树        | TODO                                                                                                 |
+| 15   | segmentTree | 线段树       | TODO                                                                                                 |
+| 16   | hashtable   | 哈希表       | TODO                                                                                                 |
+| 17   | sparsegraph | 邻接表       | TODO                                                                                                 |
+| 18   | densegraph  | 邻接矩阵     | TODO                                                                                                 |
+
+
 
 ### 算法
 
-| 算法名         | 说明                       | 代码                                                         |
-| ------------- | -------------------------- | ------------------------------------------------------------ |
-| bubbleSort    | 冒泡排序；O(n²)；稳定      | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/bubbleSort.cpp) |
-| selectSort    | 选择排序；O(n²)；不稳定    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/selectSort.cpp) |
-| insertSort    | 插入排序；O(n²)；稳定      | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/insertSort.cpp) |
-| shellSort     | 希尔排序；稳定             | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/shellSort.cpp) |
-| mergeSort     | 归并排序；O(nlogn)；稳定   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/mergeSort.cpp) |
-| quickSort     | 快速排序；O(nlogn)；不稳定 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/quickSort.cpp) |
-| unionfind    | 并查集 - 压缩路径版本 | TODO |
-| unionfind    | 并查集 - 压缩路径+压缩体积版本 | TODO |
-| components   | 联通分量算法                      | TODO |
-| shorestpath  | 无权图最短路径算法                | TODO |
-| prim         | 最小生成树 - prim算法             | TODO       |
-| kruskal      | 最小生成树 - kruskal算法         | TODO               |
-| dijkstra     | 有权图最短路径 - dijkstra算法     | TODO           |
-| dijkstra     | 堆优化版     | TODO           |
-| bellman-ford | 有权图最短路径 - bellman-ford算法 | TODO                |
-| spfa         | 有权图最短路径 - spfa算法 | TODO                |
-| floyd        | 多源最短路 - floyd算法 | TODO                |
+| 序号 | 算法名       | 说明                | C ++ 代码                                                                                      |
+|------|--------------|---------------------|-------------------------------------------------------------------------------------------|
+| 0    | kmp          | kmp O(n)            | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/kmp/kmp.cpp)         |
+| 1    | bubbleSort   | 冒泡排序O(n²)       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/bubbleSort.cpp) |
+| 2    | selectSort   | 选择排序O(n²)       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/selectSort.cpp) |
+| 3    | insertSort   | 插入排序O(n²)       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/insertSort.cpp) |
+| 4    | shellSort    | 希尔排序            | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/shellSort.cpp)  |
+| 5    | mergeSort    | 归并排序O(nlogn)    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/mergeSort.cpp)  |
+| 6    | quickSort    | 快速排序O(nlogn)    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/quickSort.cpp)  |
+| 7    | dijkstra     | 朴素版              | TODO                                                                                      |
+| *    | dijkstra     | 堆优化版            | TODO                                                                                      |
+| *    | spfa         | 有权图最短路径      | TODO                                                                                      |
+| *    | bellman-ford | 有权图最短路径      | TODO                                                                                      |
+| *    | prim         | 最小生成树          | TODO                                                                                      |
+| *    | kruskal      | 最小生成树          | TODO                                                                                      |
+| *    | unionfind    | 并查集-压缩路径版本 | TODO                                                                                      |
+| *    | unionfind    | 并查集-压缩体积版本 | TODO                                                                                      |
+| *    | floyd        | 多源汇最短路        | TODO                                                                                      |
