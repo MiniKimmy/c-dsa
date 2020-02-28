@@ -4,16 +4,16 @@ const int N = 1e6 + 10  // 取决于数据范围
 
 int p[N];
 
-// 初始化, 编号从1开始
+// 初始化, 编号从0 or 1开始, 具体看题目编号是从几开始
 void init(int n) 
 { 
-    for (int i = 1; i <= n; i ++ ) p[i] = i;
+    for (int i = 0; i < n; i ++ ) p[i] = i;
 }
 
 // 压缩路径
 int find(int x) 
 {
-    return x == p[x] ? x : p[x] = find(x);
+    return x == p[x] ? x : p[x] = find(p[x]); // 注: 写p[x] = find(x) 会死循环.
 }
 
 // 测试&&调用
