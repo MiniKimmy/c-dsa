@@ -15,7 +15,7 @@
 | 7    | trie        | 前缀树     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/tree/trie/trie.cpp)             |
 | 8    | BST         | 二叉搜索树 | TODO                                                                                                 |
 | 9    | AVL         | 平衡树     | TODO                                                                                                 |
-| 10   | B+Tree      | B+ 树      | TODO                                                                                                 |
+| 10   | B+ Tree      | B+ 树      | TODO                                                                                                 |
 | 11   | segmentTree | 线段树     | TODO                                                                                                 |
 | 12   | hashtable   | 哈希表     | TODO                                                                                                 |
 | 13   | sparsegraph | 邻接表     | TODO                                                                                                 |
@@ -25,21 +25,21 @@
 
 ### 算法
 
-| 序号 | 算法名       | 说明                | C ++ 代码                                                                                 |
-|------|--------------|---------------------|-------------------------------------------------------------------------------------------|
-| 0    | kmp          | kmp O(n)            | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/kmp/kmp.cpp)         |
-| 1    | bubbleSort   | 冒泡排序O(n²)       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/bubbleSort.cpp) |
-| 2    | selectSort   | 选择排序O(n²)       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/selectSort.cpp) |
-| 3    | insertSort   | 插入排序O(n²)       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/insertSort.cpp) |
-| 4    | shellSort    | 希尔排序            | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/shellSort.cpp)  |
-| 5    | mergeSort    | 归并排序O(nlogn)    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/mergeSort.cpp)  |
-| 6    | quickSort    | 快速排序O(nlogn)    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/quickSort.cpp)  |
-| 7    | dijkstra     | 朴素版              | TODO                                                                                      |
-| *    | dijkstra     | 堆优化版            | TODO                                                                                      |
-| *    | spfa         | 有权图最短路径      | TODO                                                                                      |
-| *    | bellman-ford | 有权图最短路径      | TODO                                                                                      |
-| *    | prim         | 最小生成树          | TODO                                                                                      |
-| *    | kruskal      | 最小生成树          | TODO                                                                                      |
-| *    | unionfind    | 并查集-压缩路径版本 | TODO                                                                                      |
-| *    | unionfind    | 并查集-压缩体积版本 | TODO                                                                                      |
-| *    | floyd        | 多源汇最短路        | TODO                                                                                      |
+| 序号 | 算法名       | 说明             | C ++ 代码                                                                                          |
+|------|--------------|------------------|----------------------------------------------------------------------------------------------------|
+| 0    | kmp          | kmp O(n)         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/kmp/kmp.cpp)                  |
+| 1    | bubbleSort   | 冒泡排序O(n²)    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/bubbleSort.cpp)          |
+| 2    | selectSort   | 选择排序O(n²)    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/selectSort.cpp)          |
+| 3    | insertSort   | 插入排序O(n²)    | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/insertSort.cpp)          |
+| 4    | shellSort    | 希尔排序         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/shellSort.cpp)           |
+| 5    | mergeSort    | 归并排序O(nlogn) | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/mergeSort.cpp)           |
+| 6    | quickSort    | 快速排序O(nlogn) | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/quickSort.cpp)           |
+| 7    | unionfind    | 并查集-路径压缩  | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/unionfind/unionfind.cpp)      |
+| 8    | unionfind    | 并查集-size优化  | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/unionfind/unionfind_size.cpp) |
+| *    | dijkstra     | 朴素版           | TODO                                                                                               |
+| *    | dijkstra     | 堆优化版         | TODO                                                                                               |
+| *    | spfa         | 有权图最短路径   | TODO                                                                                               |
+| *    | bellman-ford | 有权图最短路径   | TODO                                                                                               |
+| *    | prim         | 最小生成树       | TODO                                                                                               |
+| *    | kruskal      | 最小生成树       | TODO                                                                                               |
+| *    | floyd        | 多源汇最短路     | TODO                                                                                               |
