@@ -9,7 +9,9 @@
 | doublelist | 双链表       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/doublelist/doublelist.cpp) |
 | looplist   | 循环链表     | TODO                                                         |
 | stack      | 数组模拟栈   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/sqstack.cpp) |
+| stack      | 单调栈   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/dullstack.cpp) |
 | queue      | 数组模拟队列 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/sqqueue.cpp) |
+| queue      | 单调队列 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/dullqueue.cpp) |
 | BST         | 二叉搜索树              | TODO |
 | AVL         | 二叉搜索平衡树 - AVL树  | TODO |
 | RBTree      | 二叉搜索平衡树 - 红黑树 | TODO                                                         |
