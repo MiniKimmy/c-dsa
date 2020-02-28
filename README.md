@@ -3,31 +3,29 @@
 
 ### 数据结构
 
-| 序号 | 结构名      | 说明         | C ++ 代码                                                                                                 |
-|------|-------------|--------------|------------------------------------------------------------------------------------------------------|
-| 1    | stack       | 数组模拟栈   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/sqstack.cpp)              |
-| 3    | stack       | 单调栈       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/dullstack.cpp)            |
-| 4    | queue       | 数组模拟队列 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/sqqueue.cpp)              |
-| 5    | queue       | 单调队列     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/dullqueue.cpp)            |
-| 6    | singlelist  | 单链表       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/singlelist/staticlist.cpp) |
-| 7    | doublelist  | 双链表       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/doublelist/doublelist.cpp) |
-| 8    | looplist    | 循环链表     | TODO                                                                                                 |
-| 9    | BST         | 二叉搜索树   | TODO                                                                                                 |
-| 10   | AVL         | 平衡树       | TODO                                                                                                 |
-| 11   | RBTree      | 平衡树       | TODO                                                                                                 |
-| 12   | trie        | 前缀树       | TODO                                                                                                 |
-| 13   | B+Tree      | B+ 树        | TODO                                                                                                 |
-| 14   | kd 树       | kd 树        | TODO                                                                                                 |
-| 15   | segmentTree | 线段树       | TODO                                                                                                 |
-| 16   | hashtable   | 哈希表       | TODO                                                                                                 |
-| 17   | sparsegraph | 邻接表       | TODO                                                                                                 |
-| 18   | densegraph  | 邻接矩阵     | TODO                                                                                                 |
+| 序号 | 结构名      | 说明       | C ++ 代码                                                                                            |
+|------|-------------|------------|------------------------------------------------------------------------------------------------------|
+| 0    | singlelist  | 单链表     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/singlelist/staticlist.cpp) |
+| 1    | doublelist  | 双链表     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/doublelist/doublelist.cpp) |
+| 2    | sqstack     | 栈         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/sqstack.cpp)              |
+| 3    | sqqueue     | 队列       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/sqqueue.cpp)              |
+| 4    | dullstack   | 单调栈     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/dullstack.cpp)            |
+| 5    | dullqueue   | 单调队列   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/dullqueue.cpp)            |
+| 6    | loopqueue   | 循环队列   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/loopqueue.cpp)            |
+| 7    | trie        | 前缀树     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/tree/trie/trie.cpp)             |
+| 8    | BST         | 二叉搜索树 | TODO                                                                                                 |
+| 9    | AVL         | 平衡树     | TODO                                                                                                 |
+| 10   | B+Tree      | B+ 树      | TODO                                                                                                 |
+| 11   | segmentTree | 线段树     | TODO                                                                                                 |
+| 12   | hashtable   | 哈希表     | TODO                                                                                                 |
+| 13   | sparsegraph | 邻接表     | TODO                                                                                                 |
+| 14   | densegraph  | 邻接矩阵   | TODO                                                                                                 |
 
 
 
 ### 算法
 
-| 序号 | 算法名       | 说明                | C ++ 代码                                                                                      |
+| 序号 | 算法名       | 说明                | C ++ 代码                                                                                 |
 |------|--------------|---------------------|-------------------------------------------------------------------------------------------|
 | 0    | kmp          | kmp O(n)            | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/kmp/kmp.cpp)         |
 | 1    | bubbleSort   | 冒泡排序O(n²)       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/sort/bubbleSort.cpp) |
