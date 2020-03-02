@@ -1,6 +1,6 @@
 // 循环队列
 using namespace std;
-const int N = 1e6 + 10  // 取决于数据范围
+const int N = 1e6 + 10;  // 取决于数据范围
 
 int q[N], hh, tt;       // 数组模拟队列
 

@@ -1,6 +1,6 @@
 // 数组模拟栈
 using namespace std;
-const int N = 1e6 + 10  // 取决于数据范围
+const int N = 1e6 + 10;  // 取决于数据范围
 
 int stk[N], tt;
 

@@ -13,13 +13,14 @@
 | 5    | dullqueue   | 单调队列   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/dullqueue.cpp)            |
 | 6    | loopqueue   | 循环队列   | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/loopqueue.cpp)            |
 | 7    | trie        | 前缀树     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/tree/trie/trie.cpp)             |
-| 8    | BST         | 二叉搜索树 | TODO                                                                                                 |
-| 9    | AVL         | 平衡树     | TODO                                                                                                 |
-| 10   | B+ Tree     | B+ 树      | TODO                                                                                                 |
-| 11   | segmentTree | 线段树     | TODO                                                                                                 |
-| 12   | hashtable   | 哈希表     | TODO                                                                                                 |
-| 13   | sparsegraph | 邻接表     | TODO                                                                                                 |
-| 14   | densegraph  | 邻接矩阵   | TODO                                                                                                 |
+| 8    | heap        | 二叉堆     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/heap/heap.cpp)                  |
+| 9    | BST         | 二叉搜索树 | TODO                                                                                                 |
+| 10   | AVL         | 平衡树     | TODO                                                                                                 |
+| 11   | B+ Tree     | B+ 树      | TODO                                                                                                 |
+| 12   | segmentTree | 线段树     | TODO                                                                                                 |
+| 13   | hashtable   | 哈希表     | TODO                                                                                                 |
+| 14   | sparsegraph | 邻接表     | TODO                                                                                                 |
+| 15   | densegraph  | 邻接矩阵   | TODO                                                                                                 |
 
 
 

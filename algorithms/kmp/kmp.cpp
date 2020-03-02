@@ -3,16 +3,16 @@
 #include <string.h>
 
 using namespace std;
-const int N = 1e5, M = 1e6 + 10; // N 是模板串p最大长度, M 是模式串s最大长度
+const int N = 1e5 + 10, M = 1e6 + 10; // N 是模板串p最大长度, M 是模式串s最大长度
 
 // 短的串: p
 // 长的串: s
 // next[j] : 以[j]结尾的后缀能和前缀子串匹配的最大长度
+// 一般下标从1开始
 char p[N], s[M];
 int ne[N];
 
 int main(){
-    // 下标从1开始
     cin >> p + 1 >> s + 1;
     int n = strlen(p + 1);
     int m = strlen(s + 1);
@@ -25,16 +25,15 @@ int main(){
         ne[i] = j;
     }
 
+    // kmp 过程
     for (int i = 1, j = 0; i <= m; i ++ )
     {
-        while(j && p[j + 1] != s[i]) j = ne[i];
+        while(j && p[j + 1] != s[i]) j = ne[j];
         if (p[j + 1] == s[i]) j ++;
-
-        if (j == n) 
+        if (j == n)    // 匹配成功
         {
-            // 匹配成功 ..
+            j = ne[j]; // 继续匹配
 
-            j = ne[j];  // 继续匹配
         }
     }
 

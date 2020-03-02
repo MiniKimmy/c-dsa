@@ -1,6 +1,6 @@
 // 静态双链表
 using namespace std;
-const int N = 1e6 + 10  // 取决于数据范围
+const int N = 1e6 + 10;  // 取决于数据范围
 
 int e[N], l[N], r[N], idx;
 
@@ -8,7 +8,7 @@ int e[N], l[N], r[N], idx;
 // 0 : 左端点(哨兵)
 // 1 ：右边界(哨兵)
 void init() { 
-    r[0], l[1], idx = 1, 0, 2
+    r[0] = 1, l[1] = 0, idx = 2;
 }
 
 // 在第k个结点右边插入元素

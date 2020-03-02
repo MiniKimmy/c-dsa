@@ -1,8 +1,9 @@
 #include <vector>
 using namespace std;
+
 const int N = 1e6 + 10; // 取决于数据量
 
-int h[N], sz;   // 堆
+int h[N], sz;   // 堆, sz是堆的元素个数. 下标从1开始
 
 // 下沉
 void down(int t)
@@ -19,11 +20,11 @@ void down(int t)
 
 // 堆排序
 vector<int> heapSort(int q[], int n){
-    vector<res> res;
+    vector<int> res;
     sz = n;
 
-    for(int i = 0; i < n; i ++) h[i + 1] = q[i];
-    for(int i = i / 2; i >= 1; i --) down(i);
+    for(int i = 0; i < n; i ++ ) h[i + 1] = q[i];
+    for(int i = i / 2; i >= 1; i -- ) down(i);
 
     for(int i = 0; i < n; i ++)
     {
