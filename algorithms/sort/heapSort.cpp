@@ -8,11 +8,11 @@ int h[N], sz;   // 堆
 void down(int t)
 {
     int u = t;
-    if(t + t <= sz && h[t + t] < a[u]) u = t + t;
-    if(t + t + 1 <= sz && h[t + t + 1] < a[u]) u = t + t + 1;
+    if(t + t <= sz && h[t + t] < h[u]) u = t + t;
+    if(t + t + 1 <= sz && h[t + t + 1] < h[u]) u = t + t + 1;
     if(u != t)
     {
-        swap(a[u], a[t]);
+        swap(h[u], h[t]);
         down(u);
     }
 }
@@ -27,7 +27,7 @@ vector<int> heapSort(int q[], int n){
 
     for(int i = 0; i < n; i ++)
     {
-        res.push_back(h[i]);
+        res.push_back(h[1]);
         h[1] = h[sz --];
         down(1);
     }
