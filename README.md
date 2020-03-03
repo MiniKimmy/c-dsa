@@ -3,25 +3,26 @@
 
 ### 数据结构
 
-| 序号 | 结构名      | 说明         | C ++ 代码                                                                                             |
-|------|-------------|--------------|-------------------------------------------------------------------------------------------------------|
-| 0    | singlelist  | 单链表       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/singlelist/staticlist.cpp)  |
-| 1    | doublelist  | 双链表       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/doublelist/doublelist.cpp)  |
-| 2    | sqstack     | 栈           | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/sqstack.cpp)               |
-| 3    | sqqueue     | 队列         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/sqqueue.cpp)               |
-| 4    | dullstack   | 单调栈       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/dullstack.cpp)             |
-| 5    | dullqueue   | 单调队列     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/dullqueue.cpp)             |
-| 6    | loopqueue   | 循环队列     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/loopqueue.cpp)             |
-| 7    | trie        | 前缀树       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/tree/trie/trie.cpp)              |
-| 8    | heap        | 二叉堆       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/heap/heap.cpp)                   |
-| 9    | hashtable   | 拉链法       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/hashtable/hashtable_chain.cpp)   |
-| 10    | hashtable   | 开发寻址法 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/hashtable/hashtable_address.cpp) |
-| 11   | BST         | 二叉搜索树   | TODO                                                                                                  |
-| 12   | AVL         | 平衡树       | TODO                                                                                                  |
-| 13   | B+ Tree     | B+ 树        | TODO                                                                                                  |
-| 14   | segmentTree | 线段树       | TODO                                                                                                  |
-| 15   | sparsegraph | 邻接表       | TODO                                                                                                  |
-| 16   | densegraph  | 邻接矩阵     | TODO                                                                                                  |
+| 序号 | 结构名      | 说明           | C ++ 代码                                                                                             |
+|------|-------------|----------------|-------------------------------------------------------------------------------------------------------|
+| 0    | singlelist  | 单链表         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/singlelist/staticlist.cpp)  |
+| 1    | doublelist  | 双链表         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/list/doublelist/doublelist.cpp)  |
+| 2    | sqstack     | 栈             | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/sqstack.cpp)               |
+| 3    | sqqueue     | 队列           | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/sqqueue.cpp)               |
+| 4    | dullstack   | 单调栈         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/stack/dullstack.cpp)             |
+| 5    | dullqueue   | 单调队列       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/dullqueue.cpp)             |
+| 6    | loopqueue   | 循环队列       | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/queue/loopqueue.cpp)             |
+| 7    | trie        | 前缀树         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/tree/trie/trie.cpp)              |
+| 8    | heap        | 二叉堆         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/heap/heap.cpp)                   |
+| 9    | hashtable   | 拉链法         | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/hashtable/hashtable_chain.cpp)   |
+| 10   | hashtable   | 开发寻址法     | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/hashtable/hashtable_address.cpp) |
+| 11   | hashtable   | 字符串前缀哈希 | [查看代码](https://github.com/MiniKimmy/c-dsa/blob/master/algorithms/hashtable/hashtable_prefix.cpp)  |
+| 12   | BST         | 二叉搜索树     | TODO                                                                                                  |
+| 13   | AVL         | 平衡树         | TODO                                                                                                  |
+| 14   | B+ Tree     | B+ 树          | TODO                                                                                                  |
+| 15   | segmentTree | 线段树         | TODO                                                                                                  |
+| 16   | sparsegraph | 邻接表         | TODO                                                                                                  |
+| 17   | densegraph  | 邻接矩阵       | TODO                                                                                                  |
 
 
 
