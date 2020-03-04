@@ -14,7 +14,9 @@ int main(){
     while(T --)
     {
         int a, b, w;
-        g[a][b] = min(g[a][b], w); // 若有重边, 就保留最短的边即可.
+        g[a][b] = min(g[a][b], w);              // 若有重边, 就保留最短的边即可.
+        // g[a][b] = g[b][a] = min(g[a][b], w); // 若是无向图
     }
 
+    return 0;
 }

@@ -9,7 +9,7 @@ ULL h[N], p[N];
 
 // 初始化, 字符串下标从1开始
 void init(string str){
-    for(int i = 1; i <= str.size(); i ++)
+    for (int i = 1; i <= str.size(); i ++)
     {
         p[i] = p[i - 1] * P;
         h[i] = h[i - 1] * P + str[i];
@@ -17,6 +17,7 @@ void init(string str){
 }
 
 // 获取任意[L~R]子串的hash值
-ULL getHash(int l, int r){
+ULL getHash(int l, int r)
+{
     return h[r] - h[l - 1] * p[r - l + 1];
 }

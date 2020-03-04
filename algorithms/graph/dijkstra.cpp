@@ -1,5 +1,5 @@
 // dijkstra(朴素版)
-// 最短路问题不用考虑自环情况
+// 最短路问题不用考虑自环情况, d[]是存储所有点到起点的最短距离.
 #include <cstring>
 #include <iostream>
 using namespace std;

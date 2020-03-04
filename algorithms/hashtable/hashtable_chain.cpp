@@ -1,12 +1,13 @@
-// 散列表(拉链法)
+// 哈希表 | 散列表(拉链法)
 #include <cstring>
 using namespace std;
 
-const int N = 1e5; // 取决于数据量.没有额外浪费
+const int N = 1e6; // 取决于数据量.没有额外浪费
 int h[N], e[N], ne[N], idx;
 
-// 初始化, 默认链表尾结点都是-1
-int init()(
+// 初始化单链表
+void init()
+(
     memset(h, -1, sizeof h); 
 )
 

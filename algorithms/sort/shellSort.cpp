@@ -21,7 +21,7 @@ void shellSort(int q[], int n){
     }
 }
 
-/* 对比
+/* 对比插入排序
 void insertSort(int q[], int n){
     for(int i = 1; i < n; i ++){
         int pos = i, val = q[i];

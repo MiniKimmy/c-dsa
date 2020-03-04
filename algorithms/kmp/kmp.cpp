@@ -1,9 +1,10 @@
-// kmp
+// kmp算法
 #include <iostream>
 #include <string.h>
 
 using namespace std;
-const int N = 1e5 + 10, M = 1e6 + 10; // N 是模板串p最大长度, M 是模式串s最大长度
+const int N = 1e5 + 10; // 模板串p最大长度
+const int M = 1e6 + 10;     // 模式串s最大长度
 
 // 短的串: p
 // 长的串: s
@@ -12,6 +13,7 @@ const int N = 1e5 + 10, M = 1e6 + 10; // N 是模板串p最大长度, M 是模�
 char p[N], s[M];
 int ne[N];
 
+// 模板
 int main(){
     cin >> p + 1 >> s + 1;
     int n = strlen(p + 1);
@@ -34,6 +36,8 @@ int main(){
         {
             j = ne[j]; // 继续匹配
 
+            // 具体题目逻辑..
+            
         }
     }
 

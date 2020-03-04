@@ -3,11 +3,11 @@
 using namespace std;
 
 const int N = 1e6 + 10;  // 取决于数据范围
-
+int n;                   // n : 编号的总数量
 int p[N], sz[N];
 
 // 初始化, 编号从0 or 1开始, 具体看题目编号是从几开始
-void init(int n) 
+void init() 
 { 
     for (int i = 1; i <= n; i ++ ) {
         p[i] = i;
@@ -23,10 +23,10 @@ int find(int x)
 
 // 测试&&调用
 int main(){
-    int n, T; 
+    int T; 
     cin >> n >> T;
 
-    init(n);
+    init();
     while(T --) // T组测试
     {
         int a, b;

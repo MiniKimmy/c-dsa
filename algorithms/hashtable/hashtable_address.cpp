@@ -1,4 +1,4 @@
-// 散列表(开放寻址法)
+// 哈希表 | 散列表(开放寻址法)
 #include <cstring>
 using namespace std;
 
@@ -8,16 +8,18 @@ using namespace std;
 const int N = 2e6， M = 200003, null = 0x3f3f3f3f;
 int h[M];
 
-// 初始化, 默认未存val之前都是无穷大.
-int init()(
+// 初始化单链表
+int init()
+(
     memset(h, 0x3f, sizeof h); 
 )
 
 // 查询是否有元素x, 有则返回对应h[]的下标
-void find(int x)
+int find(int x)
 {
     int k = (x % N + N) % N;
-    while(h[k] != null && h[k] != x) {
+    while(h[k] != null && h[k] != x) 
+    {
         k ++;
         if (k >= N) k = 0; // 到达边界重新0开始
     }
