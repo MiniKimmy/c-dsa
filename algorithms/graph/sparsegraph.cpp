@@ -12,18 +12,23 @@ void add(int a, int b, int c)
     e[idx] = b, w[idx] = c, ne[idx] = h[a], h[a] = idx ++;
 }
 
+// 初始化邻接表
+void init()
+{
+    memset(h, -1, sizeof h);
+}
+
 // 调用&&测试
 int main(){
     int T; cin >> T;
+    init();
 
-    memset(h, -1, sizeof h); // 初始化邻接表
     while(T --)
     {
-        int a, b, c;
-        cin >> a >> b >> c;
-        add(a, b);
+        int a, b, w;
+        cin >> a >> b >> w;
+        add(a, b, w);
         // add(b, c); 若是无向图则加上这行.
     }
 
-    return 0;
 }

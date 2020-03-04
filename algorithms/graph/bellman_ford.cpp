@@ -11,16 +11,18 @@ struct Edge {
 
 int d[N], backup[N]; // d[i] : 1->i的距离
 
+// k : 最多走k条边
 void bellman_ford(int k)
 {
     memset(d, 0x3f, sizeof d);
-    for(int i = 0; i < k; i ++ )
+    for (int i = 0; i < k; i ++ )
     {
         memcpy(backup, d, sizeof d);
-        for(int j = 0; j < m; j ++ )
+        for (int j = 0; j < m; j ++ )  // 遍历所有边
         {
-            auto e = edge[j];
-            d[e.b] = min(d[e.b], d[e.a] + e.w[i]); 
+            Edge e = edge[j];
+            int a = e.a, b = e.b, w = e.w;
+            d[b] = min(d[b], backup[a] + w); 
         }
     }
 

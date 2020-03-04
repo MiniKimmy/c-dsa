@@ -28,12 +28,12 @@ void dijkstra()
 
         if(st[ver]) continue;
 
-        for (int i = h[ver]; ~i; i = ne[i])
+        for (int i = h[ver]; ~i; i = ne[i] )
         {
             int j = e[i];
-            if (d[j] > dist + w[i])
+            if (d[j] > distance + w[i])
             {
-                d[j] = dist + w[i];
+                d[j] = distance + w[i];
                 heap.push({d[j], j});
             }
         }

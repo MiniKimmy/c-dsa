@@ -1,24 +1,29 @@
 // dijkstra (朴素版 - O(n²))
 #include <cstring>
+#include <iostream>
 using namespace std;
 
-const int N = 510;
-int g[N][N]; // 若是稠密图
-bool st[N];  // 记录哪个点已确定好.
-int d[N];    // d[i]表示 1 -> i 的距离
+const int N = 510; // 取决于点的数量
+int g[N][N];       // 若是稠密图, 邻接矩阵
+bool st[N];        // 记录哪个点已确定好.
+int d[N];          // d[i]表示 1 -> i 的距离
 
 void dijkstra(int n)
 {   
     memset(d, 0x3f, sizeof d);
-    d[1] = 0;  // d[起点] = 0, 其余初始化 ∞
+    d[1] = 0;  // d[起点] = 0, 其余初始化正无穷
 
-    for (int i = 1; i <= n; i ++ ) // n个点
+    for (int i = 1; i <= n; i ++ ) // n个点, 每次可以确定一个点的最短距离.
     {
+        // 找到不在集合当中的距离最短的点 O(n)
         int t = -1;
         for (int j = 1; j <= n; j ++ )
-            if(!st[j] && (t == -1 || d[t] > d[t]))
+            if(!st[j] && (t == -1 || d[t] > d[j]))
                 t = j;
 
+        st[t] = true;
+
+        // 用这个点更新所有出边 O(n)
         for (int j = 1; j <= n; j ++ )
             d[j] = min(d[j], d[t] + g[t][j]);
     }

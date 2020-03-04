@@ -1,4 +1,5 @@
 // spfa算法
+// 注:spfa算法不会用距离是正无穷的点来更新其他点，但bellman-ford算法会
 #include <cstring>
 using namespace std;
 
