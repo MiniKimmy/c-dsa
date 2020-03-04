@@ -11,15 +11,16 @@ int main(){
 	for (int i = 0; i < n; i ++ )
 	{
 		// check队头是否滑出
-        while (hh <= tt && check_out(q[hh], i)) hh ++ ;
+        while (hh <= tt && check_out(q[hh], i)) hh ++;
 
         // check队列单调
         while (hh <= tt && check(q[tt], i)) tt --;
 
         // 更新队列
-		qq[ ++ tt] = i;
+		qq[++ tt] = i;
 
         // 具体题目逻辑..
+
 	}
 
     return 0;

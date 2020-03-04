@@ -1,6 +1,7 @@
 // 并查集(size优化)
 #include <iostream>
 using namespace std;
+
 const int N = 1e6 + 10;  // 取决于数据范围
 
 int p[N], sz[N];
@@ -21,11 +22,11 @@ int find(int x)
 }
 
 // 测试&&调用
-int main()
-{
-    int n, T; cin >> n >> T;
-    init(n);
+int main(){
+    int n, T; 
+    cin >> n >> T;
 
+    init(n);
     while(T --) // T组测试
     {
         int a, b;

@@ -1,27 +1,31 @@
-// 静态链表
+// 单链表(静态链表)
 using namespace std;
-const int N = 1e6 + 10;  // 取决于数据范围
 
-int head;
+const int N = 1e6 + 10;  // 取决于数据范围
+int head;                // 头指针
 int e[N], ne[N], idx;
 
 // 初始化
-void init() { 
+void init() 
+{ 
     head = -1, idx = 0; 
 }
 
 // 插入一个新的元素到链表头
-void add_to_head(int val) { 
-    e[idx] = val, ne[idx] = head, head = idx ++; 
+void add_to_head(int x) 
+{ 
+    e[idx] = x, ne[idx] = head, head = idx ++; 
 }
 
 // 在第k个结点后面插入元素
-void add(int k, int val) { 
-    e[idx] = val, ne[idx] = ne[k], ne[k] = idx ++; 
+void add(int k, int x) 
+{ 
+    e[idx] = x, ne[idx] = ne[k], ne[k] = idx ++; 
 }
 
 // 删除第k个结点后面的元素
-void remove(int k){ 
+void remove(int k)
+{ 
     ne[k] = ne[ne[k]]; 
 }
 

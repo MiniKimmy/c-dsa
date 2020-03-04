@@ -1,3 +1,4 @@
+// 快排
 using namespace std;
 
 void quickSort(int q[], int l, int r){

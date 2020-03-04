@@ -1,3 +1,4 @@
+// 堆排序
 #include <vector>
 using namespace std;
 
@@ -18,16 +19,14 @@ void down(int t)
     }
 }
 
-// 堆排序
 vector<int> heapSort(int q[], int n){
     vector<int> res;
     sz = n;
 
-    for(int i = 0; i < n; i ++ ) h[i + 1] = q[i];
-    for(int i = i / 2; i >= 1; i -- ) down(i);
+    for (int i = 0; i < n; i ++ ) h[i + 1] = q[i];
+    for (int i = i / 2; i >= 1; i -- ) down(i);
 
-    for(int i = 0; i < n; i ++)
-    {
+    for (int i = 0; i < n; i ++){
         res.push_back(h[1]);
         h[1] = h[sz --];
         down(1);

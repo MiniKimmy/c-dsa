@@ -1,13 +1,12 @@
 // dijkstra(堆优化版)
 #include <cstring>
 #include <queue>
-#include <algorithm>
 
 using namespace std;
 typedef pair<int, int> PII;
 
 const int N = 1e6 + 10;           // 取决于点的数量
-int h[N], ne[N], e[N], w[N], idx; // 若是稀疏图
+int h[N], ne[N], e[N], w[N], idx; // 若是稀疏图, 使用邻接表
 bool st[N];                       // 记录哪个点已确定好.
 int d[N];                         // d[i]表示 1 -> i 的距离
 
@@ -28,7 +27,7 @@ void dijkstra()
 
         if(st[ver]) continue;
 
-        for (int i = h[ver]; ~i; i = ne[i] )
+        for (int i = h[ver]; ~i; i = ne[i])
         {
             int j = e[i];
             if (d[j] > distance + w[i])

@@ -4,7 +4,7 @@ const int N = 1e6 + 10;
 
 int stk[N], tt;  // 数组模拟栈
 
-// 使用模板
+// 模板
 int main(){
     for (int i = 1; i <= n; i ++ )
     {

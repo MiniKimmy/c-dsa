@@ -1,6 +1,7 @@
 // 并查集
 #include <iostream>
 using namespace std;
+
 const int N = 1e6 + 10;  // 取决于数据范围
 
 int p[N];
@@ -18,12 +19,11 @@ int find(int x)
 }
 
 // 测试&&调用
-int main()
-{
+int main(){
     int n, T; 
     cin >> n >> T;
-    init(n);
 
+    init(n);
     while(T --) // T组测试
     {
         int a, b;

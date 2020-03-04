@@ -23,12 +23,13 @@ void spfa()
         int t = q[hh ++];
         st[t] = false;
 
-        for(int i = h[t]; ~i; i = ne[i])
+        for (int i = h[t]; ~i; i = ne[i])
         {
             int j = e[i];
-            if(d[j] > d[t] + w[i])
+            if (d[j] > d[t] + w[i])
             {
                 d[j] = d[t] + w[i];
+
                 if (!st[j]) {     // 若当前点能被更新 && 不在队列中.
                     q[++ tt] = j;
                     st[j] = true;

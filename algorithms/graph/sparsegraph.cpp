@@ -1,4 +1,5 @@
 // 邻接表-稀疏图
+// 使用邻接表不用考虑重边情况
 #include <cstring>
 #include <iostream>
 using namespace std;
@@ -30,5 +31,4 @@ int main(){
         add(a, b, w);
         // add(b, c); 若是无向图则加上这行.
     }
-
 }

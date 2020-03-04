@@ -1,5 +1,7 @@
+// 归并排序
 using namespace std;
-const int N = 1e6;
+
+const int N = 1e6; // 取决于数据量
 
 void mergeSort(int q[], int l, int r){
     if (l >= r) return;
